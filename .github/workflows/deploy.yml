@@ -12,24 +12,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Rust and Cargo
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          profile: minimal
-          override: true
-
-      - name: Debug rustup
-        run: |
-          which rustup
-          rustup show
-
-
-      - name: Install mdBook (if not cached)
-        run: |
-          if ! command -v mdbook &> /dev/null; then
-            cargo install mdbook
-          fi
+      - name: Setup mdBook
+       uses: peaceiris/actions-mdbook@v2
+       with:
+         mdbook-version: 'latest'
 
       - name: Build the book
         run: mdbook build docs
