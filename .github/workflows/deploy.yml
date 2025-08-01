@@ -28,15 +28,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cargo-registry-
 
-       - name: Cache Cargo registry
-         uses: actions/cache@v3
-         with:
-           path: |
-             ~/.cargo/registry
-             ~/.cargo/git
-           key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
-           restore-keys: |
-             ${{ runner.os }}-cargo-registry-
+      - name: Cache Cargo registry
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-registry-
 
       - name: Install mdBook (if not cached)
         run: |
