@@ -2,12 +2,12 @@ name: Deploy mdBook to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -19,16 +19,6 @@ jobs:
           override: true
 
       - name: Cache Cargo registry
-       uses: actions/cache@v3
-       with:
-         path: |
-           ~/.cargo/registry
-           ~/.cargo/git
-         key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
-         restore-keys: |
-           ${{ runner.os }}-cargo-registry-
-
-       - name: Cache Cargo registry
         uses: actions/cache@v3
         with:
           path: |
@@ -37,6 +27,16 @@ jobs:
           key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
           restore-keys: |
             ${{ runner.os }}-cargo-registry-
+
+       - name: Cache Cargo registry
+         uses: actions/cache@v3
+         with:
+           path: |
+             ~/.cargo/registry
+             ~/.cargo/git
+           key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
+           restore-keys: |
+             ${{ runner.os }}-cargo-registry-
 
       - name: Install mdBook (if not cached)
         run: |
