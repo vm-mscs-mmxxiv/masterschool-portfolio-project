@@ -3,4 +3,4 @@ Final Project for the Masterschool Cybrersecurity Course. Portfolio project for 
 
 ## Web Site
 
-The Web Site for this project: https://vm-mscs-mmxxiv/masterschool-portfolio-project
+The Web Site for this project: https://vm-mscs-mmxxiv.github.io/masterschool-portfolio-project/
