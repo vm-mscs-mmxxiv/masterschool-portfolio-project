@@ -19,15 +19,10 @@ jobs:
           profile: minimal
           override: true
 
-      - name: Cache Cargo registry
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cargo/registry
-            ~/.cargo/git
-          key: ${{ runner.os }}-cargo-registry-${{ hashFiles('**/Cargo.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-cargo-registry-
+      - name: Debug rustup
+        run: |
+          which rustup
+          rustup show
 
 
       - name: Install mdBook (if not cached)
