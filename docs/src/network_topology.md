@@ -1,5 +1,44 @@
 # Network Topology
 
+## ✅ Your Revised Network Layout
+
+```bash
+                             +----------------+
+                             |    Host OS     |
+                             |  (Sequoia OS)  |
+                             +--------+-------+
+                                      |
+                         +------------+------------+
+                         |       Host Firewall      |  <-- Alpine VM acting as firewall/router
+                         +------+-----------+-------+
+                                |           |
+                        Attacker Bridge   Lab LAN Bridge
+                          (bridge0)         (bridge1)
+                                |                |
+                          +-----+----+       +---+-----+
+                          | Attacker |       | Router  |
+                          |  VM (Kali)       | VM      |
+                          +----------+       +---------+
+                                                |
+                    ------------------------------------------------
+                    |               |              |              |
+              Dept Finance     Dept HR        Dept IT       Dept Sales
+              (10.1.1.0/24)   (10.1.2.0/24)  (10.1.3.0/24) (10.1.4.0/24)
+              +----------+   +----------+  +----------+  +----------+
+              | Finance  |   | HR       |  | IT       |  | Sales    |
+              | VM       |   | VM       |  | VM       |  | VM       |
+              +----------+   +----------+  +----------+  +----------+
+
+                                           |
+                                     SOC/Admin subnet (10.1.5.0/24)
+                                           |
+                                    +--------------+
+                                    | SOC/Admin VM |
+                                    | (Debian XFCE)|
+                                    +--------------+
+```
+---
+
 🔄 Next Questions to Think About
 What VM tool do you use to wire networking? QEMU bridges + tap? virt-manager? custom script?
 Do you want to simulate Internet access (with NAT)?
@@ -131,27 +170,6 @@ Excellent direction — you’re clearly aligning this with **realistic enterpri
 * Consider adding a **monitoring VM** (Prometheus/Grafana/Netdata).
 * Tap internal traffic (e.g., use a port mirror bridge if supported).
 
----
-
-## ✅ Your Revised Network Layout
-
-```
-       ┌─────────────┐
-       │ Attacker VM │
-       └────┬────────┘
-            │ (br-attack)
-       ┌────▼─────┐
-       │ Firewall │  ← Suricata, NAT, Routing
-       └┬────┬────┘
-    ┌───┘    └──────────┐
-    │                   │
-┌──▼──────┐     ┌───────▼─────┐
-│ Internal LAN │   │ Management VLAN │
-│ (Depts VLANs)│   │  (Admin/SOC)    │
-└──────────────┘   └─────────────────┘
-```
-
----
 
 ## 🔧 What You Can Work on Next
 
