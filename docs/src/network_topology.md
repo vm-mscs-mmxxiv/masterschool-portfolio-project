@@ -3,39 +3,28 @@
 ## ✅ Your Revised Network Layout
 
 ```bash
-                             +----------------+
-                             |    Host OS     |
-                             |  (Sequoia OS)  |
-                             +--------+-------+
-                                      |
-                         +------------+------------+
-                         |       Host Firewall      |  <-- Alpine VM acting as firewall/router
-                         +------+-----------+-------+
-                                |           |
-                        Attacker Bridge   Lab LAN Bridge
-                          (bridge0)         (bridge1)
-                                |                |
-                          +-----+----+       +---+-----+
-                          | Attacker |       | Router  |
-                          |  VM (Kali)       | VM      |
-                          +----------+       +---------+
-                                                |
-                    ------------------------------------------------
-                    |               |              |              |
-              Dept Finance     Dept HR        Dept IT       Dept Sales
-              (10.1.1.0/24)   (10.1.2.0/24)  (10.1.3.0/24) (10.1.4.0/24)
-              +----------+   +----------+  +----------+  +----------+
-              | Finance  |   | HR       |  | IT       |  | Sales    |
-              | VM       |   | VM       |  | VM       |  | VM       |
-              +----------+   +----------+  +----------+  +----------+
-
-                                           |
-                                     SOC/Admin subnet (10.1.5.0/24)
-                                           |
-                                    +--------------+
-                                    | SOC/Admin VM |
-                                    | (Debian XFCE)|
-                                    +--------------+
+[ Host Machine ]
+      |
+   (NAT to real Internet)   <-- QEMU user-mode net, ON only during setup/updates
+      |
++---------------------+
+| Gateway / Proxy VM  |  <-- Acts as:
+| - NAT to Internet   |     • Internet access during setup
+| - Router/Switch     |     • Simulated WAN for lab
++-----+---------+-----+
+      |         |
+      |         +-- [ Attacker VM ] <-- Lives in simulated WAN
+      |
+(Internal WAN/Lab Bridge)
+      |
+[ Firewall VM ]  <-- WAN NIC connected to Internal WAN/Lab Bridge
+      |
+ (LAN Switch inside Firewall VM, or separate bridge for LAN)
+      |
+-----------------------------------------
+    |        |           |          |     
+|Dept1   |Dept2   |Dept3     |SOC/Admin VM|
+|Finance |HR      |Developers|            |
 ```
 ---
 
@@ -191,3 +180,37 @@ Excellent direction — you’re clearly aligning this with **realistic enterpri
 
 Would you like help creating bridge setup + QEMU launch scripts + Suricata config for Alpine next?
 
+
+2. Temporary internet via NAT for setup only
+For quick package installation:
+Temporarily attach a VM to a QEMU NAT network for updates.
+Disconnect it after updates are done and reconnect to lab LAN.
+This avoids having a permanent internet path in the lab.
+
+
+1. Host OS
+Runs QEMU and your VMs.
+Not part of the lab network (isolated).
+2. Firewall VM (Alpine, 2+ NICs)
+WAN NIC → Connected to a QEMU NAT network (this simulates the "internet" in your lab).
+This is where updates and external tools can be downloaded.
+In your simulation, the attacker's side connects here.
+LAN NIC(s) → Connected to lab bridges (br0, br1, etc.).
+These are your "company networks" with VLANs inside.
+The firewall:
+Acts as border firewall for your company network.
+Routes traffic between attacker and company LAN.
+Can apply NAT, ACLs, firewall rules (nftables/iptables).
+3. Attacker VM
+Connected to the WAN side of the Firewall VM.
+This makes the attacker “outside” the company, just like an internet-based attacker.
+Must break through firewall to reach inside network.
+4. Bridges
+On the LAN side of the firewall you can have one or more bridges:
+Example: br0 with VLAN 10 (Finance) and VLAN 20 (HR).
+Example: br1 with VLAN 30 (SOC/Admin).
+Bridges simulate network switches, VLANs simulate segmentation.
+5. Realism in simulation
+In the real world, an attacker doesn't “find” the firewall — they just know they are outside, and the firewall is the company’s border with the internet.
+Your WAN-side bridge (with attacker) is the simulated internet.
+Your firewall’s LAN side is the protected internal company network.
