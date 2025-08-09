@@ -1,5 +1,105 @@
 # Masterschool Capstone Project
 
+## Objective
+
+I have to act as if I'm a Cybersecurity Engineer tasked to create, monitor, run midsize company security.
+As part of the assignment there was a simulated chat with hihgly ranked executives of the company. General conclusions of the companie's specifications are as following.
+
+### Company objectives and structure
+
+The company is middle size consulting company. Specializing in providing business consulting, data-driven strategy, and digital transformation support to mid-size and enterprise clients. Company have publicly available as well as highly secure data. Data privacy vary depending on the client's needs.
+
+Companie's Operations are subject to heavy regulations. GDPR, HIPAA, ISO 27001, PCI-DSS.     
+The Company is subject to industry audit and certifications.
+
+### Current Department Sizes (≈100 employees total)
+
+- Client Services / Consulting – ~35 people (core delivery team)
+- Sales & Marketing – ~15 people
+- Finance & Accounting – ~8 people
+- Human Resources – ~6 people
+- IT & Systems Support – ~10 people
+- Operations / Admin – ~12 people
+- Compliance & Risk – ~5 people
+- Leadership / Executive – ~4 people
+
+### Projected Growth (2–3 Years)
+
+- Client Services / Consulting: +30–40% growth (driven by new contracts and expansion into new regions). Expect to reach ~45–50 staff.
+- Sales & Marketing: +25–30% growth to expand market share—likely 18–20 staff.
+- Finance & Accounting: Minimal growth (~10–15%) as automation offsets headcount increases—9–10 staff.
+- Human Resources: +30–40% to handle hiring surge—likely 8–9 staff.
+- IT & Systems Support: +50% growth due to network expansion, multi-site support—up to 15 staff.
+- Operations / Admin: +20% to maintain service levels—~14–15 staff.
+- Compliance & Risk: +40–50% due to more regulated clients—up to 7–8 staff.
+- Leadership / Executive: Small increase as structure flattens—likely 5–6 executives.
+
+### Plans to grow and expand
+
+- Geographic expansion (possible satellite offices)
+- More remote hires, more BYOD. Requiring stronger IT and HR presence
+- Diversification into data analytics and digital transformation services
+- Increasing compliance demands from larger and more regulated clients
+- Increase usage of modern solutinos such as AI in day-to-day activities
+- Considering creating new teams in Data Analytics and Product Development
+- There is a possibility of HQ relocation. Legal complience, need in more space, security can drive stakeholders to this decision.
+
+## The Office
+
+The Office is a mix of open workspaces, private offices, meeting rooms, and a server/storage room on the second floor. Staff are split between on-site and remote, with around 40 people regularly in the office. The server room is badge-access only, and our main entrance requires electronic access. Visitor sign-in is manual for now but managed at reception. Currently, about 60% on-site, 40% remote. This  expect to shift closer to 50/50 as more distributed talent hired.
+
+The building has been audited and certified within the last 12 months to accommodate highly data-sensitive operations. This includes compliance with relevant building security standards, controlled access, and infrastructure resilience requirements. Certificates are on file and available for inspection.
+
+### The Office's Floor plan
+
+Ground floor
+
+- Reception      
+- Sales & Marketing (Partition)
+- Meeting Room
+- Client Services 
+- Pantry / Canteen
+- General Workspace
+
+
+Second floor
+
+- Server Room (Secure)
+- HR Dept (Partition)
+- Finance Dept (Partition)
+- Meeting Room
+- Compliance & Risk (Partition)
+- IT Support
+
+### The Office's Inventory and power supply
+
+UPS (Uninterruptible Power Supplies) are installed for critical systems—including the server room, networking equipment, and key workstations in **Finance, HR, and Compliance**. They provide short-term power during outages to allow for safe shutdown or switchover.
+
+
+### Office Networking
+
+Don't assume we have wiring everywhere—we may need to retrofit. Employees need uninterrupted access to systems regardless of floor or location.
+
+On-site staff need stable LAN and Wi-Fi, while remote teams rely on cloud tools, VPNs, and video calls
+
+## Data
+
+## Cybersecurity
+
+Physical access to employee files (both digital and printed) is tightly controlled. Sensitive areas are locked, and file cabinets are restricted.
+
+Ensure that the cabling layout and switch placements don’t expose us to tampering (e.g., unsecured patch panels or wall jacks in public areas).
+
+
+The server room is compliant, but other closets or impromptu setups wouldn’t be.
+
+## Suggestions
+
+- Need proper physical setup.
+- cabling inspection and audit to prevent MITM.
+- is is not clear if windows are dimmed so that it is impossible to spy on the company with optical equipement
+- There is a whole floor between our flors that mean that cables can be tampered there to install taps.
+
 Segment 1: Plan a Midsize Network
 
 📘 Learning Objectives
