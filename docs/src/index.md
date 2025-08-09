@@ -12,6 +12,10 @@ The company is middle size consulting company. Specializing in providing busines
 Companie's Operations are subject to heavy regulations. GDPR, HIPAA, ISO 27001, PCI-DSS.     
 The Company is subject to industry audit and certifications.
 
+The companie's highly ranked executives have quite high Risk Appetite. But ask for high level of security operations. Companie's CEO and CFO have approved that if it is practical and required they are ready to invest in security operations.
+
+With open minded approach to AI and more 'innovative' solutions high risk appetite and tolerance could lead to finantial and reputation loses.
+
 ### Current Department Sizes (≈100 employees total)
 
 - Client Services / Consulting – ~35 people (core delivery team)
@@ -73,6 +77,7 @@ Second floor
 
 ### The Office's Inventory and power supply
 
+Currently, there is no dedicated generator for our suite.
 UPS (Uninterruptible Power Supplies) are installed for critical systems—including the server room, networking equipment, and key workstations in **Finance, HR, and Compliance**. They provide short-term power during outages to allow for safe shutdown or switchover.
 
 
@@ -95,10 +100,111 @@ The server room is compliant, but other closets or impromptu setups wouldn’t b
 
 ## Suggestions
 
-- Need proper physical setup.
-- cabling inspection and audit to prevent MITM.
+### Risks, Threats, Comlyance
+
+In the modern world 100% secuirty and protection unfortunetly is not possible. The companie's stakeholders and highly ranked executives  would require to make a ballance and CFO would need to get ready for fines and finantial loses. Company would require steady approach towards security. Short terms goals are:
+
+- proper data rating
+- data protection
+    - appoint DPO (Data Protection Offider), and other officers including: data owner, data controller, data custodian, data processor, data user.
+    - write requirements for this roles to properly assigh and manage ACLs for companie's employees
+- create, update available to employeessecurity related documentation. Plan to run trainings and seminars.
+- need security team SOC.
+- write playbooks to different teams. Make sure that employees know how to react to different attacks and threats. At least they shall know what not to do and who to contact for help.
+
+### Change floor plan
+
+There is a whole floor between our flors that mean that cables can be tampered there to install taps. It is hard to protect something that you do not controll. At the moment company do not controll the whole floor between our network.
+
+> Inspecting physical cables for wiretaps and Man-in-the-Middle (MITM) attacks is a highly specialized area of security. It's often referred to as **Technical Surveillance Counter-Measures (TSCM)**. This is not a simple visual inspection; it requires specialized knowledge and tools.
+
+> Here's a breakdown of how it's done properly, from the simple to the highly technical:
+> 
+> ### 1. Visual Inspection and Environmental Security (First Line of Defense)
+> 
+> This is the most basic step and something any IT or security professional can perform.
+> 
+> * **Physical Access Control:** The first and most critical step is to limit physical access to all network cables and equipment. All server rooms, wiring closets, and data centers should be locked and monitored.
+> * **Cable Management:** All cables should be organized and secured, ideally in sealed conduits or raceways. Any loose, unorganized, or unlabeled cables should be investigated.
+> * **Look for Tampering:** Inspect all cables for any signs of tampering. This includes:
+>     * **Strange splices or connectors:** Look for unexpected splices, T-junctions, or any non-standard connectors. An unauthorized tap often involves a splice where the cable's jacket has been cut and wires have been attached.
+>     * **Unusual devices:** Look for small, unidentifiable devices attached to the cable or hidden nearby. Modern taps can be the size of a small USB stick or a cigarette pack.
+>     * **Discrepancies in cable length:** A physical tap may require a longer-than-expected cable run to connect to the attacker's device.
+> 
+> ### 2. Using Specialized Tools (The Proper Way)
+> 
+> A simple visual inspection is often not enough, as many taps are designed to be covert. Proper inspection requires specialized equipment that can analyze the physical and electrical properties of the cable.
+> 
+> * **Time Domain Reflectometer (TDR):** This is a key tool for detecting physical taps. A TDR works by sending an electrical pulse down the cable and measuring the reflections. Any change in the cable's impedance—caused by a tap, a splice, or a fault—will cause a reflection. The TDR can then calculate the exact distance to that irregularity. This can detect even very small, passive taps that don't disrupt network traffic.
+> * **Network Testers and Certifiers:** Professional-grade network testers, such as those made by companies like Fluke Networks, are designed to test the performance and integrity of network cables. They can perform a "wire map" to ensure all pairs are connected correctly, measure signal latency and noise, and check for crosstalk. An active or poorly installed tap can introduce noise or delay that these tools can detect.
+> * **Cable Tracing and Mapping:** Tools like tone generators and probes are used to trace a cable from one end to another. This ensures that the cable you think is connecting two devices is not being routed somewhere else.
+> 
+> ### 3. Network Monitoring and Analysis (The Software Side)
+> 
+> While this isn't a "physical" inspection, it's a critical part of detecting physical MITM attacks.
+> 
+> * **Packet Analysis:** Network monitoring tools like Wireshark can be used to analyze network traffic for anomalies. An unauthorized tap or MITM attack might introduce unusual packets, unexpected MAC addresses, or changes in network latency. For example, if a tap is introducing a slight delay, you might see a spike in latency for a specific connection.
+> * **Port Monitoring:** On a managed switch, you can monitor the status of all ports. An unauthorized device or a tap might cause a port to drop packets or show unusual traffic patterns.
+> 
+> ### Key Takeaway
+> 
+> A proper physical inspection for taps and MITM attacks is not a DIY job. It requires a combination of strong physical security, a systematic visual inspection, and the use of professional, specialized tools like a TDR. For critical infrastructure, this is often performed by trained TSCM specialists who are experts in finding both passive and active surveillance devices.
+> This is an excellent question that gets to the heart of modern information security. The short answer is: **Encryption of all traffic is the most critical defense against a physical tap or MITM attack, but it does not "save" the company entirely from a sophisticated adversary.**
+
+> Encryption is your primary line of defense for a simple reason: a physical tap or a MITM device is essentially a listener on the network. Without encryption, they can read every piece of data that passes through the cable. With encryption, they only see gibberish.
+> 
+> Here is a breakdown of what encryption protects and what it does not protect in this scenario:
+> 
+> ### What Encryption Protects (The Confidentiality of Your Data)
+> 
+> * **Data Content:** This is the most important thing. End-to-end encryption, such as that provided by a VPN for all network traffic or TLS/SSL for web Browse (HTTPS), ensures that the actual content of your emails, documents, financial transactions, and internal communications is unreadable to the attacker. A tap or MITM device will only capture the encrypted data stream, which is useless to them without the decryption key.
+> * **Credentials and Secrets:** All usernames, passwords, API keys, and other sensitive credentials sent over the network are protected. An attacker cannot capture your login information for a server, your email, or your bank account.
+> 
+> ### What Encryption Does NOT Protect (The Metadata)
+> 
+> A sophisticated adversary (a "spy") is interested in more than just the content of your communication. They can still gather a great deal of valuable intelligence from the **metadata**—the information about the communication itself.
+> 
+> A spy with a physical tap can still see:
+> 
+> * **Who is communicating with whom:** They can see the source and destination IP addresses. They can infer that "IP A" (an employee's machine) is communicating with "IP B" (a server in the company). They can use DNS queries to see what websites employees are visiting.
+> * **The frequency and timing of communication:** They can see when an employee starts work, when they take a break, and when they stop. They can identify patterns of communication between specific teams or individuals.
+> * **The volume of data being transferred:** They can see how much data is being sent. A large data transfer might indicate a critical file is being moved, even if they can't see the file's contents. This can provide valuable clues about a company's projects or assets.
+> * **Protocol Information:** They can see what type of service is being used (e.g., VPN, SSH, HTTPS). This information can help them build a map of your network infrastructure.
+> 
+> ### The Human Factor in MITM Attacks
+> 
+> The effectiveness of encryption against a **MITM** attack also depends on user behavior. A proper MITM attack involves an attacker impersonating a legitimate server.
+> 
+> * When this happens, your browser or VPN client will likely show a warning about an invalid or mismatched certificate.
+> * If an employee is properly trained, they will recognize this warning and immediately stop the connection. This is the human firewall.
+> * If an employee, out of carelessness or ignorance, clicks "accept and continue," they have just bypassed the encryption's main security feature and allowed the attacker to decrypt and read their traffic.
+> 
+> ### Conclusion
+> 
+> Encrypting all traffic is the single most important countermeasure for an unknown physical threat. It makes it practically impossible for a spy to read the content of your communications.
+> 
+> However, it is not a complete defense. A spy can still gather valuable intelligence from the metadata. Therefore, a comprehensive security strategy must involve more than just encryption. It should also include:
+> * **Network Segmentation:** Limiting where traffic can go.
+> * **Network Monitoring:** Looking for unusual traffic patterns.
+> * **Employee Training:** Educating users on the importance of security warnings.
+> 
+> In a situation where physical access cannot be fully controlled, a multi-layered defense is the only way to effectively protect a company's assets. 
+
+
+### Need proper physical separation setup
+
+Physical separation between departments would help protect sensitive work, improve focus and reduce the risk of shoulder surfing, casual data exposure, and unauthorized listening in sensitive areas. Even low-cost modular or false walls can create visual and acoustic barriers. This will be especially important for Finance, HR, Compliance, lient-specific project teams and cybersecurity team.      
+Separation should not block Wi-Fi or disrupt network cabling—plan layout changes (keep infrostructure as much as possible).
+Plans shoud make sure pathways and line-of-sight to emergency exits remain clear for safety compliance.
+
+### Cabling inspection and audit to prevent MITM
+
+- InfoSec plans, tolerance, risk acceptance and complience
 - is is not clear if windows are dimmed so that it is impossible to spy on the company with optical equipement
-- There is a whole floor between our flors that mean that cables can be tampered there to install taps.
+- power supply:
+    - A tenant-specific generator connection, or
+    - An arrangement with building management to tie our circuits into the central generator.
+
 
 Segment 1: Plan a Midsize Network
 
