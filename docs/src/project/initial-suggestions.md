@@ -2,7 +2,7 @@
 
 During our discussion with highly ranced executives there were areas that I didn't get properly so I presume to assume that if I was not told about thing specifically it is not protected, documented or managed. This is a simulation and it would require a lot of time to run the Chat to properly 'interrogate' him for details. 
 
-## Documentatino and training
+## Documentation and training
 
  - Create, update available to employees cyber security related documentation. Plan to run trainings and seminars. This documentation is separated by level of access. Not all can be available to everyone. Use this documentation as a specifications.
 - Appoint someone withing IT Support Team to be responsible for this documentation. 
