@@ -6,6 +6,7 @@
 - [The Office](./current/office.md)
 - [Data Management](./current/data.md)
 - [Network](./current/network.md)
+- [General Activities](./current/operations.md)
 - [Business Continuity](./current/continuity.md)
 - [Cybersecurity](./current/security.md)
 # Statement of Work
