@@ -1,0 +1,6 @@
+/*
+  The `li.draft > a` selector targets a draft chapter in the table of contents.
+*/
+#sidebar > mdbook-sidebar-scrollbox > ol > li.chapter-item  > div {
+    color: var(--fg) !important;
+}

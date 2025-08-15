@@ -3,3 +3,5 @@ authors = ["Viacheslav"]
 language = "en"
 src = "src"
 title = "Masterschool Final Project"
+[output.html]
+additional-css = ["./theme/css/custom.css"]
