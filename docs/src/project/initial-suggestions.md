@@ -1,6 +1,8 @@
-# Threats
+# Initial Suggestions
 
-During our discussion with highly ranced executives there were areas that I didn't get properly so I presume to assume that if I was not told about thing specifically it is not protected, documented or managed. This is a simulation and it would require a lot of time to run the Chat to properly 'interrogate' him for details. 
+During our discussion with highly ranked executives there were unclear areas, I assume that if I was not told about thing specifically it is not protected, documented or managed. This is a simulation and it would require a lot of time to run the Chat to properly investigate details. 
+
+There is a time limit for this project. Besides even if there are arangements and it simply didn't came at the time of disscussion it still worth a while to document them anyway. After careful analysis of the requirements I came to conclusion about some aspects of the companie's structure, setup, networking. This article is my attempt to document my suggestions.
 
 ## Documentation and training
 
@@ -13,6 +15,7 @@ During our discussion with highly ranced executives there were areas that I didn
 - After the Inventory is ready document attack vectors and threats.
 - Need a proper BCP (Business Continuity Plan), BCM (Business Continuity Management), Disaster Recovery. Use NIST CSF as a guide line.
 - Document Maintenance Schedule and Change Management Plans.
+- Need dashboards and reporting systems for top management and for Team Leads. I suggest to develop in-house solution and make it available only through intranet. Differentiate information by role and access level. Need the system with automation. Dashboard must be available from different measurements without need for manual creation. Or use cloud solution?.
 
 ## Risks, Threats, Comlyance
 
