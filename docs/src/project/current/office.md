@@ -9,6 +9,15 @@ Dayly activities of office stuff include this services: Email, file sharing, inv
 Currently, there is no dedicated generator for our suite.
 UPS[^2] are installed for critical systems—including the server room, networking equipment, and key workstations in **Finance, HR, and Compliance**. They provide short-term power during outages to allow for safe shutdown or switchover.
 
+
+About 70 staff in the office daily, 30 remote, 10–15 contractors split between on-site and remote. Guests connect from conference rooms or lobby areas. Mix of full-time, part-time, and contract workers connecting from office, home, and occasionally overseas.
+
+
+our meeting rooms have smart boards, video conferencing systems, and digital signage that must always be available for client-facing sessions.
+ • Performance Needs: These devices need high-quality, low-latency connections for presentations and calls.
+ Payment terminals for event transactions and occasional point-of-sale setups for partner demos.
+ • Performance Needs: Must maintain secure, always-on connectivity to payment processors.
+
 CEO – Alex
 
 Flexibility supports talent retention and recruitment. The system should empower remote work, not make people miss the office. No major drop in productivity. They should feel like they’re “at the office” even if they’re in another time zone.

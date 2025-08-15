@@ -1,7 +1,7 @@
 # Masterschool Capstone Project
 
 
-This document outlines a project to assess, design, and propose a sustainable cybersecurity framework for [Company Name]. As the assigned Cybersecurity Engineer, this initiative was informed by a simulated interview process with key company executives, including the CEO, CFO, COO, HR Director, and Compliance Officer. The insights gathered from their perspectives serve as the foundational business and technical requirements for this project.
+This document outlines a project to assess, design, and propose a sustainable cybersecurity framework for the Company. As the assigned Cybersecurity Engineer, this initiative was informed by a simulated interview process with key company executives, including the CEO, CFO, COO, HR Director, and Compliance Officer. The insights gathered from their perspectives serve as the foundational business and technical requirements for this project.
 
 Given that a baseline security posture assessment was not part of the initial executive inquiry, this project will assume the necessity of foundational security practices, including a comprehensive internal audit, inventory updates, and a review of existing policies and playbooks.
 
