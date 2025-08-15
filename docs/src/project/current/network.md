@@ -1,6 +1,9 @@
 # Office Networking
 
 Don't assume we have wiring everywhere—we may need to retrofit. Employees need uninterrupted access to systems regardless of floor or location.
+ Guests connect from conference rooms or lobby areas. Mix of full-time, part-time, and contract workers connecting from office, home, and occasionally overseas.
+
+Fewer servers = less to maintain. If cloud or virtualization helps us cut hardware and energy use, great.
 
 On-site staff need stable LAN and Wi-Fi, while remote teams rely on cloud tools, VPNs, and video calls
 Remote users: financial, sales, IT. Often connect from public networks.
