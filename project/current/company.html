@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Company - Masterschool Final Project</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../.././theme/css/custom.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Masterschool Final Project</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="company"><a class="header" href="#company">Company</a></h1>
+<p>The company is middle size consulting company. Specializing in providing international business consulting, <strong>data-driven</strong> strategy, and digital transformation support to mid-size and enterprise clients. Company have publicly available as well as highly secure data. Data privacy vary depending on the client's needs.</p>
+<p>Companie's Operations are subject to heavy regulations. GDPR<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup>, HIPAA<sup class="footnote-reference" id="fr-2-1"><a href="#footnote-2">2</a></sup>, ISO 27001<sup class="footnote-reference" id="fr-3-1"><a href="#footnote-3">3</a></sup>, PCI-DSS<sup class="footnote-reference" id="fr-4-1"><a href="#footnote-4">4</a></sup>.
+The Company is subject to industry audit and certifications. The Company is envolved in Finantial Operaions. Company must be able to perform secure high-volume data transfers to banks and payment processors. Company store and process highly sensitive Data.</p>
+<p>The companie's highly ranked executives have quite high Risk Appetite. But ask for high level of security operations. Companie's CEO and CFO have approved that if it is practical and required they are ready to invest in security operations. Company executive board value customer trust and security and stress the Importance of InfoSec at all stages of Daily Activities. The Company positioning yourselve as a forward-thinking, responsible brand.</p>
+<p>ROI<sup class="footnote-reference" id="fr-5-1"><a href="#footnote-5">5</a></sup> means different things to different executives for some lowerst operation cost is important for others begger rewenue even with some risk is acceptable. Things as passing audits faster and cleaner, network withour bottleneck, and quicker onboarding of new employees are also were among the requirements.</p>
+<p>The Company is exploring AI-driven customer tools, which will likely require cloud compute access, fast data exchange, and potentially more traffic between teams. But executive do stress that with open minded approach to AI and more 'innovative' solutions high risk appetite and tolerance could lead to finantial and reputation loses.</p>
+<h2 id="current-department-sizes"><a class="header" href="#current-department-sizes">Current Department Sizes</a></h2>
+<p>At the moment Company orperates with prohimately 100 employees plus 10–15 regular contractors. Guests vary — maybe 3–5 visiting clients or partners per day. Currently the Company has  total of 8 departments.</p>
+<ul>
+<li>Client Services / Consulting – ~35 people (core delivery team)</li>
+<li>Sales &amp; Marketing – ~15 people</li>
+<li>Finance &amp; Accounting – ~8 people</li>
+<li>Human Resources – ~6 people</li>
+<li>IT &amp; Systems Support – ~10 people</li>
+<li>Operations / Admin – ~12 people</li>
+<li>Compliance &amp; Risk – ~5 people</li>
+<li>Leadership / Executive – ~4 people</li>
+</ul>
+<h2 id="plans-to-grow-and-expand"><a class="header" href="#plans-to-grow-and-expand">Plans to grow and expand</a></h2>
+<p>The setup works for now, but the Company is  planning to expand within the next 12–18 months.
+Company exploring AI-driven customer tools, which will likely require cloud compute access, fast data exchange, and potentially more traffic between teams. Also, new product lines may add collaboration platforms or partner integrations. R&amp;D<sup class="footnote-reference" id="fr-6-1"><a href="#footnote-6">6</a></sup> or Data Analytics are also part of the plan.
+Company actively exploring adding a Business Intelligence or Innovation function to stay ahead in our field. That may mean hiring analysts, data scientists, or even developers.</p>
+<p>Companie's executives  considering regional offices or satellite hubs to support growth and access new talent markets. This might mean splitting into two or three locations within the next 2–3 years. Remote hiring is also driving this decision. Each location must operate autonomously, but stay connected to HQ for collaboration and data access.</p>
+<p>These new sites would likely serve client delivery, sales, or regional support roles. They’ll need access to central systems (CRM<sup class="footnote-reference" id="fr-7-1"><a href="#footnote-7">7</a></sup>, project management, shared drives) and reliable uptime. Any expansion into new regions must account for local data laws—especially if crossing international boundaries. Performance between offices matters—especially for file transfers, video calls, and real-time collaboration tools. Each location needs central policy control with localized enforcement—e.g., firewall rules, user access, device management.</p>
+<h3 id="plans-to-grow-for-foreseeable-future"><a class="header" href="#plans-to-grow-for-foreseeable-future">Plans to grow for foreseeable future</a></h3>
+<ul>
+<li>Geographic expansion possible satellite offices with strong separation.</li>
+<li>More remote hires (expected almost double in size), more BYOD. Requiring stronger IT and HR presence.</li>
+<li>Diversification into data analytics and digital transformation services.</li>
+<li>Increasing compliance demands from larger and more regulated clients.</li>
+<li>Increase usage of modern solutinos such as AI in day-to-day activities.</li>
+<li>Considering creating new teams in Data Analytics and Product Development as well as Business Intelligence or Innovation and  R&amp;D<sup class="footnote-reference" id="fr-6-2"><a href="#footnote-6">6</a></sup>.</li>
+<li>There is a possibility of HQ relocation. Legal complience, need in more space, security can drive stakeholders to this decision, but relocation is a last resort—we’d rather grow in place if possible.</li>
+</ul>
+<h3 id="projected-growth-of-departments-in-23-years"><a class="header" href="#projected-growth-of-departments-in-23-years">Projected Growth of departments in 2–3 Years</a></h3>
+<ul>
+<li>Client Services / Consulting: +30–40% growth (driven by new contracts and expansion into new regions). Expect to reach ~45–50 staff.</li>
+<li>Sales &amp; Marketing: +25–30% growth to expand market share—likely 18–20 staff.</li>
+<li>Finance &amp; Accounting: Minimal growth (~10–15%) as automation offsets headcount increases—9–10 staff.</li>
+<li>Human Resources: +30–40% to handle hiring surge—likely 8–9 staff.</li>
+<li>IT &amp; Systems Support: +50% growth due to network expansion, multi-site support—up to 15 staff.</li>
+<li>Operations / Admin: +20% to maintain service levels—~14–15 staff.</li>
+<li>Compliance &amp; Risk: +40–50% due to more regulated clients—up to 7–8 staff.</li>
+<li>Leadership / Executive: Small increase as structure flattens—likely 5–6 executives.</li>
+</ul>
+<h2 id="expected-operation-cost"><a class="header" href="#expected-operation-cost">Expected operation cost</a></h2>
+<p>For current operation (50–100 users), a realistic initial budget expected in the $50K–$150K range depending on complexity, with annual operating costs (licenses, monitoring, support) under $50K/year ideally.
+Company is ready to invest in scalable, growth-ready infrastructure if abusiness case is justified.
+Compnay iis expected to spend on high-impact areas—core connectivity, secure access, user support, but executuve board asked to avoid gold-plating. Executives are willing to pay now to avoid pain later and are fine to  invest in good security—when it's tie  back to reputation, uptime, or customer trust. It is better to avoid penny-wise, pound-foolish solutions, executives do nott want to revisit this in 12 months because we cut corners.</p>
+<ul>
+<li>Systems should require minimal babysitting by IT.</li>
+<li>Don’t forget training and documentation costs.</li>
+<li>Budget must include tools for onboarding/offboarding automation, identity management, and secure access.</li>
+<li>Plan for IT support time, training, and communication—not just gear.</li>
+<li>Budget must account for audit readiness, documentation, and secure data handling—not just networking gear.</li>
+</ul>
+<hr />
+<hr>
+<ol class="footnote-definition"><li id="footnote-1">
+<p>GDPR: The General Data Protection Regulation is a regulation in EU law that provides a framework for the protection of personal data and privacy for individuals within the European Union. <a href="#fr-1-1">↩</a></p>
+</li>
+<li id="footnote-2">
+<p>HIPAA: The Health Insurance Portability and Accountability Act is a U.S. law that protects the privacy and security of patient health information. <a href="#fr-2-1">↩</a></p>
+</li>
+<li id="footnote-3">
+<p>ISO 27001: This is a globally recognized standard for an Information Security Management System (ISMS), providing a systematic approach to managing an organization’s sensitive information. <a href="#fr-3-1">↩</a></p>
+</li>
+<li id="footnote-4">
+<p>PCI-DSS: The Payment Card Industry Data Security Standard is a set of security standards designed to ensure that all companies that accept, process, store, or transmit credit card information maintain a secure environment. <a href="#fr-4-1">↩</a></p>
+</li>
+<li id="footnote-5">
+<p>ROI: Return of Investment <a href="#fr-5-1">↩</a></p>
+</li>
+<li id="footnote-6">
+<p>R&amp;D: Research and Development <a href="#fr-6-1">↩</a> <a href="#fr-6-2">↩2</a></p>
+</li>
+<li id="footnote-7">
+<p>CRM stands for Customer Relationship Management. CRM tools are software solutions designed to help businesses manage and analyze their interactions with customers and potential customers. Their primary purpose is to streamline processes and improve business relationships, ultimately driving sales and loyalty. <a href="#fr-7-1">↩</a></p>
+</li>
+</ol>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../project/current/office.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../project/current/office.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

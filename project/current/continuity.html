@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Project - Masterschool Final Project</title>
+        <title>Business Continuity - Masterschool Final Project</title>
 
 
         <!-- Custom HTML head -->
@@ -12,35 +12,35 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" id="highlight-css" href="highlight.css">
-        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
-        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="./theme/css/custom.css">
+        <link rel="stylesheet" href="../.././theme/css/custom.css">
 
 
         <!-- Provide site root and default themes to javascript -->
         <script>
-            const path_to_root = "";
+            const path_to_root = "../../";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex.js";
+            window.path_to_searchindex_js = "../../searchindex.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
+        <script src="../../toc.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -107,7 +107,7 @@
             <!-- populated by js -->
             <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
             <noscript>
-                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
             </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -142,7 +142,7 @@
                     <h1 class="menu-title">Masterschool Final Project</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
 
@@ -176,25 +176,36 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="masterschool-capstone-project"><a class="header" href="#masterschool-capstone-project">Masterschool Capstone Project</a></h1>
-<p>This document outlines a project to assess, design, and propose a sustainable cybersecurity framework for the Company. As the assigned Cybersecurity Engineer, this initiative was informed by a simulated interview process with key company executives, including the CEO, CFO, COO, HR Director, and Compliance Officer. The insights gathered from their perspectives serve as the foundational business and technical requirements for this project.</p>
-<p>Given that a baseline security posture assessment was not part of the initial executive inquiry, this project will assume the necessity of foundational security practices, including a comprehensive internal audit, inventory updates, and a review of existing policies and playbooks.</p>
-<p>The core of this assignment is a multi-phased approach that will:</p>
-<ul>
-<li>Document and contextualize the executives’ requirements to inform strategic security recommendations.</li>
-<li>Simulate the company's network and key host environments.</li>
-<li>Implement layered network protection and security controls.</li>
-<li>Run simulated network activity to establish a performance baseline.</li>
-<li>Conduct targeted attacks against the simulated environment to test the efficacy of the implemented defenses.</li>
-</ul>
-<p>Recognizing the technical constraints of executing all simulations on a single machine, the network will be logically segmented into distinct zones. This approach will allow for focused testing of several key scenarios, providing a comprehensive yet resource-efficient analysis of the company’s security posture. The conclusions from this analysis, compiled in the 'Initial State' section, will inform all subsequent recommendations and plans.</p>
+                        <h1 id="business-continuity"><a class="header" href="#business-continuity">Business Continuity</a></h1>
+<p>Operations of the company must run smoothly without delays and glitches. Even a small period of unavailability can cause revenue loss or sunctions. Operational data should not be lost during interruptions.</p>
+<p>Companie's tools and servers must to be continuously available to both office and remote staff. Any disruption longer than a few minutes can cascade into delays across departments, especially in client-facing functions. CEO expects 99.9% uptime minimum. Video calls, screen sharing, and large file uploads/downloads should work seamlessly. Systems tied to sales, proposals, and client communications must have near-continuous availability.</p>
+<p>Finantial can tolerate brief slowness, but not downtime.</p>
+<p>HR also said that: "Consistency matters more than speed". Onboarding new hires remotely must be seamless regardless of location.</p>
+<p>Access to compliance systems, audit trails, and secure document repositories must be uninterrupted. Delays during an audit could lead to penalties.</p>
+<p>CEO-Alex</p>
+<p>Downtime should not expose data or cause loss of in-progress work.
+Even short interruptions during negotiations or presentations can cost deals.
+The system should be stable and fast, with no business disruption during or after rollout.
+Any new department will need scalable support—let’s avoid hard-coding systems that won’t flex.
+Brand reputation is tied to how “buttoned-up” we appear—even physically. A visitor seeing exposed cables or unsecured gear undermines confidence. Give us a network design that keeps infrastructure centralized but extendable to future floors or nearby suites if we expand.</p>
+<p>COO-Casey</p>
+<p>While uptime is paramount, it must not come at the expense of exposing sensitive operational data or creating backdoors. We need role-based access and proper network segmentation to ensure staff only access what they need.</p>
+<p>Scheduled maintenance should happen off-hours with proper alerts. We need strong business continuity planning, including failover and rapid recovery protocols for outages.
+Critical systems like access control need uptime even during outages.
+Malfunctions in HVAC or access control could disrupt daily operations.
+For core operational systems, more than 20 minutes per month of outage causes workflow delays and service backlogs.
+Ensure system performance does not drop under load.
+Remote and hybrid staff need seamless, reliable access to core systems—file shares, collaboration tools, internal portals—without needing IT support every time. Ideally, log in once, and they're good to go.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../project/current/operations.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
-                            <a rel="next prefetch" href="project/current/company.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../project/current/security.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -204,8 +215,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../project/current/operations.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
-                    <a rel="next prefetch" href="project/current/company.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../project/current/security.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
@@ -220,13 +234,13 @@
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
 
         <!-- Custom JS scripts -->
 
