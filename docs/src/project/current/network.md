@@ -16,7 +16,8 @@ Our current network setup is a blend of wired and wireless solutions designed to
 - **Network Segregation:** There is a need for clearer and more robust network segmentation. Critical systems, such as Accounting and ERP[^1], must be resilient to network issues and isolated from less secure traffic. A secure, isolated environment is also needed for external users (e.g., vendors, contractors) and for new projects or acquisitions to mitigate risk.
 The network must support secure inter-office communication (e.g., VPNs or SD-WAN), while still being flexible enough to adapt if we grow faster than expected.
 - **Scalability & Performance:** The current network infrastructure faces challenges in handling sudden spikes in traffic, which could be caused by new acquisitions, large file transfers, or the integration of new technologies like AI. Consistent performance during these bursts is not guaranteed.
-- **Security & Compliance:** We need to enhance our security posture to support audit readiness, maintain access logs, and enforce strict retention policies. The network must support granular access controls, especially for external users, to comply with regulatory requirements and minimize high-risk vectors.
+- **Security & Compliance:** We need to enhance our security posture to support audit readiness, maintain access logs, and enforce strict retention policies. The network must support granular access controls, especially for external users, to comply with regulatory requirements and minimize high-risk vectors.      
+Ensure that there is no umprotected Wi-Fi connections or stray cables or plugs that can be used to connect to company's  LAN.
 - **Resilience & Redundancy:** The network lacks comprehensive redundancy for internet and key services, making it vulnerable to single points of failure. Downtime could expose data or cause the loss of in-progress work.
 
 ## Strategic Directives from the Executive Board

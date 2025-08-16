@@ -3,6 +3,7 @@
 - Accurate tracking of who connects, when, and from where — for all categories (staff, contractors, guests).
 -  Real-time identity verification for remote logins.
 - Critical systems like access control need uptime even during outages.
+Brand reputation is tied to how “buttoned-up” we appear—even physically.
 
 * Unauthorized access to kiosks could create HR or privacy issues.
 * Physical access to employee files (both digital and printed) is tightly controlled. Sensitive areas are locked, and file cabinets are restricted.
