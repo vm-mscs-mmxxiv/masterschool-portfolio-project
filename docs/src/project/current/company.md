@@ -32,7 +32,7 @@ Company actively exploring adding a Business Intelligence or Innovation function
 
 Companie's executives  considering regional offices or satellite hubs to support growth and access new talent markets. This might mean splitting into two or three locations within the next 2–3 years. Remote hiring is also driving this decision. Each location must operate autonomously, but stay connected to HQ for collaboration and data access.
 
-These new sites would likely serve client delivery, sales, or regional support roles. They’ll need access to central systems (CRM[^7], project management, shared drives) and reliable uptime. Performance between offices matters—especially for file transfers, video calls, and real-time collaboration tools. Each location needs central policy control with localized enforcement—e.g., firewall rules, user access, device management.
+These new sites would likely serve client delivery, sales, or regional support roles. They’ll need access to central systems (CRM[^7], project management, shared drives) and reliable uptime. Any expansion into new regions must account for local data laws—especially if crossing international boundaries. Performance between offices matters—especially for file transfers, video calls, and real-time collaboration tools. Each location needs central policy control with localized enforcement—e.g., firewall rules, user access, device management.
 
 ### Plans to grow for foreseeable future
 
@@ -42,7 +42,7 @@ These new sites would likely serve client delivery, sales, or regional support r
 - Increasing compliance demands from larger and more regulated clients.
 - Increase usage of modern solutinos such as AI in day-to-day activities.
 - Considering creating new teams in Data Analytics and Product Development as well as Business Intelligence or Innovation and  R&D[^6]. 
-- There is a possibility of HQ relocation. Legal complience, need in more space, security can drive stakeholders to this decision.
+- There is a possibility of HQ relocation. Legal complience, need in more space, security can drive stakeholders to this decision, but relocation is a last resort—we’d rather grow in place if possible.
 
 ### Projected Growth of departments in 2–3 Years
 
