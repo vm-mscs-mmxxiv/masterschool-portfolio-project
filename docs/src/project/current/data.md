@@ -2,14 +2,13 @@
 
 Business consulting, data-driven strategy, and digital transformation support is among services provided by the Company. Service delivery depends on real-time access to shared documents and apps.
 
-The Company operates Data  with different levels of security. The Company use different policies and procedures for data transfer and storage. Policies can vary client by client.Company operations are data-driven, compliance with major data privacy frameworks is a selling point for clients. Client trust is companie's currency. The ability to demonstrate compliance—through logs, access control, and policies—must be always available.
+The Company operates with Data of different levels of security. The Company use different policies and procedures for data transfer and storage. Policies can vary client by client.Company operations are data-driven, compliance with major data privacy frameworks is a selling point for clients. Client trust is company's currency. The ability to demonstrate compliance—through logs, access control, and policies—must be always available.
 
-- There is in-house data.       
-Documentation, knowledge-based, client-specific, and delivered digitally—reports, strategies, analytics, and process improvement plans, internal communication. Specific  data for departnents like: Finance, HR, Customer Support, Compliance, IT, Cybersecurity.
-- Sensitive client data        
-Trade secrets, contracts, finantial data
-- Publicly available.      
-Industry insights, market trend summaries, and non-confidential performance benchmarks
+Data Classification        
+
+- **In-house Data:** Documentation, knowledge-based, client-specific, and delivered digitally—reports, strategies, analytics, and process improvement plans, internal communication. Specific  data for departnents like: Finance, HR, Customer Support, Compliance, IT, Cybersecurity.
+- **Sensitive Data:** Trade secrets, contracts, finantial Data, personal HIPAA-like Data.
+- **Publicly available data:** Industry insights, market trend summaries, and non-confidential performance benchmarks.
 
 Stuff often deal with confidential client data regularly—keeping that protected is vital. Loss or theft of the Data could cause competitive disadvantage. Moreover, fines from non-compliance could be a major unplanned expense.
 
@@ -50,7 +49,7 @@ To prevent Data Loss the data processing systems must:
 - Scale to handle surge in file transfers and communications.
 - Downtime should not expose data or cause loss of in-progress work.
 - Operational data should not be lost during interruptions.
-- Need redundancy so anything that can negatively impact data processing process  don’t stall day-to-day companie's activity.
+- Need redundancy so anything that can negatively impact data processing process  don’t stall day-to-day company's activity.
 - Company must meet legal and contractual obligations around data storage, access, and reporting—especially if clients are in regulated industries.
 
 Encrypted storage, access logging, and data protection—but we don’t need bleeding-edge tech.           
