@@ -1,50 +1,37 @@
 # Office Networking
 
-Don't assume we have wiring everywhere—we may need to retrofit. Employees need uninterrupted access to systems regardless of floor or location.
- Guests connect from conference rooms or lobby areas. Mix of full-time, part-time, and contract workers connecting from office, home, and occasionally overseas.
+This document provides a summary of the current state of a company's network infrastructure, outlines the challenges, and presents a strategic roadmap for its future development. The recommendations are informed by the directives of the executive board to ensure the network becomes a scalable, secure, and strategic asset that supports our business growth.
 
-Fewer servers = less to maintain. If cloud or virtualization helps us cut hardware and energy use, great.
+## Current Network Architecture
 
-On-site staff need stable LAN and Wi-Fi, while remote teams rely on cloud tools, VPNs, and video calls
-Remote users: financial, sales, IT. Often connect from public networks.
-Guests connect from conference rooms or lobby areas. Limit guests to internet-only access.
+Our current network setup is a blend of wired and wireless solutions designed to support on-site and remote work.
 
-* network segregation
-* VPN access
-* Sudden spikes occur
-* Keep meeting rooms smart boards, video conferencing systems, and digital signage isolated from sensitive business systems and must be always available.
-* Downtime should not expose data or cause loss of in-progress work
-* Accounting and ERP ( Enterprise Resource Planning) access must be resilient to network issues.
+- **On-site Connectivity:** The office network provides stable LAN and Wi-Fi access for full-time employees, part-time staff, and contractors. However, network wiring is not universal across all areas, and retrofitting may be required to ensure seamless coverage. The network must maintain segregation between secure zones, even if we're spread across multiple floors or suites.
+- **Remote Access:** Remote teams, including those in Financial, Sales, and IT, rely on a mix of cloud-based tools, VPNs, and video conferencing. A key challenge is maintaining consistent performance and security, as these users often connect from public or home networks with variable internet quality.
+- **Guest Access:** Guests, including visitors and contractors, are granted internet-only access from designated areas like conference rooms and the lobby. This segregation helps to limit potential security risks.
+- **Operational Technology (OT) & IoT:** Smart boards, video conferencing systems, and digital signage are currently in use, but their segregation from sensitive business systems is a critical area for improvement to ensure both security and constant availability.
 
-CEO-Alex
+## Key Operational and Security Challenges
 
-Consider redundancy for internet and key services. Assume we’re growing—we’ll need a network that scales with minimal friction.
-The network is a strategic asset, not just overhead—so I’ll invest in scalable, growth-ready infrastructure if you justify the business case.
-Make sure it can handle more users and new apps without major rework. Pay now to avoid pain later.
-Avoid penny-wise, pound-foolish. I don’t want to revisit this in 12 months because we cut corners.
-Success means the network helps us scale and innovate faster—supporting new hires, new services, or locations without friction.
-The network must support scalable growth—if we double headcount or spin up a new location, it shouldn't require a full rework.
-I want the network to accommodate future M&A or expansion—don’t make it department-specific to the point of rigidity.
-
- We’ll need a network that can scale seamlessly across new floors or buildings without a full redesign.
-• Security/Compliance Needs: The network must maintain segregation between secure zones, even if we're spread across multiple floors or suites.
-• Concerns / Notes: Assume relocation is a possibility—design the network to be modular and portable. Avoid overly complex infrastructure tied to one location.
-
+- **Network Segregation:** There is a need for clearer and more robust network segmentation. Critical systems, such as Accounting and ERP[^1], must be resilient to network issues and isolated from less secure traffic. A secure, isolated environment is also needed for external users (e.g., vendors, contractors) and for new projects or acquisitions to mitigate risk.
 The network must support secure inter-office communication (e.g., VPNs or SD-WAN), while still being flexible enough to adapt if we grow faster than expected.
+- **Scalability & Performance:** The current network infrastructure faces challenges in handling sudden spikes in traffic, which could be caused by new acquisitions, large file transfers, or the integration of new technologies like AI. Consistent performance during these bursts is not guaranteed.
+- **Security & Compliance:** We need to enhance our security posture to support audit readiness, maintain access logs, and enforce strict retention policies. The network must support granular access controls, especially for external users, to comply with regulatory requirements and minimize high-risk vectors.
+- **Resilience & Redundancy:** The network lacks comprehensive redundancy for internet and key services, making it vulnerable to single points of failure. Downtime could expose data or cause the loss of in-progress work.
 
-COO-Casey
+## Strategic Directives from the Executive Board
 
-Segregate operational tech from main office network to prevent cross-impact.
+The executive board has outlined a clear vision for the network as a strategic asset. Our future network design must align with the following directives:
+
+- **Scalable Growth:** The network must be architected for future growth, including potential M&A activities and rapid headcount increases. It should be modular and flexible, supporting expansion into new floors or buildings without requiring a complete redesign, it doesn't have to be department-specific to the point of rigidity. The focus should be on proactive, long-term investment to avoid future rework.
+Network performance must stay consistent during traffic bursts—especially with AI pipelines or large file transfers.
 Internal collaboration tools must scale to handle surge in file transfers and communications.
 Assume variable internet quality. The solution should degrade gracefully and avoid requiring super-fast connections.
+Plan for sudden load changes—a new acquisition could double our traffic overnight.
+- **Operational Resilience:** The network must support graceful degradation and remain performant even with variable internet quality. It should be designed to handle sudden load changes and rapidly onboard new users, such as project-based contractors, without extensive manual configuration. Segregation of operational technology from the main network is a priority to prevent cross-impact.
+- **Security & Compliance:** Security must be foundational to the network's design. This includes robust access controls, secure external access, and a clear path to audit readiness. The network must be able to support granular access logs and retention policies to meet compliance requirements.
+Remote users uch as financial, sales, IT often connect from public networks.
 
-We may need to onboard project-based contractors quickly (e.g., for acquisitions or product launches). The network must support rapid user expansion without manual config.
-• Performance Needs: Network performance must stay consistent during traffic bursts—especially with AI pipelines or large file transfers.
-• Security/Compliance Needs: Isolated environments for pilot projects would help reduce risk.
-• Concerns / Notes: Plan for sudden load changes—a new acquisition could double our traffic overnight.
+---
 
-Morgan
-
-The network must support audit readiness, access logs, and retention policies.
-If we allow external users—vendors, contractors, etc.—they must be restricted to the minimum access required for their task. No broad network access.
-Any access from outside the org must comply with our regulatory environment. External access is a high-risk vector if mismanaged.
+[^1]: ERP ( Enterprise Resource Planning)
