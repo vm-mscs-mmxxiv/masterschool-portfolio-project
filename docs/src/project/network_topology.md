@@ -26,6 +26,10 @@
 |Dept1   |Dept2   |Dept3     |SOC/Admin VM|
 |Finance |HR      |Developers|            |
 ```
+
+
+![topology-1](/images/network-topology/topology.1.png)
+
 ---
 
 🔄 Next Questions to Think About
