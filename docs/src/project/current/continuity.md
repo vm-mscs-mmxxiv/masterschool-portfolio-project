@@ -22,10 +22,10 @@ For core operational systems, more than 20 minutes per month of outage causes wo
 Ensure system performance does not drop under load.
 Remote and hybrid staff need seamless, reliable access to core systems, file shares, collaboration tools, internal portals.
 
-## Recovery Time and Point Objectives[^2]
+## RTO, RPO [^1]
 
 - **CEO:** 
-Critical, client-facing apps (**CRM[^1], proposal tools, video conferencing**) must **recover within 15 minutes** to avoid lost deals or missed opportunities.
+Critical, client-facing apps (**CRM[^2], proposal tools, video conferencing**) must **recover within 15 minutes** to avoid lost deals or missed opportunities.
 Recovery should be seamless enough that clients barely notice disruption.
 No partial data loss; restore to last known consistent state.
 The longer downtime lasts, the greater the risk of clients turning to competitors.         
@@ -118,6 +118,6 @@ Compliance review activity increases **week before audits** or regulatory filing
 
 ---
 
-[^1]: CRM stands for Customer Relationship Management. CRM tools are software solutions designed to help businesses manage and analyze their interactions with customers and potential customers. Their primary purpose is to streamline processes and improve business relationships, ultimately driving sales and loyalty.
-[^2]: **Recovery Point Objective (RPO).** The RPO is the maximum amount of data, measured in time, that a business can afford to lose after a disruptive event. **Recovery Time Objective (RTO).** The RTO is the maximum amount of time a business can be offline or without its services before the disruption causes significant damage. It answers the question, "How quickly must we get back up and running?" 
+[^1]: **Recovery Point Objective (RPO).** The RPO is the maximum amount of data, measured in time, that a business can afford to lose after a disruptive event. **Recovery Time Objective (RTO).** The RTO is the maximum amount of time a business can be offline or without its services before the disruption causes significant damage. It answers the question, "How quickly must we get back up and running?" 
+[^2]: CRM stands for Customer Relationship Management. CRM tools are software solutions designed to help businesses manage and analyze their interactions with customers and potential customers. Their primary purpose is to streamline processes and improve business relationships, ultimately driving sales and loyalty.
 [^3]: ERP, or Enterprise Resource Planning. Business management software,integrates and automates the core business processes of an organization.
