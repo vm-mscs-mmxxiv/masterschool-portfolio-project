@@ -9,7 +9,7 @@
     - [Business Continuity & Change Management](./project/current/continuity.md)
     - [Cybersecurity](./project/current/security.md)
 - [Statement of Work]()
-    - [Initial Suggestions](./project/initial-suggestions.md)
+    - [Initial Recommendations](./project/initial-suggestions.md)
     - [Network Topology](./project/network_topology.md)
 - [Setup](./setup/setup.md)
   - [Alpine Linux Setup](./setup/alpine.md)

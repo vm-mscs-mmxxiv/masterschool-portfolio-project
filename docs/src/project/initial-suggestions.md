@@ -1,10 +1,97 @@
-# Initial Suggestions
+# Initial Recommendations
 
-During our discussion with highly ranked executives there were unclear areas, I assume that if I was not told about thing specifically it is not protected, documented or managed. This is a simulation and it would require a lot of time to run the Chat to properly investigate details. 
+During our discussions with senior executives, several areas lacked clarity regarding current security measures. Where specific protections, documentation, or management processes were not explicitly mentioned, I have assumed they may not be fully implemented or documented. While this assessment is based on limited information and would require extensive investigation to validate completely, the project timeline necessitates working with available data.
+Even if certain security arrangements exist but were not discussed during our meetings, documenting and formalizing these processes remains valuable. Following a thorough analysis of the stated requirements, I have developed conclusions regarding the company's organizational structure, configuration, and network architecture.
 
-There is a time limit for this project. Besides even if there are arangements and it simply didn't came at the time of disscussion it still worth a while to document them anyway. After careful analysis of the requirements I came to conclusion about some aspects of the companie's structure, setup, networking. This article is my attempt to document my suggestions.
+In the Baseline Analysisi section there is simple description of the current state and some expectancy that senior executives wish to achieve. I decided to split this section by timeline. The company operated before there are some setup and operations that may need to be addressed more than others.
 
-## Documentation and training
+## Initial Stage
+
+This stage encompasses initial inspection and addresses critical issues related to office physical segmentation, protection, and surveillance systems. Upon completion of Stage, the physical office setup must be finalized with appropriate departmental separation, and office floors must be fully prepared for business operations. Initial network topology and cabling infrastructure must be completed and documented. Asset inventory and threat management systems must be operational and ready for ongoing security management.
+
+Scope of Work:
+
+- Complete physical security assessment
+- Implemented office segmentation solutions
+- Secured surveillance system configuration
+- Documented network topology and infrastructure
+- Operational inventory management system
+- Active threat tracking and vulnerability management system
+
+Timeline/Schedule: 2-3 days.
+
+
+
+> Power Supply: IMPORTANT!!!
+> The building itself has a central generator that supports life-safety systems (emergency lighting, elevators, fire control).
+> 
+> **It does not power tenant IT infrastructure.** For full operational continuity, we would need either:
+> 
+> - A tenant-specific generator connection, or
+> - An arrangement with building management to tie our circuits into the central generator.
+
+### Physical Departmental Security
+
+Office Segmentation and Access Control Review: Evaluate physical separation of different business functions and security zones within the office environment. Document access restrictions between departments, visitor access protocols, and isolation of sensitive areas (server rooms, executive offices, HR areas). Assess effectiveness of physical barriers, badge/key card systems, and identification of unauthorized personnel in restricted zones.
+
+- Conduct physical security assessment through comprehensive site inspection, identifying potential vulnerabilities and non-compliance issues with applicable security frameworks.
+- Create detailed floor plan diagrams documenting current office layout, including physical entry points, host machine locations, and network connectivity mapping.
+- Document all security findings with photographic evidence and detailed descriptions for remediation tracking.
+- Address security findings
+
+Physical separation between departments provides essential protection for sensitive work by improving focus and reducing risks of shoulder surfing, inadvertent data exposure, and unauthorized eavesdropping in confidential areas. Cost-effective solutions such as modular partitions or demountable walls can create effective visual and acoustic barriers. This separation is particularly critical for Finance, Human Resources, Compliance, client-specific project teams, and the cybersecurity team.
+
+Specific attention must be payed to:
+
+- **Window Security:** Assess whether existing windows provide adequate visual protection against external surveillance using optical equipment. Consider privacy films or treatments where necessary to prevent external observation of sensitive work areas.
+- **Infrastructure Considerations:** Physical modifications must not interfere with Wi-Fi coverage or disrupt existing network cabling. Layout changes should preserve existing infrastructure wherever possible to minimize implementation costs and downtime.
+- **Safety Compliance:** All separation plans must maintain clear pathways and unobstructed line-of-sight to emergency exits to ensure compliance with fire safety and building codes.
+- **Video Surveillance Assessment:** Document all surveillance camera locations, coverage areas, recording capabilities, and access controls. Identify who has administrative access to camera systems, viewing permissions, and data retention policies. Assess potential security vulnerabilities including camera network isolation, default credentials, firmware currency, and physical tampering protection. Evaluate surveillance systems as potential attack vectors for network infiltration.
+
+### Digital Inventory Systems
+
+For the company of this size on-premise solution is enough. Key points to keep in mind for the System:
+
+- On-premise solutions
+- Role-based access controls
+- Integration with vulnerability management tools
+- Multi-factor authentication for access
+- Encryption at rest and in transit
+- Regular backups (automated)
+- Access logging and monitoring
+- Network segmentation from general corporate network
+
+### Vulnerability Management Systems
+
+The company would require proper Risk Register to properly address Vulnerability Lifecycle Management. Here are key point for the Register:
+
+- Often separate from general IT asset management
+- Higher classification level due to sensitive security data
+- Real-time vulnerability feeds and threat intelligence integration
+- Stricter network isolation - Often air-gapped or on separate security network
+- Higher encryption standards - Contains exploitable vulnerability details
+- Enhanced logging - Every access tracked for compliance
+- Role-based access (view-only for most, edit for security team)
+- Audit trails for all changes
+- Secure backup procedures
+
+
+    - Inspect network infrastructure including cable management systems, protection mechanisms, unauthorized cables or connection points, wireless access point positioning, device naming conventions, and coverage areas.
+    - Assess Wi-Fi security configurations including encryption levels, access point purposes, and network segmentation. Address any inappropriate security levels as immediate priority items.
+    - Review existing inventory documentation when available to guide assessment activities and identify gaps.
+    - Evaluate physical perimeter security by testing public area access controls, boundary definitions, and containment measures.
+
+
+1. Introduction/Background - Context and purpose
+2. Scope of Work - What will and won't be included
+3. Tasks/Deliverables - Specific work activities and outcomes
+4. Timeline/Schedule - Project phases and milestones
+5. Performance Standards - Quality and acceptance criteria
+6. Reporting Requirements - Status updates and documentation
+7. Resources/Responsibilities - Who provides what
+8. Terms and Conditions - Legal and contractual aspects
+
+## Documentation and Training
 
  - Create, update available to employees cyber security related documentation. Plan to run trainings and seminars. This documentation is separated by level of access. Not all can be available to everyone. Use this documentation as a specifications.
 - Appoint someone withing IT Support Team to be responsible for this documentation. 
@@ -17,7 +104,7 @@ There is a time limit for this project. Besides even if there are arangements an
 - Document Maintenance Schedule and Change Management Plans.
 - Need dashboards and reporting systems for top management and for Team Leads. I suggest to develop in-house solution and make it available only through intranet. Differentiate information by role and access level. Need the system with automation. Dashboard must be available from different measurements without need for manual creation. Or use cloud solution?.
 
-## Risks, Threats, Comlyance
+## Risks, Threats, Comliance
 
 Below is a list of threats / suggestions that I would purpose to executives in follow up meeting. Some I would investigate by myself some probably would stay in this list.
 
@@ -80,23 +167,8 @@ A simple visual inspection is often not enough, as many taps are designed to be 
     - write requirements for this roles to properly assigh and manage ACLs for companie's employees
 - Physical means of data transportation. Unmanaged USB Access.
 
-## Physical Department Separation 
-
-Physical separation between departments would help protect sensitive work, improve focus and reduce the risk of shoulder surfing, casual data exposure, and unauthorized listening in sensitive areas. Even low-cost modular or false walls can create visual and acoustic barriers. This will be especially important for Finance, HR, Compliance, lient-specific project teams and cybersecurity team.       
-Is is not clear if windows are dimmed so that it is impossible to spy on the company with optical equipement.     
-There is video survelance in the office. What and who can see. It is an attack vector.      
-Separation should not block Wi-Fi or disrupt network cabling—plan layout changes (keep infrostructure as much as possible).      
-Plans shoud make sure pathways and line-of-sight to emergency exits remain clear for safety compliance.     
 
 ## Business Continuity
 
 There is high demand for high business continuity for all departments. During an interview with executives they all stressed upmost importance of almost 100% availability for customers and importance to comply with regulations in regard for logging and surveilance.
 
-### Power Supply
-
-The building itself has a central generator that supports life-safety systems (emergency lighting, elevators, fire control).
-
-**It does not power tenant IT infrastructure.** For full operational continuity, we would need either:
-
-- A tenant-specific generator connection, or
-- An arrangement with building management to tie our circuits into the central generator.

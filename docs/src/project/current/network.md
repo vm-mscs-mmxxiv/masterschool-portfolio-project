@@ -6,6 +6,26 @@ This document provides a summary of the current state of a company's network inf
 
 Our current network setup is a blend of wired and wireless solutions designed to support on-site and remote work.
 
+### Description by executives
+
+We wouldn’t be able to give you specific brand names or model numbers — that’s something your project team will need to decide.
+
+- **Topology:**
+  - The office runs on a **star topology**, with a main server/network room at the center.
+  - Each floor has a wiring closet that connects employee desks (wired connections) and Wi-Fi access points back to the core switches.
+  - Remote staff connect via secure VPN into the corporate network.
+
+- **Key Network Devices (by function, not brand):**
+  - **Core router/firewall** at the perimeter handling internet connectivity and filtering traffic.
+  - **Core switches** in the server room distributing network traffic across departments. (layer 3) 
+  - **Edge switches** in floor closets connecting staff devices.
+  - **Wireless access points (APs)** providing Wi-Fi coverage in office areas, meeting rooms, and shared spaces.
+  - **VPN concentrator or firewall service** that manages remote logins.
+  - **File and application servers** located on-premises for business-critical apps; some workloads also run in the cloud.
+  - **Network monitoring tools** for uptime and performance tracking.
+
+**Other network considerations:**            
+
 - **On-site Connectivity:** The office network provides stable LAN and Wi-Fi access for full-time employees, part-time staff, and contractors. However, network wiring is not universal across all areas, and retrofitting may be required to ensure seamless coverage. The network must maintain segregation between secure zones, even if we're spread across multiple floors or suites.
 - **Remote Access:** Remote teams, including those in Financial, Sales, and IT, rely on a mix of cloud-based tools, VPNs, and video conferencing. A key challenge is maintaining consistent performance and security, as these users often connect from public or home networks with variable internet quality.
 - **Guest Access:** Guests, including visitors and contractors, are granted internet-only access from designated areas like conference rooms and the lobby. This segregation helps to limit potential security risks.
