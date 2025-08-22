@@ -35,9 +35,6 @@ For operational continuity, existing security operations shall continue as norma
 - Start creating IaC.
 - Inventory of office infrostructure, devices and software in use.
 - After the Inventory is ready document attack vectors and threats.
-- Need a proper BCP (Business Continuity Plan), BCM (Business Continuity Management), Disaster Recovery. Use NIST CSF as a guide line.
-- Document Maintenance Schedule and Change Management Plans.
-- Need dashboards and reporting systems for top management and for Team Leads. I suggest to develop in-house solution and make it available only through intranet. Differentiate information by role and access level. Need the system with automation. Dashboard must be available from different measurements without need for manual creation. Or use cloud solution?.
 
 ## Risks, Threats, Comliance
 
@@ -61,8 +58,4 @@ Below is a list of threats / suggestions that I would purpose to executives in f
 - Port Monitoring: On a managed switch, you can monitor the status of all ports. Manually shutdown all unused ports on network devices.
 - Map and monitor Wi-Fi access points. (perhaps need more on this)
 
-
-## Business Continuity
-
-There is high demand for high business continuity for all departments. During an interview with executives they all stressed upmost importance of almost 100% availability for customers and importance to comply with regulations in regard for logging and surveilance.
 

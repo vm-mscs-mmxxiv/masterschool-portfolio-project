@@ -4,3 +4,8 @@
 #sidebar > mdbook-sidebar-scrollbox > ol > li.chapter-item  > div {
     color: var(--fg) !important;
 }
+
+/*#sidebar > mdbook-sidebar-scrollbox > ol > li:nth-child(5) > ol > li:nth-child(1) > div > strong*/
+#sidebar > .sidebar-scrollbox  li.chapter-item  > div {
+     color: var(--fg) !important;
+    }
