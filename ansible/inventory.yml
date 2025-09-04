@@ -1,0 +1,4 @@
+myhosts:
+  hosts:
+    debian-dev:
+      ansible_host: 10.49.247.1
