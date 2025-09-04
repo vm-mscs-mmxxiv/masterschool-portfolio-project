@@ -1,16 +1,21 @@
 # Setup
 
+This project is being developed on a low-resource Apple OS machine. Due to limitations of the Host Machine, it's not possible to fully replicate the office LAN environment within the lab. However, my approach is to maintain a network structure that closely resembles the real one, within the constraints of the available resources.
+
+I plan to create a few network topologies using several  virtual machines (VMs), simulating micro-segmentation. While the Host Machine cannot support multiple VLANs simultaneously, I intend to simulate separate VLANs using a VM configured as a router, firewall, and switch. This "border" VM will enforce network segmentation and access controls. Network ACLs will be configured, and I plan to test the overall security posture using a designated Attack Machine.
+
+UTM, the QEMU front-end used on macOS, is not as fully featured as its counterpart on Linux. Many features are either limited or not fully implemented, especially in terms of networking. These limitation, both of the host hardware and the UTM platform, must be taken into account when designing the lab environments.        
+I plan to follow a structured approach when creating the labs. Each lab will have a specific purpose, for example, testing a known tactic or vulnerability. While each lab will be designed to function independently, there may be some overlap in the setup and configuration of machines across labs.
+
+> Note (04.09.25): The project deadline is less than 10 days away. I realize I may not be able to complete everything I had initially planned. However, I’ve decided to maintain a steady pace. This situation is common in real-world engineering work, and the ability to stay focused under pressure is a skill I am continuing to develop. I’ve seen the negative impact when engineers cut corners due to management pressure—sometimes with long-term consequences for the company.
+>
+> As I am still learning, this may be one of the few chances I get to deeply engage with this type of project. I've rushed through previous projects due to deadlines, and the result was poor-quality work that served neither as good learning material nor as portfolio content. For these reasons, I am prioritizing quality over quantity, aiming for a deeper understanding rather than rushing from one task to another.
+
 For this project I use this Operating Systems:
 
-- Debian
-- Kali Linux 2025.2
-- Alpine
-
-🔐 Security zones (e.g., DMZ, internal, admin, SOC) are isolated — you can simulate this with separate VMs.
-💻 Different roles (attacker, user, admin, firewall, router) usually run on different physical or virtual machines.
-🔄 VMs let you snapshot, test, restore, and repeat — a crucial part of both blue-team and red-team workflows.
-🌐 Network segmentation is key to enterprise defense — best simulated using bridges, NAT, VLANs, or virtual switches (like VDE or QEMU’s built-in network modes).
-
+- Debian: (SOC / Admin) Machine
+- Kali Linux 2025.2: Attack Machine
+- Alpine: Network Devices / End Hosts
 
 ✅ 2. Suggested Attack Categories (Vectors)
 Pick from these based on what you'd like to simulate:
