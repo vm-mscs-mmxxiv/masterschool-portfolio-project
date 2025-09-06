@@ -1,0 +1,12 @@
+- name: Update APT cache
+  ansible.builtin.apt:
+    update_cache: yes
+
+
+- name: Ensure baseline packages are installed
+  ansible.builtin.apt:
+    name: "{{ install_common_packages }}"
+    state: present
+    # install_recommends: no
+  become: yes
+  tags: ["install common"]

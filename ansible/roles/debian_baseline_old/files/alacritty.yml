@@ -1,0 +1,16 @@
+window:
+  decorations: Full
+  startup_mode: Fullscreen
+    
+mouse:
+  enabled: true
+  
+font:
+  size: 17.0
+
+shell:
+  program: /usr/bin/tmux
+  args:
+    - new
+    - -A
+    - -s

@@ -1,0 +1,7 @@
+table inet my-filter {
+	set syn-ack-list {
+                type ipv4_addr
+                elements = {
+		}
+        }
+}

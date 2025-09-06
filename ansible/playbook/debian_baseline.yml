@@ -1,0 +1,20 @@
+- name: Configure soc / admin machine
+  hosts: localhost
+  become: true
+  connection: local
+  vars:
+    git_user_name: "Alice"
+    git_user_email: "alice@example.com"
+    desktop_xfce4: true
+    desktop_gnome: false
+    desktop_kde: false
+    user_name: soc
+    user_home: "/home/{{ user_name }}"
+  roles:
+    - debian_baseline
+      vars:
+        install_enabled: true
+        prepare_enabled: false   # Skip prepare
+        configure_enabled: true
+        cleanup_enabled: false
+

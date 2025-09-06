@@ -1,0 +1,53 @@
+packages_to_remove:
+  - alsa-utils
+  - apache2
+  - avahi-daemon
+  - bind9
+  - bluetooth
+  - bluez
+  - cups
+  - ftp
+  - nfs-common
+  - pulseaudio
+  - rlogin
+  - rpcbind
+  - rsh-client
+  - rsync 
+  - samba
+  - telnet
+  - tftp
+  - tftpd-hpa
+
+xfce4_packages_to_remove:
+  - xfce4-clipman
+  - xfce4-clipman-plugin
+
+
+services_to_disable:
+  - bluetooth
+  - cups
+  - nmbd
+  - smbd
+
+install_common_packages:
+  - curl
+  - auditd
+  - htop
+  - aide
+  - apparmor
+  - chkrootkit
+  - clamav
+  - debsums
+  - fail2ban
+  - firejail
+  - git
+  - git-man
+  - gnupg
+  - lynis
+  - nftables
+  - rkhunter
+  - sudo
+  - vim-nox
+
+git_user_name: "Default Name"
+git_user_email: "defult@example.com"

@@ -1,0 +1,14 @@
+# packages for SOC
+install_soc_packages:
+  - auditd
+  - dig
+  - dnsutils
+  - iproute2
+  - nmap
+  - strace
+  - suricata
+  - tcpdump
+  - traceroute
+  - whois
+  - wireshark
+

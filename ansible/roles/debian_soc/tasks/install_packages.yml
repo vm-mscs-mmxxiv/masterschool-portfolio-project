@@ -1,0 +1,16 @@
+- name: Update APT cache
+  ansible.builtin.apt:
+    update_cache: yes
+
+
+- name: Install SOC required  packages
+  ansible.builtin.apt:
+    name: "{{ install_soc_packages }}"
+    state: present
+    # install_recommends: no
+  become: yes
+  tags: ["install soc"]
+
+# TODO: Write install script to install Splunk it is free for 60 days with Enterprice Features and free in 
+# free-mode. Good for learning and studying.
+# https://www.splunk.com/en_us/download/splunk-enterprise.html

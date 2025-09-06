@@ -1,0 +1,22 @@
+[alias]
+    s = status
+    addu = add -u
+    adducm = "! git add -u && git commit -m"
+    cm = commit -m
+    gt = checkout
+    br = branch
+    lg = log --graph --oneline --decorate --all --pretty=format:'%C(auto)%h%d %s %C(blue)<%an>'
+    undo = reset --soft HEAD~1
+    fpush = push --force-with-lease
+    graph = log --oneline --graph --all --decorate
+
+[core]
+    editor = vim
+    autocrlf = input
+[color]
+    ui = true
+[init]
+    defaultBranch = main
+[user]
+    name = {{ git_user_name }}
+    email = {{ git_user_email }}

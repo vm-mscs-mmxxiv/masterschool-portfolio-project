@@ -1,0 +1,13 @@
+- hosts: all
+  become: true
+
+vars_prompt:
+  - name: terminal_user
+    prompt: "Enter username to configure"
+    private: no
+vars:
+  terminal_home: "/home/{{ terminal_user }}"
+
+roles:
+  - debian_baseline
+

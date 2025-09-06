@@ -1,0 +1,39 @@
+- name: "Ensure user {{ user_name }} exists"
+  user:
+    name: "{{ user_name }}"
+    shell: /bin/bash
+    create_home: true
+
+- name: Copy Vim config
+  copy:
+    src: files/.vimrc
+    dest: "{{ user_home }}/.vimrc"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: '0600'
+
+- name: Copy Bash config
+  copy:
+    src: files/.bashrc
+    dest: "{{ user_home }}/.bashrc"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: '0600'
+
+- name: Copy git config
+  copy:
+    src: templates/gitconfig.j2
+    dest: "{{ user_home }}/.gitconfig"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: '0600'
+
+- name: Copy vim directory
+  copy:
+    src: files/.vim/
+    dest: "{{ user_home }}/.vim/"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: '0750'
+    recursive: true
+

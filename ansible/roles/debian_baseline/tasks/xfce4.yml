@@ -1,0 +1,13 @@
+# Remove unnecessary and insecure packages
+- name: Remove unwanted packages
+  apt:
+    name: "{{ packages_to_remove }}"
+    state: absent
+    purge: yes
+    autoremove: yes
+    update_cache: yes
+
+- name: Ensure system is up-to-date
+  apt:
+    upgrade: dist
+    update_cache: yes
