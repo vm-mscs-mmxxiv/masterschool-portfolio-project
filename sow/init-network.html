@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Initial Suggestions - Masterschool Final Project</title>
+        <title>Network - Masterschool Final Project</title>
 
 
         <!-- Custom HTML head -->
@@ -17,7 +17,6 @@
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
-        <link rel="stylesheet" href="../css/print.css" media="print">
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
@@ -142,9 +141,6 @@
                     <h1 class="menu-title">Masterschool Final Project</h1>
 
                     <div class="right-buttons">
-                        <a href="../print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
-                        </a>
 
                     </div>
                 </div>
@@ -176,44 +172,29 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="initial-suggestions"><a class="header" href="#initial-suggestions">Initial Suggestions</a></h1>
-<p>During our discussion with highly ranked executives there were unclear areas, I assume that if I was not told about thing specifically it is not protected, documented or managed. This is a simulation and it would require a lot of time to run the Chat to properly investigate details.</p>
-<p>There is a time limit for this project. Besides even if there are arangements and it simply didn't came at the time of disscussion it still worth a while to document them anyway. After careful analysis of the requirements I came to conclusion about some aspects of the companie's structure, setup, networking. This article is my attempt to document my suggestions.</p>
-<h2 id="documentation-and-training"><a class="header" href="#documentation-and-training">Documentation and training</a></h2>
+                        <h1 id="initial-stage---network"><a class="header" href="#initial-stage---network">Initial Stage - Network</a></h1>
 <ul>
-<li>Create, update available to employees cyber security related documentation. Plan to run trainings and seminars. This documentation is separated by level of access. Not all can be available to everyone. Use this documentation as a specifications.</li>
-<li>Appoint someone withing IT Support Team to be responsible for this documentation.</li>
-<li>Ask for CFO for fundings for IT Team to create this documentation, don't forget we need to serve it from somewhere.</li>
-<li>Write playbooks to different teams. Make sure that employees know how to react to different attacks and threats. At least they shall know what not to do and who to contact for help.</li>
-<li>Start creating IaC.</li>
-<li>Inventory of office infrostructure, devices and software in use.</li>
-<li>After the Inventory is ready document attack vectors and threats.</li>
-<li>Need a proper BCP (Business Continuity Plan), BCM (Business Continuity Management), Disaster Recovery. Use NIST CSF as a guide line.</li>
-<li>Document Maintenance Schedule and Change Management Plans.</li>
-<li>Need dashboards and reporting systems for top management and for Team Leads. I suggest to develop in-house solution and make it available only through intranet. Differentiate information by role and access level. Need the system with automation. Dashboard must be available from different measurements without need for manual creation. Or use cloud solution?.</li>
+<li>Third-party cable infrastructure certification</li>
+<li>Update network topology</li>
+<li>Completed network security hardening</li>
+<li>Update  network topology documentation</li>
 </ul>
-<h2 id="risks-threats-comlyance"><a class="header" href="#risks-threats-comlyance">Risks, Threats, Comlyance</a></h2>
-<p>Below is a list of threats / suggestions that I would purpose to executives in follow up meeting. Some I would investigate by myself some probably would stay in this list.</p>
+<p><strong>1. Consideration about floor plan</strong></p>
+<p>The Company occupies ground and second floors. There is a whole floor between our flors that mean that cables can be tampered there to install taps. It is hard to protect something that you do not controll. At the moment company do not controll the whole floor between our network.</p>
+<p>Use counter measures:</p>
 <ul>
-<li>After proper Inventory is ready. Protect and mitigate.</li>
-<li>Create areas where all non-employees are allowed. Make sure that unauthorized person can access other areas in the Office.</li>
-<li>Restrict physical access to secured areas, use tamper-evident measures to inspect unauthorized access to cables. Inspect this areas for unautorized access regularly.</li>
-<li>InfoSec plans, tolerance, risk acceptance and complience</li>
-<li>Need security team SOC.</li>
-<li>Key and password escrow</li>
-<li>Email services by third party organization.</li>
-<li>Need more planning on BYOD, MDM, Cloud Services</li>
-<li>Change Advisory Board (CAB) need proper assignment</li>
+<li>Network Segmentation</li>
+<li>VPN for Inter-Floor Connectivity</li>
+<li>End-to-End Encryption (encryption for all company devices including laptops and mobile phones)</li>
+<li>Employee Training</li>
+<li>Visitor Management</li>
+<li>Regular Audits</li>
+<li>Multi-layer Security.</li>
 </ul>
-<h2 id="change-floor-plan-for-counter-measures"><a class="header" href="#change-floor-plan-for-counter-measures">Change floor, plan for counter measures,</a></h2>
-<p>There is a whole floor between our flors that mean that cables can be tampered there to install taps. It is hard to protect something that you do not controll. At the moment company do not controll the whole floor between our network.</p>
-<p>In case if it is impossible (I presume it is) to change floors, use counter measures: Network Segmentation, VPN for Inter-Floor Connectivity, End-to-End Encryption (encryption for all company devices, including laptops and mobile phones), Employee Training, Visitor Management, Regular Audits, Multi-layer Security.</p>
-<h2 id="cable-infrostructure"><a class="header" href="#cable-infrostructure">Cable Infrostructure</a></h2>
-<p>This measure is practical for the area where company controll access and can use restrictive methods to prevent tampering.<br />
-Inspecting physical cables for wiretaps and Man-in-the-Middle (MITM) attacks is a highly specialized area of security. It's often referred to as Technical Surveillance Counter-Measures (TSCM).
+<p><strong>2. Cable Infrostructure</strong></p>
+<p>Inspecting physical cables for wiretaps and Man-in-the-Middle (MITM) attacks is a highly specialized area of security. It's often referred to as Technical Surveillance Counter-Measures (TSCM).
 A proper physical inspection for taps and MITM attacks is not a DIY job. It requires a combination of strong physical security, a systematic visual inspection, and the use of professional, specialized tools like a TDR. For critical infrastructure, this is often performed by trained TSCM specialists who are experts in finding both passive and active surveillance devices.</p>
 <ul>
-<li>Are there a certificates, cable maps?</li>
 <li>All server rooms, wiring closets, and data centers should be locked and monitored.</li>
 <li>Cable Management: All cables should be organized and secured, ideally in sealed conduits or raceways. Any loose, unorganized, or unlabeled cables should be investigated. Watch for access points in common areas.</li>
 <li>Look for Tampering: Inspect all cables for any signs of tampering. This includes:
@@ -224,62 +205,38 @@ A proper physical inspection for taps and MITM attacks is not a DIY job. It requ
 </ul>
 </li>
 </ul>
-<h3 id="using-specialized-tools"><a class="header" href="#using-specialized-tools">Using Specialized Tools</a></h3>
+<p><strong>2.1 Using Specialized Tools to detect Taps</strong></p>
 <p>A simple visual inspection is often not enough, as many taps are designed to be covert. Proper inspection requires specialized equipment that can analyze the physical and electrical properties of the cable.</p>
 <ul>
 <li>Time Domain Reflectometer (TDR) to  detect physical taps.</li>
 <li>Network Testers and Certifiers.</li>
 <li>Cable Tracing and Mapping: Tools like tone generators and probes.</li>
 </ul>
-<h3 id="network-monitoring-and-analysis"><a class="header" href="#network-monitoring-and-analysis">Network Monitoring and Analysis</a></h3>
-<ul>
-<li>Packet Analysis: Network monitoring tools like Wireshark.</li>
-<li>Port Monitoring: On a managed switch, you can monitor the status of all ports. Manually shutdown all unused ports on network devices.</li>
-<li>Map and monitor Wi-Fi access points. (perhaps need more on this)</li>
-</ul>
-<h2 id="wi-fi"><a class="header" href="#wi-fi">Wi-Fi</a></h2>
+<p><strong>2.2 Wi-Fi</strong></p>
+<p>Wi-Fi is common attack vector. By the nature of wireless connection it is often possibl to gain access into cvomapnieses network without physical breach and sometimes even without having access to the building.</p>
 <ul>
 <li>Mapping of hot spots and their ACLs and autorization setups required.</li>
-<li>Check for admin access, encryption in use, network separation, passwords. Consider to update devices or change them to less restricted areas if they are outdated. Consider replacement.</li>
+<li>Check for admin access, encryption in use, network separation, passwords. Consider to update devices or change them to less restricted areas if they are outdated. Latest level of encryption suitable for comercial use is WPA3-Enterprise-192.</li>
 <li>Test / audit if someone can connect to your Wi-Fi from outside even without physical access.</li>
 </ul>
-<h2 id="infosec"><a class="header" href="#infosec">InfoSec</a></h2>
+<p><strong>3. Network Topology</strong></p>
 <ul>
-<li>Data rating</li>
-<li>Data Management.  Data in use. Data in transfer. Data at rest.</li>
-<li>Data protection
-<ul>
-<li>appoint DPO (Data Protection Offider), and other officers including: data owner, data controller, data custodian, data processor, data user.</li>
-<li>write requirements for this roles to properly assigh and manage ACLs for companie's employees</li>
+<li>Protect network physically</li>
+<li>If required update / upgrade network devices</li>
+<li>Harden network devices (password protect device, configure to close open ports)</li>
+<li>Implement proper network segmentation.</li>
 </ul>
-</li>
-<li>Physical means of data transportation. Unmanaged USB Access.</li>
-</ul>
-<h2 id="physical-department-separation"><a class="header" href="#physical-department-separation">Physical Department Separation</a></h2>
-<p>Physical separation between departments would help protect sensitive work, improve focus and reduce the risk of shoulder surfing, casual data exposure, and unauthorized listening in sensitive areas. Even low-cost modular or false walls can create visual and acoustic barriers. This will be especially important for Finance, HR, Compliance, lient-specific project teams and cybersecurity team.<br />
-Is is not clear if windows are dimmed so that it is impossible to spy on the company with optical equipement.<br />
-There is video survelance in the office. What and who can see. It is an attack vector.<br />
-Separation should not block Wi-Fi or disrupt network cabling—plan layout changes (keep infrostructure as much as possible).<br />
-Plans shoud make sure pathways and line-of-sight to emergency exits remain clear for safety compliance.</p>
-<h2 id="business-continuity"><a class="header" href="#business-continuity">Business Continuity</a></h2>
-<p>There is high demand for high business continuity for all departments. During an interview with executives they all stressed upmost importance of almost 100% availability for customers and importance to comply with regulations in regard for logging and surveilance.</p>
-<h3 id="power-supply"><a class="header" href="#power-supply">Power Supply</a></h3>
-<p>The building itself has a central generator that supports life-safety systems (emergency lighting, elevators, fire control).</p>
-<p><strong>It does not power tenant IT infrastructure.</strong> For full operational continuity, we would need either:</p>
-<ul>
-<li>A tenant-specific generator connection, or</li>
-<li>An arrangement with building management to tie our circuits into the central generator.</li>
-</ul>
+<p>For more detailed Network Topology article <a href="./sow/network_topology.html">read here</a></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../project/current/security.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../sow/init-office.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../project/network_topology.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../sow/init-data.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -289,11 +246,11 @@ Plans shoud make sure pathways and line-of-sight to emergency exits remain clear
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../project/current/security.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../sow/init-office.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../project/network_topology.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../sow/init-data.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

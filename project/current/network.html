@@ -17,7 +17,6 @@
         <link rel="stylesheet" href="../../css/variables.css">
         <link rel="stylesheet" href="../../css/general.css">
         <link rel="stylesheet" href="../../css/chrome.css">
-        <link rel="stylesheet" href="../../css/print.css" media="print">
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
@@ -142,9 +141,6 @@
                     <h1 class="menu-title">Masterschool Final Project</h1>
 
                     <div class="right-buttons">
-                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
-                        </a>
 
                     </div>
                 </div>
@@ -180,6 +176,31 @@
 <p>This document provides a summary of the current state of a company's network infrastructure, outlines the challenges, and presents a strategic roadmap for its future development. The recommendations are informed by the directives of the executive board to ensure the network becomes a scalable, secure, and strategic asset that supports our business growth.</p>
 <h2 id="current-network-architecture"><a class="header" href="#current-network-architecture">Current Network Architecture</a></h2>
 <p>Our current network setup is a blend of wired and wireless solutions designed to support on-site and remote work.</p>
+<h3 id="description-by-executives"><a class="header" href="#description-by-executives">Description by executives</a></h3>
+<p>We wouldn’t be able to give you specific brand names or model numbers — that’s something your project team will need to decide.</p>
+<ul>
+<li>
+<p><strong>Topology:</strong></p>
+<ul>
+<li>The office runs on a <strong>star topology</strong>, with a main server/network room at the center.</li>
+<li>Each floor has a wiring closet that connects employee desks (wired connections) and Wi-Fi access points back to the core switches.</li>
+<li>Remote staff connect via secure VPN into the corporate network.</li>
+</ul>
+</li>
+<li>
+<p><strong>Key Network Devices (by function, not brand):</strong></p>
+<ul>
+<li><strong>Core router/firewall</strong> at the perimeter handling internet connectivity and filtering traffic.</li>
+<li><strong>Core switches</strong> in the server room distributing network traffic across departments. (layer 3)</li>
+<li><strong>Edge switches</strong> in floor closets connecting staff devices.</li>
+<li><strong>Wireless access points (APs)</strong> providing Wi-Fi coverage in office areas, meeting rooms, and shared spaces.</li>
+<li><strong>VPN concentrator or firewall service</strong> that manages remote logins.</li>
+<li><strong>File and application servers</strong> located on-premises for business-critical apps; some workloads also run in the cloud.</li>
+<li><strong>Network monitoring tools</strong> for uptime and performance tracking.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Other network considerations:</strong></p>
 <ul>
 <li><strong>On-site Connectivity:</strong> The office network provides stable LAN and Wi-Fi access for full-time employees, part-time staff, and contractors. However, network wiring is not universal across all areas, and retrofitting may be required to ensure seamless coverage. The network must maintain segregation between secure zones, even if we're spread across multiple floors or suites.</li>
 <li><strong>Remote Access:</strong> Remote teams, including those in Financial, Sales, and IT, rely on a mix of cloud-based tools, VPNs, and video conferencing. A key challenge is maintaining consistent performance and security, as these users often connect from public or home networks with variable internet quality.</li>

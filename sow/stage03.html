@@ -1,0 +1,440 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Network - Masterschool Final Project</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href=".././theme/css/custom.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Masterschool Final Project</h1>
+
+                    <div class="right-buttons">
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="stage-3"><a class="header" href="#stage-3">Stage 3</a></h1>
+<p>There is high demand for high business continuity for all departments. During an interview with executives they all stressed upmost importance of almost 100% availability for customers and importance to comply with regulations in regard for logging and surveilance.</p>
+<p>In Stage #2 we concentrated more Govern stage of NIST CSF. In this Stage we concentrate more on techical aspects of Data Protection and segmentation. Based on data classifications suitable backup strategies shall be established.</p>
+<p>Company requires very low Recovery Time Objective. It implyes geo-diversity and Hot Sites. With budget of 50000$ per year for running the whole business I think it is not possible. Running hot site requires the same ammount of resources while essentially it is live dublication of the company infrostructure. But we can try to implement low rate for RTO and RPO.</p>
+<ul>
+<li>invest in IaC (this would help to quicly establish necessary services when they are required)</li>
+</ul>
+<h2 id="hybrid-cloud-strategy"><a class="header" href="#hybrid-cloud-strategy">Hybrid Cloud Strategy</a></h2>
+<p>A hybrid cloud approach, where your primary services and data remain on-premises and a public cloud is used for specific functions like backups, can be a highly effective strategy for a company with a strong upfront capital expenditure (CapEx) budget and a desire to minimize long-term operational costs (OpEx).</p>
+<p><strong>1. Reduced Upfront Costs:</strong> A full-scale cloud migration is a massive project with high initial costs for re-platforming, training, and data transfer. By keeping the core business on-premises, your upfront <code>CapEx</code> is spent on hardware you own, which can feel like a better use of the initial $150-200K budget than paying for a complex migration.</p>
+<p><strong>2. Long-Term Cost Control:</strong></p>
+<ul>
+<li><strong>Controlled OpEx:</strong> By limiting your cloud usage to a few services, you have a more predictable and often lower monthly cloud bill. You avoid the high and potentially unpredictable costs associated with compute, data egress, and network traffic for your primary applications.</li>
+<li><strong>Asset Utilization:</strong> You can leverage your existing hardware and systems, maximizing the value of assets you already own. This makes the $150-200K go further in acquiring new hardware that will last for years.</li>
+</ul>
+<p><strong>3. Compliance Advantages:</strong></p>
+<ul>
+<li><strong>Data Sovereignty:</strong> Keeping highly sensitive data (like HIPAA or PCI-DSS data) on-premises can simplify compliance, as you have physical control over the environment. You are only responsible for the parts of the cloud where you store backups, which can make the compliance scope for external audits much smaller and more manageable.</li>
+<li><strong>Reduced Scope:</strong> Using the cloud only for backups and disaster recovery significantly reduces the scope of your compliance audits. The number of cloud services and the amount of data in the cloud's Cardholder Data Environment (CDE) is minimized.</li>
+</ul>
+<h3 id="the-trade-offs-to-consider"><a class="header" href="#the-trade-offs-to-consider">The Trade-offs to Consider</a></h3>
+<p>While this is a strong strategy, it is not without its challenges:</p>
+<ul>
+<li><strong>Initial Investment Risk:</strong> Your upfront investment of $150-200K is a sunk cost in hardware that will depreciate over time and require a refresh in a few years.</li>
+<li><strong>Complexity:</strong> Managing a hybrid environment is inherently more complex than managing a purely cloud-based or on-premises environment. You need expertise in both to handle network connectivity, security policies, and data synchronization between the two environments.</li>
+<li><strong>Scaling and Innovation:</strong> While a hybrid model can save money on day-to-day operations, it can limit the ability to quickly scale up and down in response to demand. You may also miss out on cloud-native services like AI, machine learning, and advanced analytics that could provide a competitive edge.</li>
+</ul>
+<hr />
+<p>Public Data</p>
+<ul>
+<li>public website</li>
+<li>some customer support questions</li>
+</ul>
+<p>Data at rest</p>
+<ul>
+<li>encrypt and store</li>
+<li>backup services</li>
+</ul>
+<p>Finantial Data</p>
+<p>For Finantial Data especially for payment data I would suggest to use tokenezation it would help significantly reduce audit scope (Level 4 vs Level 1 compliance) and help to manage PCI-DSS Data easier.</p>
+<ul>
+<li>Need a proper BCP (Business Continuity Plan), BCM (Business Continuity Management), Disaster Recovery. Use NIST CSF as a guide line.</li>
+<li>Document Maintenance Schedule and Change Management Plans.</li>
+<li>Need dashboards and reporting systems for top management and for Team Leads. I suggest to develop in-house solution and make it available only through intranet. Differentiate information by role and access level. Need the system with automation. Dashboard must be available from different measurements without need for manual creation. Or use cloud solution?.</li>
+</ul>
+<p>Here are the key restrictions and impacts per framework for data management and network:</p>
+<h2 id="gdpr-eu-data-protection"><a class="header" href="#gdpr-eu-data-protection"><strong>GDPR (EU Data Protection)</strong></a></h2>
+<p><strong>Data Management:</strong></p>
+<ul>
+<li><strong>Data residency</strong>: EU data must remain in EU or countries with adequacy decisions</li>
+<li><strong>Data minimization</strong>: Only collect/store necessary data</li>
+<li><strong>Retention limits</strong>: Delete data when no longer needed (varies by purpose)</li>
+<li><strong>Subject rights</strong>: Systems must support data export, deletion, correction</li>
+<li><strong>Legal basis</strong>: Document why you're processing each data type</li>
+</ul>
+<p><strong>Network:</strong></p>
+<ul>
+<li><strong>Encryption in transit/rest</strong> required for personal data</li>
+<li><strong>Access controls</strong>: Role-based access with audit trails</li>
+<li><strong>Breach notification</strong>: 72-hour reporting requirement</li>
+<li><strong>DPO requirement</strong> for large-scale processing</li>
+</ul>
+<p><strong>Impact Estimate</strong>: <strong>Medium-High</strong> - Significant architectural changes for data handling</p>
+<hr />
+<h2 id="pci-dss-payment-card-industry"><a class="header" href="#pci-dss-payment-card-industry"><strong>PCI-DSS (Payment Card Industry)</strong></a></h2>
+<p><strong>Data Management:</strong></p>
+<ul>
+<li><strong>Never store</strong>: CVV, PINs, magnetic stripe data</li>
+<li><strong>Tokenization</strong>: Replace card data with tokens</li>
+<li><strong>Data retention</strong>: Minimize cardholder data storage</li>
+<li><strong>Secure deletion</strong>: Cryptographic erasure when data no longer needed</li>
+</ul>
+<p><strong>Network:</strong></p>
+<ul>
+<li><strong>Network segmentation</strong>: Isolate card data environment (CDE)</li>
+<li><strong>Firewall rules</strong>: Restrict access to CDE</li>
+<li><strong>Encryption</strong>: All card data transmissions</li>
+<li><strong>Regular penetration testing</strong> and vulnerability scans</li>
+</ul>
+<p><strong>Impact Estimate</strong>: <strong>High</strong> - Requires complete network redesign if storing card data, <strong>Low</strong> if using tokenization</p>
+<hr />
+<h2 id="hipaa-like-healthcare-data"><a class="header" href="#hipaa-like-healthcare-data"><strong>HIPAA-like (Healthcare Data)</strong></a></h2>
+<p><strong>Data Management:</strong></p>
+<ul>
+<li><strong>PHI encryption</strong>: All protected health information encrypted</li>
+<li><strong>Access controls</strong>: Minimum necessary access principle</li>
+<li><strong>Audit logs</strong>: Track all PHI access and modifications</li>
+<li><strong>Data backup</strong>: Secure, encrypted backups required</li>
+</ul>
+<p><strong>Network:</strong></p>
+<ul>
+<li><strong>Network isolation</strong>: Separate PHI systems from general network</li>
+<li><strong>VPN requirements</strong>: Secure remote access only</li>
+<li><strong>Transmission encryption</strong>: End-to-end encryption for PHI</li>
+<li><strong>Workstation controls</strong>: Automatic logoff, screen locks</li>
+</ul>
+<p><strong>Impact Estimate</strong>: <strong>High</strong> - Extensive security controls and network isolation required</p>
+<hr />
+<h2 id="iso-27001-information-security"><a class="header" href="#iso-27001-information-security"><strong>ISO 27001 (Information Security)</strong></a></h2>
+<p><strong>Data Management:</strong></p>
+<ul>
+<li><strong>Information classification</strong>: Categorize all data by sensitivity</li>
+<li><strong>Asset inventory</strong>: Complete inventory of all information assets</li>
+<li><strong>Access management</strong>: Formal user access provisioning/deprovisioning</li>
+<li><strong>Change management</strong>: Controlled changes to information systems</li>
+</ul>
+<p><strong>Network:</strong></p>
+<ul>
+<li><strong>Network access control</strong>: 802.1X authentication</li>
+<li><strong>Network monitoring</strong>: SIEM implementation</li>
+<li><strong>Incident response</strong>: Formal incident management procedures</li>
+<li><strong>Business continuity</strong>: Disaster recovery and backup procedures</li>
+</ul>
+<p><strong>Impact Estimate</strong>: <strong>Medium</strong> - Framework-based approach, systematic but not prescriptive</p>
+<hr />
+<h2 id="combined-impact-assessment"><a class="header" href="#combined-impact-assessment"><strong>Combined Impact Assessment</strong></a></h2>
+<p><strong>Data Architecture Changes:</strong></p>
+<ul>
+<li><strong>High impact</strong>: Multiple data classification systems needed</li>
+<li><strong>Separate environments</strong>: GDPR (EU), PCI (tokenized), HIPAA (isolated), ISO (classified)</li>
+<li><strong>Complex access controls</strong>: Role-based with framework-specific requirements</li>
+</ul>
+<p><strong>Network Architecture Changes:</strong></p>
+<ul>
+<li><strong>Network segmentation</strong>: 3-4 separate security zones minimum</li>
+<li><strong>Multiple compliance monitoring</strong>: Different logging/monitoring per framework</li>
+<li><strong>Enhanced encryption</strong>: End-to-end encryption across all systems</li>
+<li><strong>Redundant controls</strong>: Overlapping security measures</li>
+</ul>
+<p><strong>Operational Overhead:</strong></p>
+<ul>
+<li><strong>Multiple audits</strong>: 2-4 annual compliance audits</li>
+<li><strong>Documentation burden</strong>: Extensive policy and procedure documentation</li>
+<li><strong>Staff training</strong>: Framework-specific training requirements</li>
+<li><strong>Technology costs</strong>: Specialized compliance tools and systems</li>
+</ul>
+<p><strong>Overall Project Impact</strong>: <strong>Very High</strong> - Multi-framework compliance typically doubles infrastructure complexity and ongoing operational costs.</p>
+<h2 id="hipaa"><a class="header" href="#hipaa">HIPAA</a></h2>
+<p>There are very specific and demanding requirements for storing data protected under the Health Insurance Portability and Accountability Act (HIPAA), known as Protected Health Information (PHI).</p>
+<p>The core principle is not just encryption; it is a comprehensive system of administrative, physical, and technical safeguards.</p>
+<h3 id="can-you-store-encrypted-data-in-the-cloud"><a class="header" href="#can-you-store-encrypted-data-in-the-cloud">Can You Store Encrypted Data in the Cloud?</a></h3>
+<p><strong>Yes, you can, but with a critical and non-negotiable legal requirement:</strong></p>
+<p>A covered entity (e.g., a hospital or health plan) or a business associate (e.g., a company that handles data on behalf of a covered entity) is responsible for the integrity of PHI. If you use a third-party cloud service to store, transmit, or process PHI, you must have a <strong>Business Associate Agreement (BAA)</strong> signed with the cloud provider.</p>
+<p>The BAA is a legal contract that obligates the cloud provider to implement and maintain the necessary safeguards to protect PHI. Without a BAA, you are in violation of HIPAA, regardless of whether the data is encrypted.</p>
+<p>The act of the cloud provider holding your encrypted data, even without the encryption key, makes them a business associate under HIPAA.</p>
+<h3 id="specific-demands-for-storing-hipaa-data"><a class="header" href="#specific-demands-for-storing-hipaa-data">Specific Demands for Storing HIPAA Data</a></h3>
+<p>HIPAA doesn't dictate a specific type of encryption or technology, but it requires that the safeguards are "reasonable and appropriate." Here are the key demands:</p>
+<ul>
+<li><strong>Encryption at Rest and in Transit:</strong> This is a key technical safeguard. All PHI must be encrypted when it is stored on a disk (<code>at rest</code>) and when it is being moved between systems (<code>in transit</code>). Common standards like AES 256-bit encryption for data at rest and TLS 1.2+ for data in transit are widely accepted.</li>
+<li><strong>Business Associate Agreement (BAA):</strong> As mentioned, this legal contract is mandatory with any cloud service provider that handles PHI. Major providers like Amazon (AWS), Azure, and Google Cloud offer BAAs for their HIPAA-eligible services.</li>
+<li><strong>Access Control:</strong> You must have systems in place to limit who can access the data, based on their role. This includes strong authentication (MFA is a best practice) and detailed access logs that can be audited.</li>
+<li><strong>Audit Logs:</strong> You must log and monitor all access to PHI. These logs must be kept for a minimum of six years and be available for review during a HIPAA audit.</li>
+<li><strong>Physical Safeguards:</strong> The data centers where the data is stored must have physical security measures in place to prevent unauthorized access.</li>
+<li><strong>Risk Analysis and Management:</strong> A company must conduct regular risk analyses to identify potential vulnerabilities to PHI and have a plan to mitigate them.</li>
+<li><strong>Shared Responsibility:</strong> The cloud providers will protect the underlying infrastructure, but you are still responsible for properly configuring your applications, networks, and access controls to ensure your data is secure.</li>
+</ul>
+<h2 id="gdpr"><a class="header" href="#gdpr">GDPR</a></h2>
+<p>While similar in its focus on data protection, the General Data Protection Regulation (GDPR) has a different approach from HIPAA, with a broader scope and a focus on accountability and user rights.</p>
+<h3 id="can-you-store-encrypted-data-on-any-cloud"><a class="header" href="#can-you-store-encrypted-data-on-any-cloud">Can You Store Encrypted Data on Any Cloud?</a></h3>
+<p><strong>Yes, but not without meeting several other legal and technical requirements.</strong></p>
+<p>Unlike HIPAA's strict Business Associate Agreement (BAA) requirement, GDPR focuses on a relationship between a <strong>Data Controller</strong> (the company that determines why and how data is processed) and a <strong>Data Processor</strong> (the cloud provider that processes data on behalf of the controller).</p>
+<p>When you use a cloud provider, you must have a contract in place that outlines their obligations to process personal data securely and only on your instructions. This is often called a <strong>Data Processing Agreement (DPA)</strong>. All major cloud providers offer these standard agreements.</p>
+<p>Encryption is not a get-out-of-jail-free card. The data, even if encrypted, is still considered "personal data" if it can be used to identify a person. The cloud provider's role as a processor is what triggers GDPR's requirements.</p>
+<h3 id="specific-demands-for-storing-gdpr-data"><a class="header" href="#specific-demands-for-storing-gdpr-data">Specific Demands for Storing GDPR Data</a></h3>
+<p>GDPR is principles-based rather than prescriptive, but it explicitly mentions encryption as a key technical measure.</p>
+<ul>
+<li><strong>Lawful Basis for Processing:</strong> You must have a legal reason for collecting and processing personal data (e.g., user consent, a contract, or a legitimate interest).</li>
+<li><strong>Data Processing Agreement (DPA):</strong> As the Data Controller, you must have a contract with your cloud provider (the Data Processor) that holds them accountable for following your instructions and meeting GDPR's security standards.</li>
+<li><strong>Privacy by Design and Default:</strong> You must bake privacy and data protection into the very design of your systems and business processes from the start. This includes using measures like:
+<ul>
+<li><strong>Encryption:</strong> The GDPR mentions encryption as a recommended measure to protect data both at rest and in transit. While not always mandatory, it is often considered a "state-of-the-art" security practice.</li>
+<li><strong>Pseudonymisation:</strong> A technique that replaces personally identifiable information with a pseudonym to make it harder to identify the data subject.</li>
+<li><strong>Data Minimisation:</strong> You should only collect and store the personal data that is absolutely necessary for your purpose.</li>
+</ul>
+</li>
+<li><strong>Data Sovereignty:</strong> This is a crucial element. The GDPR applies to the personal data of EU residents, regardless of where the data is stored. If you store data outside of the EU, you must ensure it is transferred legally and with appropriate safeguards, such as:
+<ul>
+<li><strong>Standard Contractual Clauses (SCCs):</strong> Pre-approved contract clauses that ensure data transferred to non-EU countries is protected to EU standards.</li>
+<li><strong>Binding Corporate Rules (BCRs):</strong> An internal code of conduct for multinational companies that want to transfer data between their own entities globally.</li>
+</ul>
+</li>
+<li><strong>Breach Notification:</strong> If a data breach occurs, you are required to report it to the relevant data protection authority within 72 hours, and to affected individuals without undue delay if the breach poses a high risk to their rights. However, if the data was encrypted to an appropriate standard and the encryption key was not compromised, you may not have to notify the individuals.</li>
+</ul>
+<p>In short, while encryption is a powerful tool to protect data under GDPR, it is just one component of a much larger set of legal and technical obligations that a company must follow.o</p>
+<h2 id="pci-dss"><a class="header" href="#pci-dss">PCI-DSS</a></h2>
+<p>The Payment Card Industry Data Security Standard (PCI-DSS) is far more prescriptive than either HIPAA or GDPR. It's not a law, but a set of security standards mandated by the major credit card brands (Visa, Mastercard, etc.). Any company that accepts, processes, or stores payment card data must comply.</p>
+<p>The central concept in PCI-DSS is the <strong>Cardholder Data Environment (CDE)</strong>, which includes all systems and networks that store, process, or transmit cardholder data. The standard requires that you protect this environment, and any data within it, regardless of where it is stored.</p>
+<h3 id="can-you-store-encrypted-data-in-the-cloud-1"><a class="header" href="#can-you-store-encrypted-data-in-the-cloud-1">Can You Store Encrypted Data in the Cloud?</a></h3>
+<p><strong>Yes, you can, but the cloud provider and the services you use must be part of your overall PCI-DSS compliance scope.</strong></p>
+<p>Unlike HIPAA's BAA, a cloud provider's PCI compliance is a matter of an <strong>Attestation of Compliance (AOC)</strong>. You are ultimately responsible for ensuring your entire CDE is compliant, and that includes any third-party services you use. This is known as a shared responsibility model.</p>
+<p>Your company would need to:</p>
+<ol>
+<li>Verify that the cloud provider (Amazon, Azure, or Google) has a current AOC as a Level 1 service provider. All major cloud providers do.</li>
+<li>Use only the cloud services that are included in the provider's AOC.</li>
+<li>Implement your own security controls (e.g., firewall rules, access controls, encryption key management) to protect your data, as the cloud provider only secures their underlying infrastructure.</li>
+</ol>
+<h3 id="specific-demands-for-storing-pci-dss-data"><a class="header" href="#specific-demands-for-storing-pci-dss-data">Specific Demands for Storing PCI-DSS Data</a></h3>
+<p>The PCI-DSS has 12 requirements. Here are the most relevant to your question about storage:</p>
+<ul>
+<li><strong>Protect Stored Cardholder Data (Requirement 3):</strong> This is the most critical requirement for your use case. It mandates that you must render the Primary Account Number (PAN) unreadable wherever it is stored. You can do this using:
+<ul>
+<li><strong>Encryption:</strong> Using strong, industry-accepted algorithms (like AES-256).</li>
+<li><strong>Tokenization:</strong> Replacing the PAN with a non-sensitive token.</li>
+<li><strong>Truncation:</strong> Storing only a portion of the PAN (e.g., the last four digits).</li>
+<li><strong>Hashing:</strong> A one-way cryptographic process that renders data unreadable.</li>
+</ul>
+</li>
+<li><strong>Encrypt Transmission of Cardholder Data (Requirement 4):</strong> All cardholder data that is sent across open, public networks (like the internet) must be encrypted using strong cryptography (e.g., TLS 1.2 or higher). This applies to data in motion, regardless of its final destination.</li>
+<li><strong>Strong Key Management:</strong> If you use encryption, you must have a robust system for managing encryption keys, including generating, storing, and rotating them. You cannot store the key on the same server as the encrypted data.</li>
+<li><strong>Data Minimization:</strong> You must not store sensitive authentication data (e.g., the CVV2 code, full magnetic stripe data, or PIN block) after a transaction is authorized. Additionally, you should only store cardholder data for a legitimate business purpose and for as short a time as possible.</li>
+<li><strong>Access Controls (Requirement 7):</strong> Access to cardholder data must be restricted on a "need-to-know" basis. Your system must log all access and all activities of those with administrative or root privileges.</li>
+</ul>
+<p>In essence, with PCI-DSS, storing encrypted data in the cloud is permissible, but it's only one piece of a much larger, highly regulated puzzle. Your company remains fully accountable for compliance, even when using a third-party cloud provider.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../sow/stage02.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../sow/network_topology.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../sow/stage02.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../sow/network_topology.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

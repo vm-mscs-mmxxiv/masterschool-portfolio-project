@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Alpine Linux Setup - Masterschool Final Project</title>
+        <title>Data - Masterschool Final Project</title>
 
 
         <!-- Custom HTML head -->
@@ -172,32 +172,91 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="alpine"><a class="header" href="#alpine">Alpine</a></h1>
-<h2 id="download"><a class="header" href="#download">Download</a></h2>
-<p>Alpine Linus download page: https://alpinelinux.org/downloads/<br />
-For Apple OS aarch64 is required download (names are shown for Alpine Linux used at the time):</p>
+                        <h1 id="stage-2"><a class="header" href="#stage-2">Stage 2</a></h1>
+<p>Timeline/Schedule: 2-3 days.</p>
+<ol>
+<li>Introduction/Background - Context and purpose</li>
+<li>Scope of Work - What will and won't be included</li>
+<li>Tasks/Deliverables - Specific work activities and outcomes</li>
+<li>Timeline/Schedule - Project phases and milestones</li>
+<li>Performance Standards - Quality and acceptance criteria</li>
+<li>Reporting Requirements - Status updates and documentation</li>
+<li>Resources/Responsibilities - Who provides what</li>
+<li>Terms and Conditions - Legal and contractual aspects</li>
+</ol>
+<p>Stage 2 focuses on comprehensive network inspection and security hardening. Cable infrastructure assessment will require third-party contractor expertise to ensure proper installation and security compliance. Upon completion of this stage, the office network topology must be fully operational and documented.</p>
+<p>Data segmentation protocols and secure data handling procedures shall be established during this phase, with major data management roles formally assigned to appropriate personnel. The Security Operations Center (SOC) must be fully operational by the end of this stage, and all end-host machines must be configured and ready for production use.</p>
+<h2 id="scope-of-work"><a class="header" href="#scope-of-work">Scope of Work</a></h2>
+<p><strong>Data Management</strong></p>
 <ul>
-<li>alpine-standard-3.22.1-aarch64.iso</li>
-<li>alpine-standard-3.22.1-aarch64.iso.asc</li>
-<li>alpine-standard-3.22.1-aarch64.iso.sha256</li>
+<li>Established secure data management procedures</li>
+<li>Assigned data management roles and responsibilities</li>
+<li>Implemented data segmentation controls</li>
 </ul>
-<h3 id="check-dowhloaded-image-integrity"><a class="header" href="#check-dowhloaded-image-integrity">Check dowhloaded Image Integrity</a></h3>
-<p>Use gpg to verify signature of ISO Image<br />
-Check if the key is in your GPG Keyring: <code>gpg -k</code> if it is you shall see:</p>
-<pre><code class="language-bash"> 0482D84022F52DF1C4E7CD43293ACD0907D9495A
-uid           [ultimate] Natanael Copa &lt;ncopa@alpinelinux.org&gt;
-</code></pre>
-<p>`gpg --verify alpine-standard-3.22.1-aarch64.iso.asc alpine-standard-3.22.1-aarch64.iso</p>
+<p><strong>Network</strong></p>
+<ul>
+<li>Third-party cable infrastructure certification</li>
+<li>Update network topology</li>
+<li>Completed network security hardening</li>
+<li>Update  network topology documentation</li>
+</ul>
+<p><strong>End-hosts</strong></p>
+<ul>
+<li>Production-ready end-host systems, prioritize departments that operate with sensitive data and are commonly in use</li>
+<li>Implement IaC (keep in mind that company will grow)</li>
+</ul>
+<p><strong>Cybersecurity Operations</strong></p>
+<ul>
+<li>Fully operational SOC</li>
+</ul>
+<hr />
+<ul>
+<li>understand Data in the company, levels and specification</li>
+<li>Data, Owner, Processor, Custodians. Data handling.</li>
+<li>Data segmentation</li>
+<li>third party physical ispection of the cables for tapping</li>
+<li>deeper inspection and hardening of key network devices</li>
+<li>build network topology</li>
+<li>implement SOC Center, configure servers for logs and etc.</li>
+<li>update isntall configure end hosts according to their roles, prioritize these in departments that operate with sensitive data and are commonly in use.</li>
+<li>Contimue with host hardening. make sure that uprotected hosts are not connected to lan</li>
+</ul>
+<h2 id="tasksdeliverables"><a class="header" href="#tasksdeliverables">Tasks/Deliverables</a></h2>
+<p><strong>1. Data Management</strong></p>
+<p>The company provides data-driven services and maintains critical concerns regarding information protection. Data management represents a fundamental priority requiring comprehensive strategic planning and implementation.</p>
+<p>During this stage, optimal strategies for data processing, transfer, and protection must be established. The primary focus addresses essential questions of data stewardship: who has access, what data requires protection, and how data flows through organizational systems. A comprehensive data management baseline must be documented to provide the foundation for network topology design and role-based access configuration on end-host systems.</p>
+<p><strong>Stage Objectives:</strong></p>
+<ul>
+<li>Implement Data Assets Inventory (levels of sensibility, geo-diversity, network segmentation)</li>
+<li>Implement Data Rating</li>
+<li>Assign Data Protection Officer (DPO)</li>
+<li>Data Protection Impact Assessments (DPIA) for high-risk processing</li>
+<li>Vendor/processor agreements required</li>
+<li>Assigned data management roles and responsibilities</li>
+<li>Establish procedures and implemented data segmentation controls</li>
+<li>Establish data processing and transfer protocols</li>
+<li>Define data protection strategies and classification levels</li>
+<li>Document data access controls and user permissions</li>
+<li>Create data management baseline requirements</li>
+<li>Established secure data management procedures</li>
+<li>Data protection and encryption</li>
+<li>Support network topology and role configuration planning</li>
+<li>Implement records of processing activities (logging)</li>
+<li>Plan for internal and external audit</li>
+<li>Create user / employee training sessions</li>
+</ul>
+<p><strong>Future Implementation:</strong></p>
+<p>Subsequent stages will implement data backup solutions and cloud-based processing capabilities, utilizing the established baselines and procedures to address advanced data management requirements and ensure comprehensive data governance.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../setup/setup.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../sow/set-device.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../setup/debian.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../sow/stage03.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -207,11 +266,11 @@ uid           [ultimate] Natanael Copa &lt;ncopa@alpinelinux.org&gt;
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../setup/setup.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../sow/set-device.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../setup/debian.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../sow/stage03.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

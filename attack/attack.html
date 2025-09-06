@@ -17,7 +17,6 @@
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
-        <link rel="stylesheet" href="../css/print.css" media="print">
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
@@ -142,9 +141,6 @@
                     <h1 class="menu-title">Masterschool Final Project</h1>
 
                     <div class="right-buttons">
-                        <a href="../print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
-                        </a>
 
                     </div>
                 </div>
@@ -182,6 +178,11 @@
 <li><strong>Realistic</strong> — something you might see in a real network.</li>
 <li><strong>Resource-friendly</strong> — doable on your hardware.</li>
 <li><strong>Incremental</strong> — start simple, grow complexity later.</li>
+</ul>
+<p>This is giving me the sence, that the whole Lab is about two major things</p>
+<ul>
+<li>testing the network (firewalls, segmentation, key servers)</li>
+<li>testing key network devices and hosts hardening, detecting and reporting</li>
 </ul>
 <hr />
 <h2 id="phase-1--network--segmentation-testing-foundations"><a class="header" href="#phase-1--network--segmentation-testing-foundations"><strong>Phase 1 – Network &amp; Segmentation Testing (Foundations)</strong></a></h2>
@@ -277,6 +278,103 @@
 <li>Only move to Phase 3 and 4 once you’re comfortable spotting attacks in logs.</li>
 </ul>
 <hr />
+<h2 id="router-on-the-stick"><a class="header" href="#router-on-the-stick">Router-on-the-Stick</a></h2>
+<p>That's an excellent observation and a perfect description of a common and effective network design in a real office. You are absolutely correct.</p>
+<h3 id="the-real-world-office-setup"><a class="header" href="#the-real-world-office-setup"><strong>The Real-World Office Setup</strong></a></h3>
+<p>In a typical office, the setup looks like this:</p>
+<ol>
+<li><strong>Router:</strong> The router has a single physical interface connected to a core switch.</li>
+<li><strong>Core Switch:</strong> This switch is a "smart" or "managed" switch, capable of understanding VLANs (Virtual LANs).</li>
+<li><strong>VLANs on the Switch:</strong> On this single physical connection from the router, the switch is configured with multiple VLANs. Each VLAN is assigned a unique ID (e.g., VLAN 10, VLAN 20) and a corresponding IP subnet (e.g., <code>192.168.10.0/24</code> for VLAN 10, <code>192.168.20.0/24</code> for VLAN 20).</li>
+<li><strong>Trunk Port:</strong> The single port on the switch connected to the router is a "trunk port." This port is configured to carry traffic for all VLANs, and it adds a special header (an 802.1Q tag) to each packet to identify which VLAN it belongs to.</li>
+<li><strong>Router's Sub-interfaces:</strong> On the router's side, its single physical interface is configured with multiple "sub-interfaces," one for each VLAN. The router can then route traffic between the different VLANs. This is called <strong>Router-on-a-Stick</strong>.</li>
+</ol>
+<p>This design is efficient because you don't need a separate physical cable and router interface for every VLAN, which saves on hardware and complexity.</p>
+<h3 id="what-you-can-do-in-your-lab-to-emulate-this"><a class="header" href="#what-you-can-do-in-your-lab-to-emulate-this"><strong>What You Can Do in Your Lab to Emulate This</strong></a></h3>
+<p>You can absolutely emulate this exact setup in your QEMU lab. This is a much more realistic and advanced approach than just using a separate virtual network for each VLAN.</p>
+<p>Here's a step-by-step plan for your lab:</p>
+<p><strong>Step 1: The Core Switch VM (The VLAN-Aware Device)</strong></p>
+<p>Instead of just using a standard Linux bridge on your host, you can create a dedicated VM to act as your core, VLAN-aware switch.</p>
+<ul>
+<li><strong>Create a Linux VM (e.g., Alpine or Debian):</strong> This VM will act as your "smart switch."</li>
+<li><strong>Configure It with a Linux Bridge:</strong> Inside this VM, you will set up a Linux bridge (<code>br0</code>) and add all of its network interfaces to it.</li>
+<li><strong>Enable VLAN Filtering:</strong> You'll enable VLAN filtering on the bridge, which allows it to understand and forward traffic based on VLAN tags.</li>
+</ul>
+<p><strong>Step 2: Connect the Router VM</strong></p>
+<ul>
+<li>Your Alpine Linux Router VM will have one physical network interface that connects to this new "Core Switch" VM.</li>
+<li>On the router VM, you'll configure <strong>sub-interfaces</strong> for each VLAN. For example, using the <code>ip</code> command, you would create something like <code>eth1.10</code> and <code>eth1.20</code>.</li>
+<li>You will then assign the CIDR addresses to each sub-interface (e.g., <code>ip addr add 192.168.10.1/24 dev eth1.10</code>).</li>
+</ul>
+<p><strong>Step 3: Connect the Host VMs</strong></p>
+<ul>
+<li>Each of your other host VMs (the workstations, servers, etc.) will have a single network interface.</li>
+<li>This interface will connect to the "Core Switch" VM.</li>
+<li>Crucially, inside each host VM, you will configure a VLAN-aware sub-interface. For example, a VM for VLAN 10 would have its network interface configured with a VLAN tag of <code>10</code>.</li>
+</ul>
+<p>This approach provides a fantastic hands-on experience with VLANs and router-on-a-stick, all within your isolated lab.</p>
+<h3 id="the-big-picture-of-your-labs-design"><a class="header" href="#the-big-picture-of-your-labs-design"><strong>The Big Picture of Your Lab's Design</strong></a></h3>
+<p>Your final lab topology would look something like this:</p>
+<ol>
+<li><strong>QEMU Host Machine:</strong> You create the virtual networks that connect your VMs.</li>
+<li><strong>Alpine Router VM:</strong> This VM has a WAN interface (to the internet) and a LAN interface that connects to the "Core Switch" VM.</li>
+<li><strong>Alpine Core Switch VM:</strong> This is your central hub. It accepts connections from the router and all the other VMs. It's the brains that handles the VLAN tagging.</li>
+<li><strong>Other Host VMs:</strong> These are your workstations, servers, etc. They are simply configured to be members of a specific VLAN, and they connect to the core switch.</li>
+</ol>
+<h2 id="vpn-between-networks"><a class="header" href="#vpn-between-networks">VPN between networks</a></h2>
+<p>You've brought up two of the most critical and challenging aspects of network security: <strong>resource constraints</strong> and <strong>securing internal traffic</strong>. You are absolutely right—this adds a significant layer of complexity, but it's exactly what makes for a valuable and realistic lab.</p>
+<p>Let's address both of your concerns with a strategic approach that works within your hardware limitations.</p>
+<h3 id="addressing-resource-constraints"><a class="header" href="#addressing-resource-constraints"><strong>Addressing Resource Constraints</strong></a></h3>
+<p>Since you can't run many VMs, the best approach is to make each VM serve multiple roles.</p>
+<ul>
+<li><strong>Router &amp; Core Switch in One:</strong> Instead of a separate router VM and a core switch VM, you can combine these roles into a single, powerful Alpine Linux VM. This VM will still have the three network interfaces (WAN, Floor 1 LAN, Floor 2 LAN), but you'll use its internal capabilities to handle both the routing <strong>and</strong> the VLANs.</li>
+<li><strong>Minimalist Guest VMs:</strong> For your host machines on each floor, use the most minimal Linux distribution possible (like Alpine) and run them "headless" (without a graphical user interface). This will keep their RAM and CPU usage to an absolute minimum.</li>
+<li><strong>Simulate, Don't Replicate:</strong> You don't need dozens of machines. A simple setup of <strong>one router VM</strong>, <strong>one host on Floor 1</strong>, and <strong>one host on Floor 2</strong> is enough to demonstrate a MiTM attack and test your security solutions. You can scale it up later if resources allow.</li>
+</ul>
+<h3 id="the-mitm-attack-and-encrypting-inter-floor-traffic"><a class="header" href="#the-mitm-attack-and-encrypting-inter-floor-traffic"><strong>The MITM Attack and Encrypting Inter-Floor Traffic</strong></a></h3>
+<p>You are correct that traffic between the floors is a significant security concern. An attacker who gains a foothold on one floor could potentially snoop on or modify traffic to the other. Encrypting this traffic is the gold standard for protection.</p>
+<h4 id="the-best-option-vpn-tunneling"><a class="header" href="#the-best-option-vpn-tunneling"><strong>The Best Option: VPN Tunneling</strong></a></h4>
+<p>A <strong>Virtual Private Network (VPN)</strong> tunnel is the most traditional and effective way to encrypt traffic between two separate networks over an insecure medium.</p>
+<p><strong>How to Implement This in Your Lab:</strong></p>
+<p>You have two main options, and you can test both in your lab to see the difference. The most efficient option is to set up a site-to-site VPN.</p>
+<ol>
+<li>
+<p><strong>Site-to-Site VPN (The Best and Most Realistic Option):</strong></p>
+<ul>
+<li>In your single router/switch VM, you will act as a VPN gateway.</li>
+<li>You will configure a <strong>VPN server</strong> that listens for connections on one network interface (e.g., the one for Floor 1) and a <strong>VPN client</strong> on another interface (e.g., the one for Floor 2).</li>
+<li>When traffic needs to go from Floor 1 to Floor 2, the router VM will automatically encrypt it, send it through the tunnel, and then decrypt it on the other side.</li>
+<li>This setup is highly realistic for a large enterprise where two separate physical networks need to securely communicate.</li>
+</ul>
+</li>
+<li>
+<p><strong>Host-to-Host VPN (A More Complex Option):</strong></p>
+<ul>
+<li>You could also have the two host VMs themselves establish a VPN tunnel between each other, without the router handling the encryption.</li>
+<li>This is less common for a full "site-to-site" connection but is perfect for demonstrating a specific secure connection between two endpoints.</li>
+</ul>
+</li>
+</ol>
+<h4 id="why-vpns-add-complexity-but-are-worth-it"><a class="header" href="#why-vpns-add-complexity-but-are-worth-it"><strong>Why VPNs Add Complexity (But Are Worth It)</strong></a></h4>
+<p>You're right, this adds complexity. You will need to:</p>
+<ul>
+<li><strong>Choose a VPN Protocol:</strong> The most common are OpenVPN and WireGuard. WireGuard is an excellent choice for a lab due to its simplicity and high performance.</li>
+<li><strong>Generate Keys/Certificates:</strong> You need a way to authenticate the two sides of the tunnel.</li>
+<li><strong>Configure Routing:</strong> You need to ensure the router knows that traffic for the "other" floor should be sent through the VPN tunnel and not a standard route.</li>
+<li><strong>Firewall Rules:</strong> Your firewall must be configured to allow the VPN traffic through.</li>
+</ul>
+<h3 id="simulating-the-mitm-attack"><a class="header" href="#simulating-the-mitm-attack"><strong>Simulating the MiTM Attack</strong></a></h3>
+<p>With your lab set up, you can now simulate the MiTM attack.</p>
+<ul>
+<li><strong>The Attacker Machine:</strong> You can use a third, very lightweight VM (e.g., Kali Linux or another Alpine VM with the right tools) and place it on one of the floor networks.</li>
+<li><strong>The Attack:</strong> You will use tools like <code>arpspoof</code> to perform an ARP spoofing attack. This will trick the other VMs on that network into thinking the attacker machine is the router, so all their traffic is sent to you first.</li>
+<li><strong>The Test:</strong>
+<ul>
+<li><strong>Without Encryption:</strong> You will use a tool like <code>tcpdump</code> or Wireshark on the attacker machine to see all the traffic passing in plaintext. This will demonstrate the success of the MiTM attack.</li>
+<li><strong>With Encryption:</strong> You will repeat the attack, but this time, the traffic between the floors will be encrypted by your VPN tunnel. The attacker machine will only see garbled, unreadable data, demonstrating the effectiveness of your security measure.</li>
+</ul>
+</li>
+</ul>
 
                     </main>
 

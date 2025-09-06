@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Alpine Linux Setup - Masterschool Final Project</title>
+        <title>Statement of Work - Masterschool Final Project</title>
 
 
         <!-- Custom HTML head -->
@@ -172,32 +172,64 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="alpine"><a class="header" href="#alpine">Alpine</a></h1>
-<h2 id="download"><a class="header" href="#download">Download</a></h2>
-<p>Alpine Linus download page: https://alpinelinux.org/downloads/<br />
-For Apple OS aarch64 is required download (names are shown for Alpine Linux used at the time):</p>
+                        <h1 id="statement-of-work"><a class="header" href="#statement-of-work">Statement of Work</a></h1>
+<p>During our discussions with senior executives, several areas lacked clarity regarding current security measures. Where specific protections, documentation, or management processes were not explicitly mentioned, I have assumed they may not be fully implemented or documented. While this assessment is based on limited information and would require extensive investigation to validate completely, the project timeline necessitates working with available data.</p>
+<p>Even if certain security arrangements exist but were not discussed during our meetings, documenting and formalizing these processes remains valuable. Following a thorough analysis of the stated requirements, I have developed conclusions regarding the company's organizational structure, configuration, and network architecture.</p>
+<p><strong>Framework and Methodology</strong></p>
+<p>This cybersecurity implementation will utilize the NIST Cybersecurity Framework 2.0 as the foundational standard. All key principles and activities—Identify, Protect, Detect, Respond, and Recover—will be executed in accordance with this framework's guidelines and best practices.</p>
+<p><strong>Project Structure and Timeline</strong></p>
+<p>The Baseline Analysis section provides a description of the current state and expectations that senior executives wish to achieve. This work has been organized by priority timeline, as certain security implementations require more immediate attention than others.</p>
+<p><strong>Project Context</strong></p>
+<p>For operational continuity, existing security operations shall continue as normal during implementation. This SOW is structured around a complete office relocation scenario to provide comprehensive security implementation guidance without the complexity of describing temporary protection measures during incremental upgrades.</p>
+<ol>
+<li>Introduction/Background - Context and purpose</li>
+<li>Scope of Work - What will and won't be included</li>
+<li>Tasks/Deliverables - Specific work activities and outcomes</li>
+<li>Timeline/Schedule - Project phases and milestones</li>
+<li>Performance Standards - Quality and acceptance criteria</li>
+<li>Reporting Requirements - Status updates and documentation</li>
+<li>Resources/Responsibilities - Who provides what</li>
+<li>Terms and Conditions - Legal and contractual aspects</li>
+</ol>
+<h2 id="documentation-and-training"><a class="header" href="#documentation-and-training">Documentation and Training</a></h2>
 <ul>
-<li>alpine-standard-3.22.1-aarch64.iso</li>
-<li>alpine-standard-3.22.1-aarch64.iso.asc</li>
-<li>alpine-standard-3.22.1-aarch64.iso.sha256</li>
+<li>Create, update available to employees cyber security related documentation. Plan to run trainings and seminars. This documentation is separated by level of access. Not all can be available to everyone. Use this documentation as a specifications.</li>
+<li>Appoint someone withing IT Support Team to be responsible for this documentation.</li>
+<li>Ask for CFO for fundings for IT Team to create this documentation, don't forget we need to serve it from somewhere.</li>
+<li>Write playbooks to different teams. Make sure that employees know how to react to different attacks and threats. At least they shall know what not to do and who to contact for help.</li>
+<li>Start creating IaC.</li>
+<li>Inventory of office infrostructure, devices and software in use.</li>
+<li>After the Inventory is ready document attack vectors and threats.</li>
 </ul>
-<h3 id="check-dowhloaded-image-integrity"><a class="header" href="#check-dowhloaded-image-integrity">Check dowhloaded Image Integrity</a></h3>
-<p>Use gpg to verify signature of ISO Image<br />
-Check if the key is in your GPG Keyring: <code>gpg -k</code> if it is you shall see:</p>
-<pre><code class="language-bash"> 0482D84022F52DF1C4E7CD43293ACD0907D9495A
-uid           [ultimate] Natanael Copa &lt;ncopa@alpinelinux.org&gt;
-</code></pre>
-<p>`gpg --verify alpine-standard-3.22.1-aarch64.iso.asc alpine-standard-3.22.1-aarch64.iso</p>
+<h2 id="risks-threats-comliance"><a class="header" href="#risks-threats-comliance">Risks, Threats, Comliance</a></h2>
+<p>Below is a list of threats / suggestions that I would purpose to executives in follow up meeting. Some I would investigate by myself some probably would stay in this list.</p>
+<ul>
+<li>After proper Inventory is ready. Protect and mitigate.</li>
+<li>Create areas where all non-employees are allowed. Make sure that unauthorized person can access other areas in the Office.</li>
+<li>Restrict physical access to secured areas, use tamper-evident measures to inspect unauthorized access to cables. Inspect this areas for unautorized access regularly.</li>
+<li>InfoSec plans, tolerance, risk acceptance and complience</li>
+<li>Need security team SOC.</li>
+<li>Key and password escrow</li>
+<li>Email services by third party organization.</li>
+<li>Need more planning on BYOD, MDM, Cloud Services</li>
+<li>Change Advisory Board (CAB) need proper assignment</li>
+</ul>
+<h3 id="network-monitoring-and-analysis"><a class="header" href="#network-monitoring-and-analysis">Network Monitoring and Analysis</a></h3>
+<ul>
+<li>Packet Analysis: Network monitoring tools like Wireshark.</li>
+<li>Port Monitoring: On a managed switch, you can monitor the status of all ports. Manually shutdown all unused ports on network devices.</li>
+<li>Map and monitor Wi-Fi access points. (perhaps need more on this)</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../setup/setup.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../project/current/security.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../setup/debian.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../sow/init-office.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -207,11 +239,11 @@ uid           [ultimate] Natanael Copa &lt;ncopa@alpinelinux.org&gt;
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../setup/setup.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../project/current/security.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../setup/debian.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../sow/init-office.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
