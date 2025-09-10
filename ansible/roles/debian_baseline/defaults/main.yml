@@ -37,6 +37,7 @@ install_common_packages:
   - apparmor
   - chkrootkit
   - clamav
+  - clamav-daemon
   - debsums
   - fail2ban
   - firejail

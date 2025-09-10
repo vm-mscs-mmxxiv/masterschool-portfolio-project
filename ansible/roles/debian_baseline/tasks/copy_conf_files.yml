@@ -65,7 +65,7 @@
 - name: Copy nftables.conf.d  directory
   copy:
     src: files/etc/nftables.conf.d
-    dest: "/etc/nftables.conf.d/"
+    dest: "/etc/"
     owner: "{{ admin }}"
     group: "{{ admin }}"
     mode: '0750'
@@ -77,25 +77,25 @@
     owner: "{{ admin }}"
     group: "{{ admin }}"
     mode: '0600'
-  notify: Restart nftables
+  # notify: Restart nftables
 
 # Copy files for auditd
 - name: Copy custom auditd rules
   ansible.builtin.template:
     src: templates/etc/audit/rules.d/10-custom.rules.j2
-    dest: /etc/audit/rules.d/audit.rules
+    dest: /etc/audit/rules.d/10-custom.rules
     owner: root
     group: root
     mode: '0640'
 
 - name: Copy custom audit rules
   copy:
-    src: files/etc/audit/rules.d/10-custom.rules.j2
-    dest: /etc/audit/rules.d/10-custom.rules
+    src: files/etc/audit/rules.d/audit.rules
+    dest: /etc/audit/rules.d/audit.rules
     owner: root
     group: root
     mode: '0640'
 
 - name: Reload auditd rules
   command: augenrules --load
-  notify: Restart auditd
+  # notify: Restart auditd

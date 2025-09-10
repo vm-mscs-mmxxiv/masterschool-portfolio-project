@@ -4,10 +4,9 @@
     state: started
     enabled: yes
   loop:
-    - auditd
-    - ssh
     - fail2ban
     - clamav-daemon
     - apparmor
     - nftables
+    - auditd
 # TODO: you may need to adjust clamav-daemon or add clamav-freshclam

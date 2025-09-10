@@ -42,10 +42,10 @@
 -a always,exit -F arch={{ audit_arch }} -F dir=/usr/bin/ -S  write,openat,openat2,renameat,renameat2,unlinkat -k usrbin
 -a always,exit -F arch={{ audit_arch }} -F dir=/usr/sbin/ -S  write,openat,openat2,renameat,renameat2,unlinkat -k usrsbin
 # Monitor key system directories for metadata changes.
--a always,exit -F arch={{ audit_arch }} -F dir=/bin/ -S fchown,fchownat,fchmod,fchmodat,removexattr,lremovexattr,fremovexatt,utimensat  -k bin_meta
--a always,exit -F arch={{ audit_arch }} -F dir=/sbin/ -S fchown,fchownat,fchmod,fchmodat,removexattr,lremovexattr,fremovexatt,utimensat -k sbin_meta
--a always,exit -F arch={{ audit_arch }} -F dir=/usr/bin/ -S fchown,fchownat,fchmod,fchmodat,removexattr,lremovexattr,fremovexatt,utimensat -k usrbin_meta
--a always,exit -F arch={{ audit_arch }} -F dir=/usr/sbin/ -S fchown,fchownat,fchmod,fchmodat,removexattr,lremovexattr,fremovexatt,utimensat -k usrsbin_meta
+-a always,exit -F arch={{ audit_arch }} -F dir=/bin/ -S fchown,fchownat,fchmod,fchmodat,removexattr,lremovexattr,fremovexattr,utimensat  -k bin_meta
+-a always,exit -F arch={{ audit_arch }} -F dir=/sbin/ -S fchown,fchownat,fchmod,fchmodat,removexattr,lremovexattr,fremovexattr,utimensat -k sbin_meta
+-a always,exit -F arch={{ audit_arch }} -F dir=/usr/bin/ -S fchown,fchownat,fchmod,fchmodat,removexattr,lremovexattr,fremovexattr,utimensat -k usrbin_meta
+-a always,exit -F arch={{ audit_arch }} -F dir=/usr/sbin/ -S fchown,fchownat,fchmod,fchmodat,removexattr,lremovexattr,fremovexattr,utimensat -k usrsbin_meta
 #
 # Monitor for uid / gid changes in important sys directories
 -a always,exit -F arch={{ audit_arch }} -F dir=/bin/ -S setuid,setreuid,setregid,setresuid,setresgid -k bin_ui_gi
@@ -63,8 +63,6 @@
 -a always,exit -F arch={{ audit_arch }} -F dir=/home/ -S fchmod,fchmodat,setuid,setreuid,setregid,setresuid,setresgid -k home_ui_gi
 
 # stucky bits
-usr/local/bin/, /usr/local/sbin/
--a always,exit -F arch={{ audit_arch }} -F dir=/var/www/ -S fchmod,fchmodat,setuid,setreuid,setregid,setresuid,setresgid -k www_ui_gi
 -a always,exit -F arch={{ audit_arch }} -F dir=/usr/share/ -S fchmod,fchmodat,setuid,setreuid,setregid,setresuid,setresgid -k usrshare_ui_gi
 -a always,exit -F arch={{ audit_arch }} -F dir=/opt/ -S fchmod,fchmodat,setuid,setreuid,setregid,setresuid,setresgid -k opt_ui_gi
 -a always,exit -F arch={{ audit_arch }} -F dir=/usr/local/bin -S fchmod,fchmodat,setuid,setreuid,setregid,setresuid,setresgid -k localbin_ui_gi
