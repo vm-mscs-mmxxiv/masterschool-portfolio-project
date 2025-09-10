@@ -1,0 +1,129 @@
+# This file was tailored to Debian Trixie. By checking 'ausyscall --dimp' for syscall presense
+#
+# Info about syscalls:
+#
+# openat,openat2 - open file / create file
+# write - works on files only
+# fchown,fchownat - change ownership of a file
+# fchmod,fchmodat - change permissions of a file
+# execve - watch for execution of file
+# unlinkat - delete a name and possibly the file it refers to
+# renameat,renameat2 - change the name or location of a file
+#
+# removexattr,lremovexattr,fremovexattr - remove an extended attribute. This metadata isn't part of the file's content or regular file permissions — it's "extra" information, like:
+#   Security labels (used by SELinux or AppArmor)
+#   Access Control Lists (ACLs)
+#   User-defined tags
+#   Capabilities (file capabilities
+#
+# utimensat - change file timestamps with nanosecond precision
+# truncate, ftruncate - shrink or extend the size of a file to the specified size
+#
+# setuid - run a command with a different uid.
+# setreuid,setregid - set real and/or effective user or group ID
+# setresuid,setresgid - set real, effective, and saved user or group ID
+#
+# init_module, finit_module - load a kernel module
+# delete_module - unload a kernel module
+
+
+# Kernel Modules
+-a always,exit -F arch={{ audit_arch }} -S init_module -S delete_module -k kernel_module_tamper
+
+# mount / unmount
+-a always,exit -F arch={{ audit_arch }} -S mount -S umount2 -k mount_ops
+ 
+# log root commands execution
+-a always,exit -F arch={{ audit_arch }} -S execve -F euid=0 -k root_exec
+
+# Monitor key system directories for any write / rename / delete / timestamp  changes.
+-a always,exit -F arch={{ audit_arch }} -F dir=/bin/ -S write,openat,openat2,renameat,renameat2,unlinkat -k bin
+-a always,exit -F arch={{ audit_arch }} -F dir=/sbin/ -S  write,openat,openat2,renameat,renameat2,unlinkat -k sbin
+-a always,exit -F arch={{ audit_arch }} -F dir=/usr/bin/ -S  write,openat,openat2,renameat,renameat2,unlinkat -k usrbin
+-a always,exit -F arch={{ audit_arch }} -F dir=/usr/sbin/ -S  write,openat,openat2,renameat,renameat2,unlinkat -k usrsbin
+# Monitor key system directories for metadata changes.
+-a always,exit -F arch={{ audit_arch }} -F dir=/bin/ -S fchown,fchownat,fchmod,fchmodat,removexattr,lremovexattr,fremovexatt,utimensat  -k bin_meta
+-a always,exit -F arch={{ audit_arch }} -F dir=/sbin/ -S fchown,fchownat,fchmod,fchmodat,removexattr,lremovexattr,fremovexatt,utimensat -k sbin_meta
+-a always,exit -F arch={{ audit_arch }} -F dir=/usr/bin/ -S fchown,fchownat,fchmod,fchmodat,removexattr,lremovexattr,fremovexatt,utimensat -k usrbin_meta
+-a always,exit -F arch={{ audit_arch }} -F dir=/usr/sbin/ -S fchown,fchownat,fchmod,fchmodat,removexattr,lremovexattr,fremovexatt,utimensat -k usrsbin_meta
+#
+# Monitor for uid / gid changes in important sys directories
+-a always,exit -F arch={{ audit_arch }} -F dir=/bin/ -S setuid,setreuid,setregid,setresuid,setresgid -k bin_ui_gi
+-a always,exit -F arch={{ audit_arch }} -F dir=/sbin/ -S setuid,setreuid,setregid,setresuid,setresgid -k sbin_ui_gi
+-a always,exit -F arch={{ audit_arch }} -F dir=/usr/bin/ -S setuid,setreuid,setregid,setresuid,setresgid -k usrbin_ui_gi
+-a always,exit -F arch={{ audit_arch }} -F dir=/usr/sbin/ -S setuid,setreuid,setregid,setresuid,setresgid -k usrsbin_ui_gi
+
+
+# sticky bits in tmp directories
+-a always,exit -F arch={{ audit_arch }} -F dir=/tmp/ -S fchmod,fchmodat,setuid,setreuid,setregid,setresuid,setresgid -k tmp_ui_gi
+-a always,exit -F arch={{ audit_arch }} -F dir=/var/tmp/ -S fchmod,fchmodat,setuid,setreuid,setregid,setresuid,setresgid -k vartmp_ui_gi
+-a always,exit -F arch={{ audit_arch }} -F dir=/dev/shm/ -S fchmod,fchmodat,setuid,setreuid,setregid,setresuid,setresgid -k devshm_ui_gi
+
+# sticky bits in home
+-a always,exit -F arch={{ audit_arch }} -F dir=/home/ -S fchmod,fchmodat,setuid,setreuid,setregid,setresuid,setresgid -k home_ui_gi
+
+# stucky bits
+usr/local/bin/, /usr/local/sbin/
+-a always,exit -F arch={{ audit_arch }} -F dir=/var/www/ -S fchmod,fchmodat,setuid,setreuid,setregid,setresuid,setresgid -k www_ui_gi
+-a always,exit -F arch={{ audit_arch }} -F dir=/usr/share/ -S fchmod,fchmodat,setuid,setreuid,setregid,setresuid,setresgid -k usrshare_ui_gi
+-a always,exit -F arch={{ audit_arch }} -F dir=/opt/ -S fchmod,fchmodat,setuid,setreuid,setregid,setresuid,setresgid -k opt_ui_gi
+-a always,exit -F arch={{ audit_arch }} -F dir=/usr/local/bin -S fchmod,fchmodat,setuid,setreuid,setregid,setresuid,setresgid -k localbin_ui_gi
+-a always,exit -F arch={{ audit_arch }} -F dir=/usr/local/sbin -S fchmod,fchmodat,setuid,setreuid,setregid,setresuid,setresgid -k localsbin_ui_gi
+
+# This will watch for use of commands to change users
+-a always,exit -F arch={{ audit_arch }} -F path=/usr/sbin/useradd -S execve -k user_mgmt_useradd
+-a always,exit -F arch={{ audit_arch }} -F path=/usr/sbin/userdel -S execve -k user_mgmt_userdel
+-a always,exit -F arch={{ audit_arch }} -F path=/usr/sbin/usermod -S execve -k user_mgmt_usermod
+-a always,exit -F arch={{ audit_arch }} -F path=/usr/sbin/groupadd -S execve -k group_mgmt_groupadd
+
+# Monitor execution of files in temporary directories
+-a always,exit -F arch={{ audit_arch }} -F dir=/tmp -S execve -k exec_tmp
+-a always,exit -F arch={{ audit_arch }} -F dir=/var/tmp -S execve -k exec_var_tmp
+-a always,exit -F arch={{ audit_arch }} -F dir=/dev/shm -S execve -k exec_shm
+
+
+# User and Authentication Files
+# -S write,openat,openat2,fchown,fchmod,unlinkat,renameat,renameat2,utimensat
+-a always,exit -F arch={{ audit_arch }} -F path=/etc/passwd -S write,openat,openat2,fchown,fchmod,unlinkat,renameat,renameat2,utimensat -k passwd_change
+-a always,exit -F arch={{ audit_arch }} -F path=/etc/shadow -S write,openat,openat2,fchown,fchmod,unlinkat,renameat,renameat2,utimensat -k shadow_file_change
+-a always,exit -F arch={{ audit_arch }} -F path=/etc/group -S write,openat,openat2,fchown,fchmod,unlinkat,renameat,renameat2,utimensat -k auth_group
+-a always,exit -F arch={{ audit_arch }} -F path=/etc/sudoers -S write,openat,openat2,fchown,fchmod,unlinkat,renameat,renameat2,utimensat -k auth_sudoers
+
+# Configuration Files
+-a always,exit -F arch={{ audit_arch }} -F dir=/etc/ -S write,openat,openat2,fchown,fchownat,fchmod,fchmodat,utimensat -k etc_dir_change
+-a always,exit -F arch={{ audit_arch }} -F path=/etc/ssh/sshd_config -S write,openat,openat2,fchown,fchmod,unlinkat,renameat,renameat2,utimensat -k ssh_config
+-a always,exit -F arch={{ audit_arch }} -F path=/etc/logrotate.conf -S write,openat,openat2,fchown,fchmod,unlinkat,renameat,renameat2,utimensat -k logrotate_config
+-a always,exit -F arch={{ audit_arch }} -F path=/etc/hosts -S write,openat,openat2,fchown,fchmod,unlinkat,renameat,renameat2,utimensat -k hosts_file_change
+-a always,exit -F arch={{ audit_arch }} -F path=/etc/nftables.conf -S write,openat,openat2,fchown,fchmod,unlinkat,renameat,renameat2,utimensat -k nftables_conf_change
+
+# Audit changes to the system crontab / cron files
+-a always,exit -F arch={{ audit_arch }} -F dir=/etc/cron.d/ -S write,openat,openat2,fchown,fchownat,fchmod,fchmodat,utimensat -k cron_d_changed
+-a always,exit -F arch={{ audit_arch }} -F dir=/etc/cron.daily/ -S write,openat,openat2,fchown,fchownat,fchmod,fchmodat,utimensat -k cron_daily_changed
+-a always,exit -F arch={{ audit_arch }} -F path=/etc/cron.allow -S write,openat,openat2,fchown,fchmod,unlinkat,renameat,renameat2,utimensat -k cron_allow_changed
+-a always,exit -F arch={{ audit_arch }} -F path=/etc/crontab -S write,openat,openat2,fchown,fchmod,unlinkat,renameat,renameat2,utimensat -k crontab_config
+# Audit changes in anacrontab
+-a always,exit -F arch={{ audit_arch }} -F path=/etc/anacrontab -S write,openat,openat2,fchown,fchmod,unlinkat,renameat,renameat2,utimensat -k anacrontab_config
+
+
+# login as su
+-a always,exit -F arch={{ audit_arch }} -F path=/bin/su -S execve -k login_as_sud
+-a always,exit -F arch={{ audit_arch }} -F path=/usr/bin/su -S execve -k usrbinsu_privileged_commands
+
+# -S openat,openat2,unlinkat,truncate,ftruncate,renameat,renameat2,fchown,fchmod
+-a always,exit -F arch={{ audit_arch }} -F path=/var/log/secure -S openat,openat2,unlinkat,truncate,ftruncate,renameat,renameat2,fchown,fchmod -k login_log
+-a always,exit -F arch={{ audit_arch }} -F path=/var/log/auth.log -S openat,openat2,unlinkat,truncate,ftruncate,renameat,renameat2,fchown,fchmod -k login_log
+-a always,exit -F arch={{ audit_arch }} -F path=/var/log/wtmp -S openat,openat2,unlinkat,truncate,ftruncate,renameat,renameat2,fchown,fchmod -k login_history
+
+-a always,exit -F arch={{ audit_arch }} -F path=/var/run/utmp -S unlinkat,truncate,ftruncate,renameat,renameat2,fchown,fchmod -k curr_login_events
+-a always,exit -F arch={{ audit_arch }} -F path=/run/utmp -S unlinkat,truncate,ftruncate,renameat,renameat2,fchown,fchmod -k curr_login_events
+
+# Monitor bash execution
+-a always,exit -F arch={{ audit_arch }} -F path=/usr/bin/bash -S execve -F auid>=1001 -k bash_exec
+-a always,exit -F arch={{ audit_arch }} -F path=/usr/bin/bash -S execve -F euid>=1001 -k bash_exec
+-a always,exit -F arch={{ audit_arch }} -S exit_group -F exe=/usr/bin/bash  -k bash_exit_unexpectedly
+
+# Network Activities
+-a always,exit -F arch={{ audit_arch }} -S socket -F auid>=1001 -k new_network_socket
+-a always,exit -F arch={{ audit_arch }} -S connect -F auid>=1001 -k outgoing_connection
+-a always,exit -F arch={{ audit_arch }} -S socket -F euid>=1001  -k new_network_socket
+-a always,exit -F arch={{ audit_arch }} -S connect -F euid>=1001 -k outgoing_connection

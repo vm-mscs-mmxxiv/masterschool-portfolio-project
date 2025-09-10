@@ -7,23 +7,6 @@
     autoremove: yes
     update_cache: yes
 
-# Disable and stop unnecessary services
-- name: Disable and stop unnecessary services
-  systemd:
-    name: "{{ item }}"
-    enabled: no
-    state: stopped
-    masked: yes
-  loop: "{{ services_to_disable }}"
-
-# Disable Bluetooth kernel modules
-- name: Blacklist Bluetooth kernel modules
-  copy:
-    dest: /etc/modprobe.d/disable-bluetooth.conf
-    content: |
-      blacklist bluetooth
-  notify: update initramfs
-
 # Optional: Update the system
 - name: Ensure system is up-to-date
   apt:

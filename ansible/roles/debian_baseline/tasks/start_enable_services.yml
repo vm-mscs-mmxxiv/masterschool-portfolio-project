@@ -1,0 +1,13 @@
+- name: Ensure all required services are enabled and started
+  ansible.builtin.service:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  loop:
+    - auditd
+    - ssh
+    - fail2ban
+    - clamav-daemon
+    - apparmor
+    - nftables
+# TODO: you may need to adjust clamav-daemon or add clamav-freshclam

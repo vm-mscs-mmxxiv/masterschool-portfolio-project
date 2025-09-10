@@ -1,2 +1,17 @@
 - name: update initramfs
   command: update-initramfs -u
+
+- name: Restart SSH
+  service:
+    name: ssh
+    state: restarted
+
+- name: Restart nftables
+  service:
+    name: nftables
+    state: restarted
+
+- name: Restart auditd
+  service:
+    name: auditd
+    state: restarted

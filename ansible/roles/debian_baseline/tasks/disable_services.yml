@@ -1,0 +1,26 @@
+- name: List all available services (unit files)
+  command: systemctl list-unit-files --type=service
+  register: service_list
+  changed_when: false
+
+- name: Extract existing service names
+  set_fact:
+    existing_services: >-
+      {{ services_to_disable | select('in', service_list.stdout_lines | join('\n')) | list }}
+
+- name: Stop only existing services
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    state: stopped
+    enabled: false
+    masked: yes
+  loop: "{{ existing_services }}"
+
+# Disable Bluetooth kernel modules
+- name: Blacklist Bluetooth kernel modules
+  copy:
+    dest: /etc/modprobe.d/disable-bluetooth.conf
+    content: |
+      blacklist bluetooth
+  notify: update initramfs
+

@@ -1,9 +1,13 @@
 # Debian
 
+This machine is one of the major machines in this Lab. The Role of this machine is admin / soc / log server. The resources of host machine are limited so instead of using several VMs and configure protection for each of them single machine can be used for several roles. Besides it can happen in the real world scenarios.
+
+The Setup Process can be roughly devided to two parts. One of manual Setup and one for automation with Ansible.
+The Manual I will describe here. Ansible files are in `ansible` directory in GitHub repository of this project.
 ## Qemu
 
-Use this command to setup a disk in qcow2 format: `qemu-img create -f qcow2 /path/to/vm_disk.qcow2 20G
-`. 
+Use this command to setup a disk in qcow2 format:
+`qemu-img create -f qcow2 /path/to/vm_disk.qcow2 20G`. 
 
 To install use:
 
@@ -20,21 +24,60 @@ qemu-system-x86_64 \
 
 As Desktop Environment  I decided to have XFCE4. 
 
-## Disk partition
+## 1. Disk partition
 
-For disk management I decided to use lvm2 
+I have done disk partitioning manually during installation. There is an option to install the system fully automatically with installation scripts, but for the sake of this project and luck of time need to skip this interesting part and simply do as is. Several resources on the Web suggesting to have partitioning done to enforce mounting options on specific parts of the system. 
 
-|     Path     |  Size  |FS Type|
-|--------------|--------|-------|
-|/boot|512MB|ext4|
-|/swap|1GB|()|
-|/home|2GB|ext4|
-|/tmp|4MB|ext4|
-|/var|1.5GB|ext4|
-|var/tmp|4MB|ext4|
-|var/log|1GBMB|
-|/dev/shm|4MB|
-|/usr|8GB|
+For disk management I decided to use lvm2. Below is aprohimation of my disk usage. I not shure if that is correct, so I will give my VM at least twice as much space as required. I used guided partition for whole disk this gave me swap (1.9GB) and ESP partition for EFI (1GB).      
+EFI Partition was a tricky part. If it must be added manually it shall be FAT32 Filesystem with a size 512MB - 1GB.         
+For GPT Partition Debian Installer adds a small partition  to the beginning of the disk for this system it was around 17MB. This extra space (~16 MB or so) reserved  to place bootloader data, metadata, or alignment buffers.
 
-verify page: https://www.debian.org/CD/verify     
-download iso page: https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/
+|     Path     |  Size  |FS Type|Mount Options|
+|--------------|--------|-------|-------------|
+|/boot|512MB|ext4|nodev,nosuid,noexec|
+|/swap|1GB|swap area||
+|/root|12GB|ext4||
+|/usr|8GB|ext4|nodev|
+|var/log|2.5GB|ext4|nodev,nosuid|
+|/home|1.5GB|ext4|nodev|
+|/tmp|1GB|ext4|nodev,nosuid,noexec|
+|/var|1GB|ext4|nodev|
+|var/tmp|512MB|ext4|nodev,nosuid,noexec|
+|/dev/shm||tmpfs||
+
+Total of 28GB except /dev/shm for this an entry in fstab file must be added:
+`tmpfs /dev/shm tmpfs defaults 0 0`
+
+I gave 35GB of space for the system. The hard drive on host machine is not suitable for any of DebOps or Admin work. I need to be creative. 
+
+## 2. Right After Installaton is complete
+
+1. Login on machine with admin / sudo user.
+2. Check file in `/etc/apt/sources.list` comment the line with source for CD/DVD it is not required, make sure repositories are configured properly. The repositories in config file shall be something like this:
+
+```bash
+deb http://deb.debian.org/debian/ <codename> main contrib non-free
+deb http://security.debian.org/debian-security <codename>-security main contrib non-free
+deb http://deb.debian.org/debian/ <codename>-updates main contrib non-free
+```
+(replace <codename> with release, like bookworm, trixie, etc.) It possible to use a mirror for repositories, but I sort of trust official more.
+
+## SSH Connection
+
+To setup SSH connection first need to start VM with network settings of `Shared Network`. The VM will appear as in the same LAN as host machine.  Go to VM and find what ip does it has. Enter `ip a` in terminal and look for entries like `enp0s1` and get `inet`. Try to ping this address from host. The host machine must be able to ping to VM.
+
+1. Generate keys on host machine. The keys will be generated, but host will not be added to ~/.ssh/config file.To generate key run `ssh-keygen -t ed25519 -C "your_email@example.com" -f ~/.ssh/my_custom_key` where custom\_key is basename for files. When prompted enter password to protect this key (will need it later for login to VM).
+2. On VM login as root and edit `/etc/ssh/sshd_config` edit `PermitRootLogin yes` save file and restart ssh:
+`systemctl restart ssh`.
+3. Use scp to copy ssh key with .pub extension to VM. `scp <path> user@<ip>:/tmp/` when prompted enter password for root of VM.
+4. In VM copy content of key file to /root/.ssh/authorized\_keys file. And remove file with the key from /tmp dorectory. Next time shall really try to use `ssh-copy-id` it suppose to copy pub key to server's (VMs) authorized\_keys.
+5. In VM check that file permissions are correct for .ssh directory and for files inside. It must be 700 for dir and 600 for files. Owner must be root.
+6. Now ready to connect. In Host Machine use `ssh -i <path to private key file> root@<ip>. When prompted enter password from step one.
+
+
+
+## Links
+
+- [Debian Linux download iso page:](https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/)
+- [Debian Help page for verifying ISO download:](https://www.debian.org/CD/verify)     
+- [Red Hat Enterprise Linux Benchmark](https://www.ibm.com/docs/en/powersc-standard/2.2.0?topic=scac-cis-red-hat-enterprise-linux-9-benchmark-v20): some recommendation for hardening Red Hat Linux Servers. Use it as disk partitioning reference.

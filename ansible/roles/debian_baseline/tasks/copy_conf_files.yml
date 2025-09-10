@@ -4,13 +4,6 @@
     shell: /bin/bash
     create_home: true
 
-- name: Copy Vim config
-  copy:
-    src: files/.vimrc
-    dest: "{{ user_home }}/.vimrc"
-    owner: "{{ user_name }}"
-    group: "{{ user_name }}"
-    mode: '0600'
 
 - name: Copy Bash config
   copy:
@@ -20,20 +13,89 @@
     group: "{{ user_name }}"
     mode: '0600'
 
-- name: Copy git config
+# copy bashrc for root
+- name: Copy Bash config for root
   copy:
+    src: files/.bashrc
+    dest: "/root/.bashrc"
+    owner: "{{ admin }}"
+    group: "{{ admin }}"
+    mode: '0600'
+
+- name: Copy git config
+  ansible.builtin.template:
     src: templates/gitconfig.j2
     dest: "{{ user_home }}/.gitconfig"
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
     mode: '0600'
 
-- name: Copy vim directory
+# Configure Vim Globally
+- name: Set global Vim config for all users
   copy:
-    src: files/.vim/
-    dest: "{{ user_home }}/.vim/"
-    owner: "{{ user_name }}"
-    group: "{{ user_name }}"
-    mode: '0750'
-    recursive: true
+    src: files/.vimrc
+    dest: /etc/vim/vimrc
+    owner: root
+    group: root
+    mode: '0644'
 
+# Global config for vim colors
+- name: Ensure global Vim colors directory exists
+  file:
+    path: /usr/share/vim/vimfiles/colors
+    state: directory
+    mode: '0755'
+    owner: root
+    group: root
+
+- name: Remove old global Vim colors
+  file:
+    path: /usr/share/vim/vimfiles/colors
+    state: absent
+
+- name: Copy all Vim colorschemes globally
+  copy:
+    src: files/.vim/colors/
+    dest: /usr/share/vim/vimfiles/colors/
+    owner: root
+    group: root
+    mode: '0644'
+
+# Copy files for nftables
+- name: Copy nftables.conf.d  directory
+  copy:
+    src: files/etc/nftables.conf.d
+    dest: "/etc/nftables.conf.d/"
+    owner: "{{ admin }}"
+    group: "{{ admin }}"
+    mode: '0750'
+
+- name: Copy nftables config
+  copy:
+    src: files/etc/nftables.conf
+    dest: "/etc/nftables.conf"
+    owner: "{{ admin }}"
+    group: "{{ admin }}"
+    mode: '0600'
+  notify: Restart nftables
+
+# Copy files for auditd
+- name: Copy custom auditd rules
+  ansible.builtin.template:
+    src: templates/etc/audit/rules.d/10-custom.rules.j2
+    dest: /etc/audit/rules.d/audit.rules
+    owner: root
+    group: root
+    mode: '0640'
+
+- name: Copy custom audit rules
+  copy:
+    src: files/etc/audit/rules.d/10-custom.rules.j2
+    dest: /etc/audit/rules.d/10-custom.rules
+    owner: root
+    group: root
+    mode: '0640'
+
+- name: Reload auditd rules
+  command: augenrules --load
+  notify: Restart auditd

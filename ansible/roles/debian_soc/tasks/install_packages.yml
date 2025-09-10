@@ -8,7 +8,7 @@
     name: "{{ install_soc_packages }}"
     state: present
     # install_recommends: no
-  become: yes
+  become: false
   tags: ["install soc"]
 
 # TODO: Write install script to install Splunk it is free for 60 days with Enterprice Features and free in 

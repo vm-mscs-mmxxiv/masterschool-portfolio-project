@@ -109,6 +109,13 @@ CYAN='\[\033[1;36m\]'
 WHITE='\[\033[0;37m\]'                                                           
 PROMPT_COLOR='\[\033[;32m\]'                                                         
 INFO_COLOR='\[\033[1;34m\]'                                                      
+
+# Set PS1 PROMPT_COLOR based on UID (0 = root)
+if [[ "$EUID" -eq 0 ]]; then
+  PROMPT_COLOR='\[\033[;31m\]'
+else
+  PROMPT_COLOR='\[\033[;32m\]'
+fi
                                                                                  
 function parse_git_dirty {                                                       
   [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working tree clean" ]] && echo " *"
