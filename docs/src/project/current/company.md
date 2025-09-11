@@ -1,6 +1,6 @@
 # Company
 
-The company is middle size consulting company. Specializing in providing international business consulting, **data-driven** strategy, and digital transformation support to mid-size and enterprise clients. Company have publicly available as well as highly secure data. Data privacy vary depending on the client's needs.
+The company is middle size finantial consulting company. Specializing in providing international business consulting, **data-driven** strategy, and digital transformation support to mid-size and enterprise clients. Company have publicly available as well as highly secure data. Data privacy vary depending on the client's needs.
 
 Companie's Operations are subject to heavy regulations. GDPR[^1], HIPAA[^2], ISO 27001[^3], PCI-DSS[^4].
 The Company is subject to industry audit and certifications. The Company is envolved in Finantial Operaions. Company must be able to perform secure high-volume data transfers to banks and payment processors. Company store and process highly sensitive Data.
@@ -13,7 +13,7 @@ The Company is exploring AI-driven customer tools, which will likely require clo
 
 ## Current Department Sizes
 
-At the moment Company orperates with prohimately 100 employees plus 10–15 regular contractors. Guests vary — maybe 3–5 visiting clients or partners per day. Currently the Company has  total of 8 departments.
+At the moment Company orperates with aprohimately 100 employees plus 10–15 regular contractors. Guests vary — maybe 3–5 visiting clients or partners per day. Currently the Company has  total of 8 departments.
 
 - Client Services / Consulting – ~35 people (core delivery team)
 - Sales & Marketing – ~15 people
@@ -26,7 +26,7 @@ At the moment Company orperates with prohimately 100 employees plus 10–15 regu
 
 ## Plans to grow and expand
 
-The setup works for now, but the Company is  planning to expand within the next 12–18 months.
+The setup works for now, but the Company is planning to expand within the next 12–18 months.
 Company exploring AI-driven customer tools, which will likely require cloud compute access, fast data exchange, and potentially more traffic between teams. Also, new product lines may add collaboration platforms or partner integrations. R&D[^6] or Data Analytics are also part of the plan.
 Company actively exploring adding a Business Intelligence or Innovation function to stay ahead in our field. That may mean hiring analysts, data scientists, or even developers.
 
@@ -42,30 +42,32 @@ These new sites would likely serve client delivery, sales, or regional support r
 - Increasing compliance demands from larger and more regulated clients.
 - Increase usage of modern solutinos such as AI in day-to-day activities.
 - Considering creating new teams in Data Analytics and Product Development as well as Business Intelligence or Innovation and  R&D[^6]. 
-- There is a possibility of HQ relocation. Legal complience, need in more space, security can drive stakeholders to this decision, but relocation is a last resort—we’d rather grow in place if possible.
+- There is a possibility of HQ relocation. Legal compliance, need in more space, security can drive stakeholders to this decision, but relocation is a last resort, the Company would  rather grow in place if possible.
 
 ### Projected Growth of departments in 2–3 Years
 
 - Client Services / Consulting: +30–40% growth (driven by new contracts and expansion into new regions). Expect to reach ~45–50 staff.
 - Sales & Marketing: +25–30% growth to expand market share—likely 18–20 staff.
-- Finance & Accounting: Minimal growth (~10–15%) as automation offsets headcount increases—9–10 staff.
-- Human Resources: +30–40% to handle hiring surge—likely 8–9 staff.
+- Finance & Accounting: Minimal growth (~10–15%) as automation offsets headcount increases to 9–10 staff.
+- Human Resources: +30–40% to handle hiring surge department likely grow to 8–9 staff.
 - IT & Systems Support: +50% growth due to network expansion, multi-site support—up to 15 staff.
-- Operations / Admin: +20% to maintain service levels—~14–15 staff.
+- Operations / Admin: +20% to maintain service levels. 14–15 staff.
 - Compliance & Risk: +40–50% due to more regulated clients—up to 7–8 staff.
-- Leadership / Executive: Small increase as structure flattens—likely 5–6 executives.
+- Leadership / Executive: Small increase as structure flattens. It likely to have 5–6 executives.
 
 ## Expected operation cost
 
 For current operation (50–100 users), a realistic initial budget expected in the $50K–$150K range depending on complexity, with annual operating costs (licenses, monitoring, support) under $50K/year ideally.
 Company is ready to invest in scalable, growth-ready infrastructure if abusiness case is justified.
-Compnay iis expected to spend on high-impact areas—core connectivity, secure access, user support, but executuve board asked to avoid gold-plating. Executives are willing to pay now to avoid pain later and are fine to  invest in good security—when it's tie  back to reputation, uptime, or customer trust. It is better to avoid penny-wise, pound-foolish solutions, executives do nott want to revisit this in 12 months because we cut corners.
+Compnay iis expected to spend on high-impact areas—core connectivity, secure access, user support, but executuve board asked to avoid gold-plating. Executives are willing to pay now to avoid pain later and are fine to  invest in good security. When it's tie considerations include: reputation, uptime, or customer trust. It is better to avoid penny-wise, pound-foolish solutions, executives do not want to revisit this in 12 months because we cut corners.
+
+Some bullet points of operations are:
 
 - Systems should require minimal babysitting by IT.
 - Don’t forget training and documentation costs.
 - Budget must include tools for onboarding/offboarding automation, identity management, and secure access.
-- Plan for IT support time, training, and communication—not just gear.
-- Budget must account for audit readiness, documentation, and secure data handling—not just networking gear.
+- Plan for IT support time, training, and communication not just gear.
+- Budget must account for audit readiness, documentation, and secure data handling.
 
 ---
 

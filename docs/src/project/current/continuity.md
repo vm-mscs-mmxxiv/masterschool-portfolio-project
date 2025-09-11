@@ -24,40 +24,42 @@ Remote and hybrid staff need seamless, reliable access to core systems, file sha
 
 ## RTO, RPO [^1]
 
+Quotes of Company's executives in regards of Busyness Continuity.
+
 - **CEO:** 
 Critical, client-facing apps (**CRM[^2], proposal tools, video conferencing**) must **recover within 15 minutes** to avoid lost deals or missed opportunities.
 Recovery should be seamless enough that clients barely notice disruption.
 No partial data loss; restore to last known consistent state.
 The longer downtime lasts, the greater the risk of clients turning to competitors.         
-• RPO: 24 hours acceptable for general business files; critical growth/strategy docs ideally <4 hours.
+RPO: 24 hours acceptable for general business files; critical growth/strategy docs ideally less than four hours.
 
 - **CFO:** 
 Financial systems should be **operational again within 30 minutes**, especially during billing cycles.
 Ensure restored systems process any backlog quickly.
 Recovery must preserve transactional integrity to avoid financial discrepancies.
 Extended outages increase the risk of missed payment deadlines.              
-• RPO: Accounting, payroll, financial systems ≤4 hrs. Non-critical budget/planning files ≤24 hrs.
+RPO: Accounting, payroll, financial systems ≤4 hrs. Non-critical budget/planning files less than or equal 24 hrs.
 
 - **COO:** 
 Operational tools must be **up and running within 20 minutes** to prevent project schedule slippage.
 Prioritize restoring collaboration and task management systems before less critical tools.
 Must verify no malicious code remains before bringing systems online. Restore from last know good snapshot.
 Restarting systems without confirming integrity could cause repeat outages.            
-• RPO: Core ops systems (scheduling, client service, inventory) ≤2 hrs. Routine internal docs ≤12 hrs.
+RPO: Core ops systems (scheduling, client service, inventory) less than or equal 2 hrs. Routine internal docs less than or equal 12 hrs.
 
 - **HR Director:** 
 HRIS and payroll should **recover within 1 hour** during normal periods, faster during payroll runs.
 Minimal downtime for onboarding systems when sessions are active.
 Post-incident, ensure user accounts and permissions are still correct.
 Restoring incorrect HR data could cause payroll or benefits errors. Need good clean system.             
-• RPO: Employee records, onboarding/offboarding systems ≤4 hrs. HR policies/forms ≤24 hrs.
+RPO: Employee records, onboarding/offboarding systems less than or equal 4 hrs. HR policies/forms less than or equal 24 hrs.
 
 - **Compliance Officer:** 
 Compliance-related logging and audit systems must **recover within 5 minutes** to maintain continuous evidence chains.
 Backup systems should automatically take over to prevent data gaps. I need mechanism to detect logging system failure.
 Full integrity verification before reconnecting to live environment.
 Missing even a few minutes of compliance data can result in regulatory violations.             
-• RPO: Regulated data and audit logs = near-zero (≤5 min).
+RPO: Regulated data and audit logs = near-zero (≤5 min).
 
 ## Resilience, Uptime
 

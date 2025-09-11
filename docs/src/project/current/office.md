@@ -15,7 +15,7 @@ The server room is badge-access only, and our main entrance requires electronic 
 
 Executives have agreed that: sensitive areas should be out of casual view, especially when clients tour the office. Modular and reconfigurable walls are ideal since we’re planning for future expansion or possible relocation. The board of executives urged to choose infrastructure that’s efficient, not overbuilt though - the Office may relocate within one year. Separation should not block Wi-Fi or disrupt network cabling—plan layout changes with IT in mind. Physical barriers reduce the risk of shoulder surfing, casual data exposure, and unauthorized listening in sensitive areas. For departments handling confidential data (Finance, HR, Compliance, Client Project Rooms), physical separation is not optional. Ensure secure storage for paper records within each department’s zone. Consider lockable filing cabinets and privacy screens in addition to physical partitions. 
 
-There  is a video surveillance on the site. Responsiblity for retention and protection of the Video Data is part of companie's operation.
+There is a video surveillance on the site. Responsiblity for retention and protection of the Video Data is part of companie's operation.
 
 Much of the value of the Company comes from speed, responsiveness, and reliability. Team collaborates heavily across offices and remote setups.
 
@@ -23,12 +23,11 @@ Flexibility supports talent retention and recruitment. The system should empower
 Any hiccups in remote access hurt morale and momentum. Smooth remote access is a competitive advantage
 External access should support partnerships, deals, or client success—but only when necessary. It should feel professional—no clunky portals or awkward handoffs.
 
-
 ### Office Inventory
 
 Different servers, computers, mobile devices, smart boards, video conferencing systems, and digital signage,  IoT devices for building management (HVAC, access control, lighting). Specialized testing equipment in R&D (research and development). Access control equipment. Security cameras.
 
-Additionaly meeting rooms have smart boards, video conferencing systems, and digital signage that must always be available for client-facing sessions. These devices need high-quality, low-latency connections for presentations and calls.
+Meeting rooms have smart boards, video conferencing systems, and digital signage that must always be available for client-facing sessions. These devices need high-quality, low-latency connections for presentations and calls.
 
 There are payment terminals, point-of-sale, self-service kiosks from different third party providers. There also are payment terminals for event transactions and occasional point-of-sale setups for partner demos that required by company stuff. This devices must maintain secure, always-on connectivity to payment processors. Network for third party suppliers and the Companies's payment tools must be air-gapped separate.
 
@@ -52,6 +51,8 @@ Second floor:
 - Meeting Room
 - Compliance & Risk (Partition)
 - IT Support
+
+Note: There is a whole floor in between two floors that occupied by the Company.
 
 ---
 

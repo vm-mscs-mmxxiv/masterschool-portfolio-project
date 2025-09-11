@@ -51,7 +51,7 @@ Assume variable internet quality. The solution should degrade gracefully and avo
 Plan for sudden load changes—a new acquisition could double our traffic overnight.
 - **Operational Resilience:** The network must support graceful degradation and remain performant even with variable internet quality. It should be designed to handle sudden load changes and rapidly onboard new users, such as project-based contractors, without extensive manual configuration. Segregation of operational technology from the main network is a priority to prevent cross-impact.
 - **Security & Compliance:** Security must be foundational to the network's design. This includes robust access controls, secure external access, and a clear path to audit readiness. The network must be able to support granular access logs and retention policies to meet compliance requirements.
-Remote users uch as financial, sales, IT often connect from public networks.
+Remote users such as financial, sales, IT often connect from public networks.
 
 ---
 

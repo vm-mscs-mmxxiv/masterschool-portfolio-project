@@ -1,7 +1,7 @@
 # Summary
 
 - [Project](./index.md)
-- [Baseline Analysis]()
+- [Baseline Analysis](./project/current/baseline.md)
     - [The Company](./project/current/company.md)
     - [The Office](./project/current/office.md)
     - [Data Management](./project/current/data.md)
@@ -24,4 +24,5 @@
   - [Alpine Linux Setup](./setup/alpine.md)
   - [Debian Linux Setup](./setup/debian.md)
   - [Kali Linux Setup](./setup/kali.md)
+  - [Ansible Configs](./setup/ansible.md)
 - [Attack](./attack/attack.md)

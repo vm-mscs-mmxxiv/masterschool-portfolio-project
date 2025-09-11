@@ -61,19 +61,7 @@ deb http://security.debian.org/debian-security <codename>-security main contrib 
 deb http://deb.debian.org/debian/ <codename>-updates main contrib non-free
 ```
 (replace <codename> with release, like bookworm, trixie, etc.) It possible to use a mirror for repositories, but I sort of trust official more.
-
-## SSH Connection
-
-To setup SSH connection first need to start VM with network settings of `Shared Network`. The VM will appear as in the same LAN as host machine.  Go to VM and find what ip does it has. Enter `ip a` in terminal and look for entries like `enp0s1` and get `inet`. Try to ping this address from host. The host machine must be able to ping to VM.
-
-1. Generate keys on host machine. The keys will be generated, but host will not be added to ~/.ssh/config file.To generate key run `ssh-keygen -t ed25519 -C "your_email@example.com" -f ~/.ssh/my_custom_key` where custom\_key is basename for files. When prompted enter password to protect this key (will need it later for login to VM).
-2. On VM login as root and edit `/etc/ssh/sshd_config` edit `PermitRootLogin yes` save file and restart ssh:
-`systemctl restart ssh`.
-3. Use scp to copy ssh key with .pub extension to VM. `scp <path> user@<ip>:/tmp/` when prompted enter password for root of VM.
-4. In VM copy content of key file to /root/.ssh/authorized\_keys file. And remove file with the key from /tmp dorectory. Next time shall really try to use `ssh-copy-id` it suppose to copy pub key to server's (VMs) authorized\_keys.
-5. In VM check that file permissions are correct for .ssh directory and for files inside. It must be 700 for dir and 600 for files. Owner must be root.
-6. Now ready to connect. In Host Machine use `ssh -i <path to private key file> root@<ip>. When prompted enter password from step one.
-
+3. Optional. I prefere to set some settings for xfce4-terminal while 
 
 
 ## Links

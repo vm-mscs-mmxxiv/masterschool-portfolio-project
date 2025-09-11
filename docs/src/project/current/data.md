@@ -32,13 +32,15 @@ Usability and clarity matter—staff shouldn’t circumvent security because it�
 If we allow external users—vendors, contractors, etc.—they must be restricted to the minimum access required for their task. Their access shouldn't interfere with internal systems or logs. Keep their traffic logically segmented.
 
 Secure by default, but not at the expense of user experience.
-Usability matters, but compliance comes first. If there’s tension between convenience and security, security wins—but design it smartly.
+Usability matters, but compliance comes first. If there’s tension between convenience and security, security wins.
 
-> There is a practide in the company when New teams often start informally with  ad hoc access or “shadow IT”, it need to be addressed before it becomes a compliance risk.
+From the discussion with executives I understood that there is a practide in the company when New teams often start informally with  ad hoc access or “shadow IT”, it need to be addressed before it becomes a compliance risk.
 
 [back to top](#data-management)
 
 ## Data Protection
+
+Here are some bullet points expressed by highly ranked executives regarding data protection.
 
 - Compliance with regulations isn’t optional—it’s mandatory. (HIPAA, GDPR, ISO27001, PCI-DSS)
 - Encrypted for storage and transmission
@@ -58,6 +60,7 @@ Usability matters, but compliance comes first. If there’s tension between conv
 
 ## Data Loss Prevention
 
+Data loss can negatively affect all departments.      
 Backup systems should automatically take over to prevent data gaps.
 Data protection is very important at the end the company daily operations are data-driven. No partial data loss; restore to last known consistent state. Maintain data retention and deletion practices per regulations to avoid penalties. Missing even a few minutes of compliance data can result in regulatory violations. Missing compliance data due to downtime can trigger penalties or legal exposure.
 
@@ -69,12 +72,8 @@ To prevent Data Loss the data processing systems must:
 - Need redundancy so anything that can negatively impact data processing process  don’t stall day-to-day company's activity.
 - Company must meet legal and contractual obligations around data storage, access, and reporting—especially if clients are in regulated industries.
 
-Encrypted storage, access logging, and data protection—but we don’t need bleeding-edge tech.           
-Encryption, immutability, and geographically diverse backups.               
-Compliance audit logs, access control records, and incident reports — stored in secured, tamper-evident   systems and must recover within 5 minutes to maintain continuous evidence chains.           
-Compliance audit logs, access control records, and incident reports — stored in secured, tamper-evident systems. Must be maintained in real time with redundant backups.           
-
-Data loss can negatively affect all departments.
+Requirements for maintaining data loss prevention: Encrypted storage, access logging, and data protection.  It doesn't have to be the latest technology.
+For backups, encryption and immutability are necessary, as well as geographical diversity.
 
 [back to top](#data-management)
 
@@ -83,7 +82,8 @@ Data loss can negatively affect all departments.
 Access to compliance systems, audit trails, and secure document repositories must be uninterruptedI need clear visibility into who has access, for what, and for how long. Manual tracking is too error-prone.
 Reliable access logs and audit tools must function at all times—interrupted logging is a red flag. Video or access log loss during an incident could jeopardize an investigation or audit.
 
-Compliance audit logs, access control records, and incident reports — stored in secured, tamper-evident systems
+Compliant audit logs, access control records, and incident reports must be stored in secure, tamper-evident systems and shall be recovered within five minutes to maintain continuous evidence chains.
+
 Real-time logging, encryption at rest and in transit, and incident response processes that meet audit standards. Logging, and controls are especially important around sensitive or regulated data. Data storage redundancy for logging, several levels of logging with different sensitivity.
 
 Proper data segregation is required.      
@@ -94,7 +94,7 @@ Simultaneous compliance with multiple frameworks requires careful policy harmoni
 
 ## AI
 
-AI is relatively new thing and it often presents new attack vectors. I decided to give it a separate section.
+AI is relatively new thing and it often presents new attack vectors. Ii requires  a separate section.
 
 Company exploring AI-driven customer tools, which will likely require cloud compute access, fast data exchange, and potentially more traffic between teams. Also, new product lines may add collaboration platforms or partner integrations. AI initiatives raise new privacy and security risks, especially if we use internal data for training. AI or data analytics tools can  increase compute and storage demands.
 
@@ -122,7 +122,7 @@ Common  risks are:  data usage rights, auditability, and ethical use.
 
 ## Secret Data
 
-Here are several sections per department, explaining which department  process highly sensitive Data. 
+Below are sections per department, explaining which department  process highly sensitive Data. 
 
 ### Finantial Department
 
@@ -131,7 +131,7 @@ Company manages client invoices, financial data, and partner contracts .All of t
 Breaches in payment systems could have immediate financial and legal consequences.
 Financial records, banking details, and payment card data — kept in accounting systems and secure payment processors. Finantial operations must maintain PCI-DSS compliance for any payment data, even temporary setups.
 
-> Despite high risks financial staff often work from home.
+> Note: Despite high risks financial staff often work from home.
 
 ### Customer Support, Clients, Contractors
 
@@ -153,7 +153,9 @@ Secure but rapid access for the HR team, especially during payroll cycles is ess
 
 ### Board of Executives
 
-Different level of reporting or dashboards are required to keep hihtly ranked company's executives informed. This reports must be, automated with  push-based updates. Protected from unautorized access.
+Different level of reporting or dashboards are required to keep hihtly ranked company's executives informed. This reports must be, automated with  push-based updates. The Data is important and proprietary for the Company it must be protected from unautorized access.
+
+Below are quotes from different executives:
 
 - **CEO:** 
 Give me a top-level health score—green/yellow/red—and trend lines for business impact: downtime, employee complaints, growth readiness.
@@ -180,7 +182,7 @@ Support retention policies, role-based report access, and audit trails that show
 Reporting must be tamper-proof and reviewable by auditors—accuracy and integrity are non-negotiable.
 
 
-- **HR Director:** 
+- **HR Director:**
 I’d like visibility into user lifecycle metrics—onboarding times, account provisioning speed, access compliance.
 Track how long it takes for new users to get fully set up. Spot delays or policy violations.
 Confirm offboarding events (logins revoked, data locked down) are properly executed.
@@ -190,6 +192,6 @@ I don’t need full dashboards—just HR-relevant extracts shared periodically.
 
 ## Publicly available Data
 
-General Availability Data: We produce industry insights, market trend summaries, and non-confidential performance benchmarks. This information can be shared publicly or with all customers — often used for marketing, newsletters, or general reports.
+General Availability Data: The Company produce industry insights, market trend summaries, and non-confidential performance benchmarks. This information can be shared publicly or with all customers — often used for marketing, newsletters, or general reports.
 
 [back to top](#data-management)

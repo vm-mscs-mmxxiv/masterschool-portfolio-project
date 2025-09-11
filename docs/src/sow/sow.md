@@ -1,5 +1,7 @@
 # Statement of Work
 
+This section is intended to serve as a SOW. At the same time, it can be considered a schedule of tasks. I tried to make this section as clear and concise as possible, but due to time constraints and my ongoing learning process, this section is the most volatile of all.
+
 During our discussions with senior executives, several areas lacked clarity regarding current security measures. Where specific protections, documentation, or management processes were not explicitly mentioned, I have assumed they may not be fully implemented or documented. While this assessment is based on limited information and would require extensive investigation to validate completely, the project timeline necessitates working with available data.
 
 Even if certain security arrangements exist but were not discussed during our meetings, documenting and formalizing these processes remains valuable. Following a thorough analysis of the stated requirements, I have developed conclusions regarding the company's organizational structure, configuration, and network architecture.
