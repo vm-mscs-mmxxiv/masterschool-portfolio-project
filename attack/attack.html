@@ -173,7 +173,19 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="attack"><a class="header" href="#attack">Attack</a></h1>
-<p>Given your <strong>planned topology</strong> (2 departments, firewall/router VM, SOC/Admin, attacker machine, minimal Alpine endpoints), and your <strong>goal</strong> to run multiple scenarios without needing a huge setup, we can plan tests that are:</p>
+<p>This section must contain plans for attacks, including how they are implemented, and these plans must correspond to the Setup directory. In the requirements section, I will place the necessary end hosts, servers, and descriptions for the network. Due to limitations of the host machine, my network may differ for separate attacks.</p>
+<h2 id="suggested-attack-categories-vectors"><a class="header" href="#suggested-attack-categories-vectors">Suggested Attack Categories (Vectors)</a></h2>
+<p>Pick from these based on what you'd like to simulate:</p>
+<ul>
+<li>Reconnaissance	Passive or Active scanning	nmap, dnsenum, theHarvester</li>
+<li>Exploitation	Web or network service	Metasploit, sqlmap, burpsuite</li>
+<li>Credential Attack	Brute force, password reuse	hydra, john, hashcat, medusa</li>
+<li>Pivoting	Post-exploitation movement	proxychains, sshuttle, impacket</li>
+<li>Payload Delivery	Manual or via vulnerabilities	msfvenom, responder</li>
+</ul>
+<p>Need to spend some time on Mitre. And perhaps on some forums.</p>
+<p><strong>Some planning made wiht AI</strong><br />
+Given your <strong>planned topology</strong> (2 departments, firewall/router VM, SOC/Admin, attacker machine, minimal Alpine endpoints), and your <strong>goal</strong> to run multiple scenarios without needing a huge setup, we can plan tests that are:</p>
 <ul>
 <li><strong>Realistic</strong> — something you might see in a real network.</li>
 <li><strong>Resource-friendly</strong> — doable on your hardware.</li>
@@ -356,7 +368,6 @@
 </li>
 </ol>
 <h4 id="why-vpns-add-complexity-but-are-worth-it"><a class="header" href="#why-vpns-add-complexity-but-are-worth-it"><strong>Why VPNs Add Complexity (But Are Worth It)</strong></a></h4>
-<p>You're right, this adds complexity. You will need to:</p>
 <ul>
 <li><strong>Choose a VPN Protocol:</strong> The most common are OpenVPN and WireGuard. WireGuard is an excellent choice for a lab due to its simplicity and high performance.</li>
 <li><strong>Generate Keys/Certificates:</strong> You need a way to authenticate the two sides of the tunnel.</li>
@@ -364,7 +375,6 @@
 <li><strong>Firewall Rules:</strong> Your firewall must be configured to allow the VPN traffic through.</li>
 </ul>
 <h3 id="simulating-the-mitm-attack"><a class="header" href="#simulating-the-mitm-attack"><strong>Simulating the MiTM Attack</strong></a></h3>
-<p>With your lab set up, you can now simulate the MiTM attack.</p>
 <ul>
 <li><strong>The Attacker Machine:</strong> You can use a third, very lightweight VM (e.g., Kali Linux or another Alpine VM with the right tools) and place it on one of the floor networks.</li>
 <li><strong>The Attack:</strong> You will use tools like <code>arpspoof</code> to perform an ARP spoofing attack. This will trick the other VMs on that network into thinking the attacker machine is the router, so all their traffic is sent to you first.</li>

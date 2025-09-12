@@ -186,6 +186,8 @@ I plan to follow a structured approach when creating the labs. Each lab will hav
 <h2 id="hipevisor"><a class="header" href="#hipevisor">Hipevisor</a></h2>
 <p>Originally I planned to use QEMU as majour hypervisor for Labs in this project. Due to host machine limitations and peculiarities of QEMU for Apple OS I have spend at least two days trying to figure out how to use CLI Tools to setup and run the system.<br />
 The Project is  really late for due date and although it would be beneficiary to automate as much as possible I fall back of using UTM Front-end of QEMU for Apple OS.</p>
+<p>My initial idea was beautiful. I thought I would spend some time configuring everything in configuration files and shell scripts, so that later, all I would need to set up my lab is to run a single command. But... Every time I try to do something more difficult than browsing the internet, Apple products thwart my efforts.
+I like Apple; don't misunderstand me. But things that are relatively easy on Linux become a DevOps spree on this proprietary piece of equipment.</p>
 <h2 id="notes"><a class="header" href="#notes">Notes</a></h2>
 <blockquote>
 <p>Note (04.09.25): The project deadline is less than 10 days away. I realize I may not be able to complete everything I had initially planned. However, I’ve decided to maintain a steady pace. This situation is common in real-world engineering work, and the ability to stay focused under pressure is a skill I am continuing to develop. I’ve seen the negative impact when engineers cut corners due to management pressure—sometimes with long-term consequences for the company.</p>
@@ -202,26 +204,16 @@ The Project is  really late for due date and although it would be beneficiary to
 <li>In VM check that file permissions are correct for .ssh directory and for files inside. It must be 700 for dir and 600 for files. Owner must be root.</li>
 <li>Now ready to connect. In Host Machine use `ssh -i <path to private key file> root@<ip>. When prompted enter password from step one.</li>
 </ol>
-<h2 id="attacks"><a class="header" href="#attacks">Attacks</a></h2>
-<p>✅ 2. Suggested Attack Categories (Vectors)
-Pick from these based on what you'd like to simulate:
-Attack Type	Vector	Tools You Might Use	Requires GUI?
-Reconnaissance	Passive or Active scanning	nmap, dnsenum, theHarvester	No
-Phishing	Email-based social engineering	Gophish, custom web pages	Often yes
-Exploitation	Web or network service	Metasploit, sqlmap, burpsuite	GUI useful
-Credential Attack	Brute force, password reuse	hydra, john, hashcat, medusa	No (CLI works)
-Pivoting	Post-exploitation movement	proxychains, sshuttle, impacket	No
-Payload Delivery	Manual or via vulnerabilities	msfvenom, responder	Sometimes</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../sow/network_topology.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../sow/protect/device.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../setup/alpine.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../setup/hosts.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -231,11 +223,11 @@ Payload Delivery	Manual or via vulnerabilities	msfvenom, responder	Sometimes</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../sow/network_topology.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../sow/protect/device.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../setup/alpine.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../setup/hosts.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

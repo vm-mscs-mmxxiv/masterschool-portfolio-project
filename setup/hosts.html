@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Network Topology - Masterschool Final Project</title>
+        <title>Hosts and Tools - Masterschool Final Project</title>
 
 
         <!-- Custom HTML head -->
@@ -172,70 +172,32 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="network-topology"><a class="header" href="#network-topology">Network Topology</a></h1>
-<blockquote>
-<p>This section is heavily under construction it is not ready.</p>
-</blockquote>
-<h2 id="-your-revised-network-layout"><a class="header" href="#-your-revised-network-layout">✅ Your Revised Network Layout</a></h2>
-<pre><code class="language-bash">[ Host Machine ]
-      |
-   (NAT to real Internet)   &lt;-- QEMU user-mode net, ON only during setup/updates
-      |
-+---------------------+
-| Gateway / Proxy VM  |  &lt;-- Acts as:
-| - NAT to Internet   |     • Internet access during setup
-| - Router/Switch     |     • Simulated WAN for lab
-+-----+---------+-----+
-      |         |
-      |         +-- [ Attacker VM ] &lt;-- Lives in simulated WAN
-      |
-(Internal WAN/Lab Bridge)
-      |
-[ Firewall VM ]  &lt;-- WAN NIC connected to Internal WAN/Lab Bridge
-      |
- (LAN Switch inside Firewall VM, or separate bridge for LAN)
-      |
------------------------------------------
-    |        |           |          |     
-|Dept1   |Dept2   |Dept3     |SOC/Admin VM|
-|Finance |HR      |Developers|            |
-</code></pre>
-<p><img src="/images/network-topology/topology.1.png" alt="topology-1" /></p>
-<hr />
-<p>🔄 Next Questions to Think About
-What VM tool do you use to wire networking? QEMU bridges + tap? virt-manager? custom script?
-Do you want to simulate Internet access (with NAT)?
-Do you want to test IDS/IPS tools (e.g., Suricata)?
-Do you want VLANs to be real (802.1Q) or simulated (software separated)?
-Will you monitor from the host (Wireshark, etc.)?</p>
-<p>Excellent direction  you’re clearly aligning this with <strong>realistic enterprise-like network segmentation</strong>, which is the right way to go. Let's refine the plan based on your remarks and add some structured suggestions.</p>
-<hr />
-<h2 id="-updated-vm-use-cases--recommendations"><a class="header" href="#-updated-vm-use-cases--recommendations">🔍 Updated VM Use Cases + Recommendations</a></h2>
-<h3 id="-1-attacker-machine"><a class="header" href="#-1-attacker-machine">🧨 <strong>1. Attacker Machine</strong></a></h3>
+                        <h1 id="hosts-and-tools"><a class="header" href="#hosts-and-tools">Hosts and Tools</a></h1>
+<h2 id="1-attacker-machine"><a class="header" href="#1-attacker-machine">1. Attacker Machine</a></h2>
 <ul>
 <li>
-<p>✅ <strong>Use case</strong>: Simulate <em>external threat actor</em>.</p>
+<p>Use case: Simulate -external threat actor-.</p>
 </li>
 <li>
-<p>✅ <strong>VM</strong>: Kali Linux with XFCE (GUI tools like Burp, Metasploit, etc.).</p>
+<p>VM: Kali Linux with XFCE (GUI tools like Burp, Metasploit, etc.).</p>
 </li>
 <li>
-<p>✅ <strong>Network</strong>: Should be <strong>outside of the internal LAN</strong>.</p>
+<p>Network: Should be outside of the internal LAN.</p>
 <ul>
-<li>Put on a separate virtual <strong>bridge</strong> (e.g., <code>br-attack</code>).</li>
-<li>This bridge should connect to the <strong>external interface</strong> of the firewall/router VM.</li>
+<li>Put on a separate virtual bridge (e.g., <code>br-attack</code>).</li>
+<li>This bridge should connect to the external interface of the firewall/router VM.</li>
 </ul>
 </li>
 </ul>
-<p><strong>✅ Realism Check:</strong> ✔️ This models how real attacks happen  from external Internet or unknown zones.</p>
+<p>Realism Check: This models how real attacks happen  from external Internet or unknown zones.</p>
 <hr />
-<h3 id="-2-admin--soc-machine-debian--xfce"><a class="header" href="#-2-admin--soc-machine-debian--xfce">👨‍💻 <strong>2. Admin + SOC Machine (Debian + XFCE)</strong></a></h3>
+<h2 id="admin--soc-machine-debian--xfce"><a class="header" href="#admin--soc-machine-debian--xfce">Admin + SOC Machine (Debian + XFCE)</a></h2>
 <ul>
 <li>
-<p>✅ <strong>Use case</strong>: Secure VM for <strong>managing</strong> the lab and <strong>monitoring</strong> it.</p>
+<p>Use case: Secure VM for managing the lab and monitoring it.</p>
 </li>
 <li>
-<p>✅ <strong>Tools</strong>:</p>
+<p>Tools:</p>
 <ul>
 <li>SSH keys for admin tasks</li>
 <li>Ansible for automation</li>
@@ -243,27 +205,22 @@ Will you monitor from the host (Wireshark, etc.)?</p>
 </ul>
 </li>
 <li>
-<p>🧩 <strong>Suggestion</strong>:</p>
+<p>Suggestion:</p>
 <ul>
-<li>Use <strong>separate user accounts</strong> for <code>admin</code> and <code>soc</code>.</li>
+<li>Use separate user accounts for <code>admin</code> and <code>soc</code>.</li>
 <li>Or if you're comfortable: use 2 VMs for cleaner isolation, but resource cost increases.</li>
 </ul>
 </li>
 <li>
-<p>✅ <strong>Location</strong>: Place it in a <strong>management VLAN</strong>, only reachable through firewall.</p>
+<p>Location: Place it in a management VLAN, only reachable through firewall.</p>
 </li>
 </ul>
 <hr />
-<h3 id="-3-firewall-vm"><a class="header" href="#-3-firewall-vm">🔥 <strong>3. Firewall VM</strong></a></h3>
+<h2 id="firewall-vm"><a class="header" href="#firewall-vm">Firewall VM</a></h2>
 <ul>
-<li>
-<p>✅ <strong>Use case</strong>: Route + filter all inter-segment traffic.</p>
-</li>
-<li>
-<p>✅ <strong>Distro</strong>: <strong>Alpine</strong> is a strong choice  lightweight, hardened, reliable.</p>
-</li>
-<li>
-<p>✅ <strong>Network Setup</strong>:</p>
+<li>Use pfSense? It possible to install Suricata on pfSense, <a href="https://www.youtube.com/watch?v=LaB6-Klnh7w">here is video</a></li>
+<li>Use case: Route + filter all inter-segment traffic.</li>
+<li>Network Setup:
 <ul>
 <li><code>eth0</code>: connected to attacker net (<code>br-attack</code>)</li>
 <li><code>eth1</code>: connected to internal LAN (<code>br-int</code>)</li>
@@ -271,57 +228,45 @@ Will you monitor from the host (Wireshark, etc.)?</p>
 </ul>
 </li>
 </ul>
-<p><strong>Tools</strong>:</p>
+<p>Tools:</p>
 <ul>
-<li>Use <code>nftables</code> or <code>iptables</code> (or both if Alpine has legacy support).</li>
-<li>Install <strong>Suricata or Snort</strong> here. See next section.</li>
+<li>Install Suricata</li>
 </ul>
 <hr />
-<h3 id="-4-idsips-choice-suricata-vs-snort"><a class="header" href="#-4-idsips-choice-suricata-vs-snort">🧪 <strong>4. IDS/IPS Choice: Suricata vs. Snort</strong></a></h3>
-<div class="table-wrapper"><table><thead><tr><th>Feature</th><th><strong>Suricata</strong></th><th><strong>Snort</strong></th></tr></thead><tbody>
+<h2 id="idsips-choice-suricata-vs-snort"><a class="header" href="#idsips-choice-suricata-vs-snort">IDS/IPS Choice: Suricata vs. Snort</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Feature</th><th>Suricata</th><th>Snort</th></tr></thead><tbody>
 <tr><td>License</td><td>GPLv2</td><td>GPLv2</td></tr>
-<tr><td>Multithread</td><td>✅ Yes</td><td>❌ No</td></tr>
+<tr><td>Multithread</td><td>Yes</td><td>No</td></tr>
 <tr><td>Protocols</td><td>Layer 7 DPI</td><td>Mainly Layer 3/4</td></tr>
 <tr><td>Performance</td><td>Fast, modern</td><td>Legacy-style</td></tr>
 <tr><td>Output</td><td>JSON, EVE</td><td>Unified2</td></tr>
 </tbody></table>
 </div>
-<p>✅ <strong>Recommendation</strong>: Use <strong>Suricata</strong>  especially since you're familiar with it already, and it's better suited for modern traffic inspection.</p>
-<p><strong>Placement</strong>: Install on <strong>firewall VM</strong> to inspect both inbound and outbound traffic.</p>
+<p>Recommendation: Use Suricata  especially since you're familiar with it already, and it's better suited for modern traffic inspection.</p>
+<p>Placement: Install on firewall VM to inspect both inbound and outbound traffic.</p>
 <hr />
-<h3 id="-5-router-vm"><a class="header" href="#-5-router-vm">🌐 <strong>5. Router VM</strong></a></h3>
+<h3 id="router-vm"><a class="header" href="#router-vm">Router VM</a></h3>
 <ul>
-<li>
-<p>✅ <strong>Use case</strong>: Simulate <em>Internet access</em> or <em>inter-office routing</em>.</p>
-</li>
-<li>
-<p>💡 Suggestion:</p>
+<li>Use case: Simulate -Internet access- or -inter-office routing-.</li>
+<li>Suggestion:
 <ul>
-<li>
-<p>Combine <strong>firewall + router</strong> role into <strong>one Alpine-based VM</strong>.</p>
-</li>
-<li>
-<p>NAT + DNS forwarding + DHCP server for lab subnets.</p>
-</li>
-<li>
-<p>You can create <strong>3 NICs</strong>:</p>
+<li>Combine firewall + router role into one Alpine-based VM.</li>
+<li>NAT + DNS forwarding + DHCP server for lab subnets.</li>
+<li>You can create 3 NICs:
 <ul>
-<li><code>eth0</code>: <em>external network (attacker/Internet simulation)</em></li>
-<li><code>eth1</code>: <em>internal lab subnet</em></li>
-<li><code>eth2</code>: <em>optional management interface</em></li>
+<li><code>eth0</code>: -external network (attacker/Internet simulation)-</li>
+<li><code>eth1</code>: -internal lab subnet-</li>
+<li><code>eth2</code>: -optional management interface-</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 <hr />
-<h3 id="-6-departmental-vms-5x"><a class="header" href="#-6-departmental-vms-5x">🖥️ <strong>6. Departmental VMs (5x)</strong></a></h3>
+<h2 id="departmental-vms-5x"><a class="header" href="#departmental-vms-5x">Departmental VMs (5x)</a></h2>
 <ul>
-<li>
-<p>✅ <strong>Use case</strong>: Employees in various departments.</p>
-</li>
-<li>
-<p>Examples:</p>
+<li>Use case: Employees in various departments.</li>
+<li>Examples:
 <ul>
 <li>HR</li>
 <li>Dev</li>
@@ -330,36 +275,24 @@ Will you monitor from the host (Wireshark, etc.)?</p>
 <li>R&amp;D</li>
 </ul>
 </li>
-<li>
-<p>💡 Suggestion: Assign <strong>separate VLAN/subnet</strong> to each.</p>
-</li>
-<li>
-<p>✅ Harden them differently depending on risk level.</p>
-</li>
-<li>
-<p>Use <strong>Ansible</strong> for initial provisioning.</p>
-</li>
-<li>
-<p>Add <strong>logging agents</strong> (rsyslog, Filebeat, etc.) to forward logs to SOC.</p>
-</li>
+<li>Suggestion: Assign separate VLAN/subnet to each.</li>
+<li>Harden them differently depending on risk level.</li>
+<li>Use Ansible for initial provisioning.</li>
+<li>Add logging agents (rsyslog, Filebeat, etc.) to forward logs to SOC.</li>
 </ul>
 <hr />
-<h3 id="-suggested-additions"><a class="header" href="#-suggested-additions">🧠 Suggested Additions</a></h3>
-<h4 id="-pki--vault"><a class="header" href="#-pki--vault">🔐 PKI &amp; Vault</a></h4>
+<h2 id="pki--vault"><a class="header" href="#pki--vault">PKI &amp; Vault</a></h2>
 <ul>
-<li>
-<p>Set up <strong>GPG or age-encrypted password vault</strong> for managing:</p>
+<li>Set up GPG or age-encrypted password vault for managing:
 <ul>
 <li>Admin SSH keys</li>
 <li>Preseed passwords</li>
 <li>Ansible vault secrets</li>
 </ul>
 </li>
-<li>
-<p>Optionally: use <code>pass</code> + GPG or <code>ansible-vault</code>.</p>
-</li>
+<li>Optionally: use <code>pass</code> + GPG or <code>ansible-vault</code>.</li>
 </ul>
-<h4 id="-dhcpdns"><a class="header" href="#-dhcpdns">🛜 DHCP/DNS</a></h4>
+<h2 id="dhcpdns"><a class="header" href="#dhcpdns">DHCP/DNS</a></h2>
 <ul>
 <li>
 <p>Decide who will provide these:</p>
@@ -369,18 +302,18 @@ Will you monitor from the host (Wireshark, etc.)?</p>
 </ul>
 </li>
 </ul>
-<h4 id="-monitoring"><a class="header" href="#-monitoring">📡 Monitoring</a></h4>
+<h2 id="monitoring"><a class="header" href="#monitoring">Monitoring</a></h2>
 <ul>
-<li>Consider adding a <strong>monitoring VM</strong> (Prometheus/Grafana/Netdata).</li>
+<li>Consider adding a monitoring VM (Prometheus/Grafana/Netdata).</li>
 <li>Tap internal traffic (e.g., use a port mirror bridge if supported).</li>
 </ul>
-<h2 id="-what-you-can-work-on-next"><a class="header" href="#-what-you-can-work-on-next">🔧 What You Can Work on Next</a></h2>
+<h2 id="what-you-can-work-on-next"><a class="header" href="#what-you-can-work-on-next">What You Can Work on Next</a></h2>
 <ol>
 <li>
-<p><strong>Bridge creation</strong> in QEMU for <code>br-int</code>, <code>br-attack</code>, <code>br-mgmt</code>.</p>
+<p>Bridge creation in QEMU for <code>br-int</code>, <code>br-attack</code>, <code>br-mgmt</code>.</p>
 </li>
 <li>
-<p>Setup <strong>Alpine firewall/router</strong> with:</p>
+<p>Setup Alpine firewall/router with:</p>
 <ul>
 <li>NAT</li>
 <li>Routing</li>
@@ -389,7 +322,7 @@ Will you monitor from the host (Wireshark, etc.)?</p>
 </ul>
 </li>
 <li>
-<p>Define <strong>subnets</strong>:</p>
+<p>Define subnets:</p>
 <ul>
 <li>e.g. <code>192.168.10.0/24</code> for internal</li>
 <li><code>192.168.20.0/24</code> for mgmt</li>
@@ -397,54 +330,7 @@ Will you monitor from the host (Wireshark, etc.)?</p>
 </ul>
 </li>
 <li>
-<p>Start writing <strong>QEMU scripts</strong> to launch each VM and attach to proper bridges.</p>
-</li>
-</ol>
-<hr />
-<p>Would you like help creating bridge setup + QEMU launch scripts + Suricata config for Alpine next?</p>
-<ol start="2">
-<li>
-<p>Temporary internet via NAT for setup only
-For quick package installation:
-Temporarily attach a VM to a QEMU NAT network for updates.
-Disconnect it after updates are done and reconnect to lab LAN.
-This avoids having a permanent internet path in the lab.</p>
-</li>
-<li>
-<p>Host OS
-Runs QEMU and your VMs.
-Not part of the lab network (isolated).</p>
-</li>
-<li>
-<p>Firewall VM (Alpine, 2+ NICs)
-WAN NIC → Connected to a QEMU NAT network (this simulates the "internet" in your lab).
-This is where updates and external tools can be downloaded.
-In your simulation, the attacker's side connects here.
-LAN NIC(s) → Connected to lab bridges (br0, br1, etc.).
-These are your "company networks" with VLANs inside.
-The firewall:
-Acts as border firewall for your company network.
-Routes traffic between attacker and company LAN.
-Can apply NAT, ACLs, firewall rules (nftables/iptables).</p>
-</li>
-<li>
-<p>Attacker VM
-Connected to the WAN side of the Firewall VM.
-This makes the attacker “outside” the company, just like an internet-based attacker.
-Must break through firewall to reach inside network.</p>
-</li>
-<li>
-<p>Bridges
-On the LAN side of the firewall you can have one or more bridges:
-Example: br0 with VLAN 10 (Finance) and VLAN 20 (HR).
-Example: br1 with VLAN 30 (SOC/Admin).
-Bridges simulate network switches, VLANs simulate segmentation.</p>
-</li>
-<li>
-<p>Realism in simulation
-In the real world, an attacker doesn't “find” the firewall  they just know they are outside, and the firewall is the company’s border with the internet.
-Your WAN-side bridge (with attacker) is the simulated internet.
-Your firewall’s LAN side is the protected internal company network.</p>
+<p>Start writing QEMU scripts to launch each VM and attach to proper bridges.</p>
 </li>
 </ol>
 
@@ -452,11 +338,11 @@ Your firewall’s LAN side is the protected internal company network.</p>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../sow/network.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../setup/setup.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../setup/setup.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../setup/alpine.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -466,11 +352,11 @@ Your firewall’s LAN side is the protected internal company network.</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../sow/network.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../setup/setup.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../setup/setup.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../setup/alpine.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
