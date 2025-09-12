@@ -1,5 +1,21 @@
 # Attack
 
+This section must contain plans for attacks, including how they are implemented, and these plans must correspond to the Setup directory. In the requirements section, I will place the necessary end hosts, servers, and descriptions for the network. Due to limitations of the host machine, my network may differ for separate attacks.
+
+
+##  Suggested Attack Categories (Vectors)
+
+Pick from these based on what you'd like to simulate:
+
+- Reconnaissance	Passive or Active scanning	nmap, dnsenum, theHarvester
+- Exploitation	Web or network service	Metasploit, sqlmap, burpsuite
+- Credential Attack	Brute force, password reuse	hydra, john, hashcat, medusa
+- Pivoting	Post-exploitation movement	proxychains, sshuttle, impacket	
+- Payload Delivery	Manual or via vulnerabilities	msfvenom, responder	
+
+Need to spend some time on Mitre. And perhaps on some forums.
+
+**Some planning made wiht AI**          
 Given your **planned topology** (2 departments, firewall/router VM, SOC/Admin, attacker machine, minimal Alpine endpoints), and your **goal** to run multiple scenarios without needing a huge setup, we can plan tests that are:
 
 * **Realistic** — something you might see in a real network.
@@ -181,15 +197,12 @@ You have two main options, and you can test both in your lab to see the differen
 
 #### **Why VPNs Add Complexity (But Are Worth It)**
 
-You're right, this adds complexity. You will need to:
 * **Choose a VPN Protocol:** The most common are OpenVPN and WireGuard. WireGuard is an excellent choice for a lab due to its simplicity and high performance.
 * **Generate Keys/Certificates:** You need a way to authenticate the two sides of the tunnel.
 * **Configure Routing:** You need to ensure the router knows that traffic for the "other" floor should be sent through the VPN tunnel and not a standard route.
 * **Firewall Rules:** Your firewall must be configured to allow the VPN traffic through.
 
 ### **Simulating the MiTM Attack**
-
-With your lab set up, you can now simulate the MiTM attack.
 
 * **The Attacker Machine:** You can use a third, very lightweight VM (e.g., Kali Linux or another Alpine VM with the right tools) and place it on one of the floor networks.
 * **The Attack:** You will use tools like `arpspoof` to perform an ARP spoofing attack. This will trick the other VMs on that network into thinking the attacker machine is the router, so all their traffic is sent to you first.

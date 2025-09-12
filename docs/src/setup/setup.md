@@ -19,6 +19,9 @@ For this project I use this Operating Systems:
 Originally I planned to use QEMU as majour hypervisor for Labs in this project. Due to host machine limitations and peculiarities of QEMU for Apple OS I have spend at least two days trying to figure out how to use CLI Tools to setup and run the system.         
 The Project is  really late for due date and although it would be beneficiary to automate as much as possible I fall back of using UTM Front-end of QEMU for Apple OS.       
 
+My initial idea was beautiful. I thought I would spend some time configuring everything in configuration files and shell scripts, so that later, all I would need to set up my lab is to run a single command. But... Every time I try to do something more difficult than browsing the internet, Apple products thwart my efforts.
+I like Apple; don't misunderstand me. But things that are relatively easy on Linux become a DevOps spree on this proprietary piece of equipment.
+
 ## Notes
 
 > Note (04.09.25): The project deadline is less than 10 days away. I realize I may not be able to complete everything I had initially planned. However, I’ve decided to maintain a steady pace. This situation is common in real-world engineering work, and the ability to stay focused under pressure is a skill I am continuing to develop. I’ve seen the negative impact when engineers cut corners due to management pressure—sometimes with long-term consequences for the company.
@@ -37,15 +40,3 @@ To setup SSH connection first need to start VM with network settings of `Shared 
 4. In VM copy content of key file to /root/.ssh/authorized\_keys file. And remove file with the key from /tmp dorectory. Next time shall really try to use `ssh-copy-id` it suppose to copy pub key to server's (VMs) authorized\_keys.
 5. In VM check that file permissions are correct for .ssh directory and for files inside. It must be 700 for dir and 600 for files. Owner must be root.
 6. Now ready to connect. In Host Machine use `ssh -i <path to private key file> root@<ip>. When prompted enter password from step one.
-
-## Attacks 
-
-✅ 2. Suggested Attack Categories (Vectors)
-Pick from these based on what you'd like to simulate:
-Attack Type	Vector	Tools You Might Use	Requires GUI?
-Reconnaissance	Passive or Active scanning	nmap, dnsenum, theHarvester	No
-Phishing	Email-based social engineering	Gophish, custom web pages	Often yes
-Exploitation	Web or network service	Metasploit, sqlmap, burpsuite	GUI useful
-Credential Attack	Brute force, password reuse	hydra, john, hashcat, medusa	No (CLI works)
-Pivoting	Post-exploitation movement	proxychains, sshuttle, impacket	No
-Payload Delivery	Manual or via vulnerabilities	msfvenom, responder	Sometimes

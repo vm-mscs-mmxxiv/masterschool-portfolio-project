@@ -20,6 +20,7 @@
         - [Data](./sow/protect/data.md)
         - [Devices](./sow/protect/device.md)
 - [Setup](./setup/setup.md)
+  - [Hosts and Tools](./setup/hosts.md)
   - [Alpine Linux Setup](./setup/alpine.md)
   - [Debian Linux Setup](./setup/debian.md)
   - [Kali Linux Setup](./setup/kali.md)
