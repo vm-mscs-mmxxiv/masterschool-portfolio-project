@@ -18,15 +18,9 @@ This Stage focuses on two things:
 
 Cable infrastructure assessment will require third-party contractor expertise to ensure proper installation and security compliance. Upon completion of this stage, the office network topology must be fully operational and documented.
 
-Data segmentation protocols and secure data handling procedures shall be established during this phase, with major data management roles formally assigned to appropriate personnel. The Security Operations Center (SOC) must be fully operational by the end of this stage, and all end-host machines must be configured and ready for production use.
+The Security Operations Center (SOC) must be fully operational by the end of this stage, and all end-host machines must be configured and ready for production use.
 
 ## Scope of Work
-
-**Data Management**
-
-- Established secure data management procedures
-- Assigned data management roles and responsibilities
-- Implemented data segmentation controls
 
 **Network**
 
@@ -69,23 +63,6 @@ During this stage, optimal strategies for data processing, transfer, and protect
 
 **Stage Objectives:**
 
-- Implement Data Assets Inventory (levels of sensibility, geo-diversity, network segmentation)
-- Implement Data Rating
-- Assign Data Protection Officer (DPO)
-- Data Protection Impact Assessments (DPIA) for high-risk processing
-- Vendor/processor agreements required
-- Assigned data management roles and responsibilities
-- Establish procedures and implemented data segmentation controls
-- Establish data processing and transfer protocols
-- Define data protection strategies and classification levels
-- Document data access controls and user permissions
-- Create data management baseline requirements
-- Established secure data management procedures
-- Data protection and encryption
-- Support network topology and role configuration planning
-- Implement records of processing activities (logging)
-- Plan for internal and external audit
-- Create user / employee training sessions
 
 **Future Implementation:**
 

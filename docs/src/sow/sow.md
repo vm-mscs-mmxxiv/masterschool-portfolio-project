@@ -2,13 +2,13 @@
 
 This section is intended to serve as a SOW. At the same time, it can be considered a schedule of tasks. I tried to make this section as clear and concise as possible, but due to time constraints and my ongoing learning process, this section is the most volatile of all.
 
-During our discussions with senior executives, several areas lacked clarity regarding current security measures. Where specific protections, documentation, or management processes were not explicitly mentioned, I have assumed they may not be fully implemented or documented. While this assessment is based on limited information and would require extensive investigation to validate completely, the project timeline necessitates working with available data.
+During our discussions with senior executives, several areas lacked clarity regarding current security measures. Where specific protections, documentation, or management processes were not explicitly mentioned, I have assumed they may not be fully implemented or documented.
 
-Even if certain security arrangements exist but were not discussed during our meetings, documenting and formalizing these processes remains valuable. Following a thorough analysis of the stated requirements, I have developed conclusions regarding the company's organizational structure, configuration, and network architecture.
+This section will focus more on managerial controls than technical controls. Therefore, it will mostly be documentation. The documentation for implementing the technical controls is in the Setup section.
 
 **Framework and Methodology**
 
-This cybersecurity implementation will utilize the NIST Cybersecurity Framework 2.0 as the foundational standard. All key principles and activities—Identify, Protect, Detect, Respond, and Recover—will be executed in accordance with this framework's guidelines and best practices.
+This cybersecurity implementation will utilize the NIST Cybersecurity Framework 2.0 as the foundational standard. All key principles and activities Identify, Protect, Detect, Respond, and Recover. This activities will be executed in accordance with this framework's guidelines and best practices.
 
 **Project Structure and Timeline**
 
