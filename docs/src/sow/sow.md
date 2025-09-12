@@ -28,16 +28,6 @@ For operational continuity, existing security operations shall continue as norma
 7. Resources/Responsibilities - Who provides what
 8. Terms and Conditions - Legal and contractual aspects
 
-## Documentation and Training
-
- - Create, update available to employees cyber security related documentation. Plan to run trainings and seminars. This documentation is separated by level of access. Not all can be available to everyone. Use this documentation as a specifications.
-- Appoint someone withing IT Support Team to be responsible for this documentation. 
-- Ask for CFO for fundings for IT Team to create this documentation, don't forget we need to serve it from somewhere.
-- Write playbooks to different teams. Make sure that employees know how to react to different attacks and threats. At least they shall know what not to do and who to contact for help.
-- Start creating IaC.
-- Inventory of office infrostructure, devices and software in use.
-- After the Inventory is ready document attack vectors and threats.
-
 ## Risks, Threats, Comliance
 
 Below is a list of threats / suggestions that I would purpose to executives in follow up meeting. Some I would investigate by myself some probably would stay in this list.
@@ -51,13 +41,4 @@ Below is a list of threats / suggestions that I would purpose to executives in f
 - Email services by third party organization.
 - Need more planning on BYOD, MDM, Cloud Services
 - Change Advisory Board (CAB) need proper assignment
-
-
-
-### Network Monitoring and Analysis
-
-- Packet Analysis: Network monitoring tools like Wireshark.
-- Port Monitoring: On a managed switch, you can monitor the status of all ports. Manually shutdown all unused ports on network devices.
-- Map and monitor Wi-Fi access points. (perhaps need more on this)
-
 

@@ -1,5 +1,7 @@
 # Network Topology
 
+> This section is heavily under construction it is not ready.
+
 ## ✅ Your Revised Network Layout
 
 ```bash
@@ -40,7 +42,7 @@ Do you want VLANs to be real (802.1Q) or simulated (software separated)?
 Will you monitor from the host (Wireshark, etc.)?
 
 
-Excellent direction — you’re clearly aligning this with **realistic enterprise-like network segmentation**, which is the right way to go. Let's refine the plan based on your remarks and add some structured suggestions.
+Excellent direction  you’re clearly aligning this with **realistic enterprise-like network segmentation**, which is the right way to go. Let's refine the plan based on your remarks and add some structured suggestions.
 
 ---
 
@@ -55,7 +57,7 @@ Excellent direction — you’re clearly aligning this with **realistic enterpri
   * Put on a separate virtual **bridge** (e.g., `br-attack`).
   * This bridge should connect to the **external interface** of the firewall/router VM.
 
-**✅ Realism Check:** ✔️ This models how real attacks happen — from external Internet or unknown zones.
+**✅ Realism Check:** ✔️ This models how real attacks happen  from external Internet or unknown zones.
 
 ---
 
@@ -78,7 +80,7 @@ Excellent direction — you’re clearly aligning this with **realistic enterpri
 ### 🔥 **3. Firewall VM**
 
 * ✅ **Use case**: Route + filter all inter-segment traffic.
-* ✅ **Distro**: **Alpine** is a strong choice — lightweight, hardened, reliable.
+* ✅ **Distro**: **Alpine** is a strong choice  lightweight, hardened, reliable.
 * ✅ **Network Setup**:
 
   * `eth0`: connected to attacker net (`br-attack`)
@@ -102,7 +104,7 @@ Excellent direction — you’re clearly aligning this with **realistic enterpri
 | Performance | Fast, modern | Legacy-style     |
 | Output      | JSON, EVE    | Unified2         |
 
-✅ **Recommendation**: Use **Suricata** — especially since you're familiar with it already, and it's better suited for modern traffic inspection.
+✅ **Recommendation**: Use **Suricata**  especially since you're familiar with it already, and it's better suited for modern traffic inspection.
 
 **Placement**: Install on **firewall VM** to inspect both inbound and outbound traffic.
 
@@ -215,6 +217,6 @@ Example: br0 with VLAN 10 (Finance) and VLAN 20 (HR).
 Example: br1 with VLAN 30 (SOC/Admin).
 Bridges simulate network switches, VLANs simulate segmentation.
 5. Realism in simulation
-In the real world, an attacker doesn't “find” the firewall — they just know they are outside, and the firewall is the company’s border with the internet.
+In the real world, an attacker doesn't “find” the firewall  they just know they are outside, and the firewall is the company’s border with the internet.
 Your WAN-side bridge (with attacker) is the simulated internet.
 Your firewall’s LAN side is the protected internal company network.

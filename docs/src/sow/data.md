@@ -1,4 +1,4 @@
-# Stage 2
+# Network and Data Stage
 
 Timeline/Schedule: 2-3 days.
 
@@ -11,7 +11,12 @@ Timeline/Schedule: 2-3 days.
 7. Resources/Responsibilities - Who provides what
 8. Terms and Conditions - Legal and contractual aspects
 
-Stage 2 focuses on comprehensive network inspection and security hardening. Cable infrastructure assessment will require third-party contractor expertise to ensure proper installation and security compliance. Upon completion of this stage, the office network topology must be fully operational and documented.
+This Stage focuses on two things: 
+
+- comprehensive network inspection and security hardening
+- secure data handling procedures
+
+Cable infrastructure assessment will require third-party contractor expertise to ensure proper installation and security compliance. Upon completion of this stage, the office network topology must be fully operational and documented.
 
 Data segmentation protocols and secure data handling procedures shall be established during this phase, with major data management roles formally assigned to appropriate personnel. The Security Operations Center (SOC) must be fully operational by the end of this stage, and all end-host machines must be configured and ready for production use.
 
@@ -37,7 +42,7 @@ Data segmentation protocols and secure data handling procedures shall be establi
 
 **Cybersecurity Operations**
 
-- Fully operational SOC
+- Establich fully operational SOC
 
 ----
 

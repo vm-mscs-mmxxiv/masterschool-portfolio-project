@@ -7,7 +7,9 @@ This stage encompasses initial inspection and addresses critical issues related 
 ## Scope of Work
 
 - Complete physical security assessment
+- Asset inventory
 - Implemented office segmentation solutions
+- nNtwork Topology
 - Secured surveillance system configuration
 - Implement administrative measures
 - Documented network topology and infrastructure
@@ -120,7 +122,6 @@ The system must implement role-based access controls to ensure appropriate infor
 - Audit logging for document access and modifications
 - Regular backup procedures for business continuity
 - Document classification and handling protocols
-
 
 ## Resources/Responsibilities
 
