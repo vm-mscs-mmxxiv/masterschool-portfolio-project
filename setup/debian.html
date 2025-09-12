@@ -219,18 +219,8 @@ For GPT Partition Debian Installer adds a small partition  to the beginning of t
 deb http://security.debian.org/debian-security &lt;codename&gt;-security main contrib non-free
 deb http://deb.debian.org/debian/ &lt;codename&gt;-updates main contrib non-free
 </code></pre>
-<p>(replace <codename> with release, like bookworm, trixie, etc.) It possible to use a mirror for repositories, but I sort of trust official more.</p>
-<h2 id="ssh-connection"><a class="header" href="#ssh-connection">SSH Connection</a></h2>
-<p>To setup SSH connection first need to start VM with network settings of <code>Shared Network</code>. The VM will appear as in the same LAN as host machine.  Go to VM and find what ip does it has. Enter <code>ip a</code> in terminal and look for entries like <code>enp0s1</code> and get <code>inet</code>. Try to ping this address from host. The host machine must be able to ping to VM.</p>
-<ol>
-<li>Generate keys on host machine. The keys will be generated, but host will not be added to ~/.ssh/config file.To generate key run <code>ssh-keygen -t ed25519 -C "your_email@example.com" -f ~/.ssh/my_custom_key</code> where custom_key is basename for files. When prompted enter password to protect this key (will need it later for login to VM).</li>
-<li>On VM login as root and edit <code>/etc/ssh/sshd_config</code> edit <code>PermitRootLogin yes</code> save file and restart ssh:
-<code>systemctl restart ssh</code>.</li>
-<li>Use scp to copy ssh key with .pub extension to VM. <code>scp &lt;path&gt; user@&lt;ip&gt;:/tmp/</code> when prompted enter password for root of VM.</li>
-<li>In VM copy content of key file to /root/.ssh/authorized_keys file. And remove file with the key from /tmp dorectory. Next time shall really try to use <code>ssh-copy-id</code> it suppose to copy pub key to server's (VMs) authorized_keys.</li>
-<li>In VM check that file permissions are correct for .ssh directory and for files inside. It must be 700 for dir and 600 for files. Owner must be root.</li>
-<li>Now ready to connect. In Host Machine use `ssh -i <path to private key file> root@<ip>. When prompted enter password from step one.</li>
-</ol>
+<p>(replace <codename> with release, like bookworm, trixie, etc.) It possible to use a mirror for repositories, but I sort of trust official more.
+3. Optional. I prefere to set some settings for xfce4-terminal while</p>
 <h2 id="links"><a class="header" href="#links">Links</a></h2>
 <ul>
 <li><a href="https://cdimage.debian.org/debian-cd/current/arm64/iso-cd/">Debian Linux download iso page:</a></li>

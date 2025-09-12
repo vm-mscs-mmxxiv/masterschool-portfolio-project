@@ -1,0 +1,337 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Regulations - Masterschool Final Project</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href=".././theme/css/custom.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Masterschool Final Project</h1>
+
+                    <div class="right-buttons">
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="regulations"><a class="header" href="#regulations">Regulations</a></h1>
+<h2 id="gdpr-eu-data-protection"><a class="header" href="#gdpr-eu-data-protection">GDPR (EU Data Protection)</a></h2>
+<p>Data Management:</p>
+<ul>
+<li>Data residency: EU data must remain in EU or countries with adequacy decisions</li>
+<li>Data minimization: Only collect/store necessary data</li>
+<li>Retention limits: Delete data when no longer needed (varies by purpose)</li>
+<li>Subject rights: Systems must support data export, deletion, correction</li>
+<li>Legal basis: Document why you're processing each data type</li>
+</ul>
+<p>Network:</p>
+<ul>
+<li>Encryption in transit/rest required for personal data</li>
+<li>Access controls: Role-based access with audit trails</li>
+<li>Breach notification: 72-hour reporting requirement</li>
+<li>DPO requirement for large-scale processing</li>
+</ul>
+<p>Impact Estimate: Medium-High - Significant architectural changes for data handling</p>
+<h3 id="specific-demands-for-storing-gdpr-data"><a class="header" href="#specific-demands-for-storing-gdpr-data">Specific Demands for Storing GDPR Data</a></h3>
+<p>GDPR is principles-based rather than prescriptive, but it explicitly mentions encryption as a key technical measure.</p>
+<ul>
+<li><strong>Lawful Basis for Processing:</strong> You must have a legal reason for collecting and processing personal data (e.g., user consent, a contract, or a legitimate interest).</li>
+<li><strong>Data Processing Agreement (DPA):</strong> As the Data Controller, you must have a contract with your cloud provider (the Data Processor) that holds them accountable for following your instructions and meeting GDPR's security standards.</li>
+<li><strong>Privacy by Design and Default:</strong> You must bake privacy and data protection into the very design of your systems and business processes from the start. This includes using measures like:
+<ul>
+<li><strong>Encryption:</strong> The GDPR mentions encryption as a recommended measure to protect data both at rest and in transit. While not always mandatory, it is often considered a "state-of-the-art" security practice.</li>
+<li><strong>Pseudonymisation:</strong> A technique that replaces personally identifiable information with a pseudonym to make it harder to identify the data subject.</li>
+<li><strong>Data Minimisation:</strong> You should only collect and store the personal data that is absolutely necessary for your purpose.</li>
+</ul>
+</li>
+<li><strong>Data Sovereignty:</strong> This is a crucial element. The GDPR applies to the personal data of EU residents, regardless of where the data is stored. If you store data outside of the EU, you must ensure it is transferred legally and with appropriate safeguards, such as:
+<ul>
+<li><strong>Standard Contractual Clauses (SCCs):</strong> Pre-approved contract clauses that ensure data transferred to non-EU countries is protected to EU standards.</li>
+<li><strong>Binding Corporate Rules (BCRs):</strong> An internal code of conduct for multinational companies that want to transfer data between their own entities globally.</li>
+</ul>
+</li>
+<li><strong>Breach Notification:</strong> If a data breach occurs, you are required to report it to the relevant data protection authority within 72 hours, and to affected individuals without undue delay if the breach poses a high risk to their rights. However, if the data was encrypted to an appropriate standard and the encryption key was not compromised, you may not have to notify the individuals.</li>
+</ul>
+<hr />
+<h2 id="pci-dss-payment-card-industry"><a class="header" href="#pci-dss-payment-card-industry">PCI-DSS (Payment Card Industry)</a></h2>
+<p>Data Management:</p>
+<ul>
+<li>Never store: CVV, PINs, magnetic stripe data</li>
+<li>Tokenization: Replace card data with tokens</li>
+<li>Data retention: Minimize cardholder data storage</li>
+<li>Secure deletion: Cryptographic erasure when data no longer needed</li>
+</ul>
+<p>Network:</p>
+<ul>
+<li>Network segmentation: Isolate card data environment (CDE)</li>
+<li>Firewall rules: Restrict access to CDE</li>
+<li>Encryption: All card data transmissions</li>
+<li>Regular penetration testing and vulnerability scans</li>
+</ul>
+<p>Impact Estimate: High - Requires complete network redesign if storing card data, Low if using tokenization</p>
+<h3 id="specific-demands-for-storing-pci-dss-data"><a class="header" href="#specific-demands-for-storing-pci-dss-data">Specific Demands for Storing PCI-DSS Data</a></h3>
+<p>The PCI-DSS has 12 requirements. Here are the most relevant to your question about storage:</p>
+<ul>
+<li><strong>Protect Stored Cardholder Data (Requirement 3):</strong> This is the most critical requirement for your use case. It mandates that you must render the Primary Account Number (PAN) unreadable wherever it is stored. You can do this using:
+<ul>
+<li><strong>Encryption:</strong> Using strong, industry-accepted algorithms (like AES-256).</li>
+<li><strong>Tokenization:</strong> Replacing the PAN with a non-sensitive token.</li>
+<li><strong>Truncation:</strong> Storing only a portion of the PAN (e.g., the last four digits).</li>
+<li><strong>Hashing:</strong> A one-way cryptographic process that renders data unreadable.</li>
+</ul>
+</li>
+<li><strong>Encrypt Transmission of Cardholder Data (Requirement 4):</strong> All cardholder data that is sent across open, public networks (like the internet) must be encrypted using strong cryptography (e.g., TLS 1.2 or higher). This applies to data in motion, regardless of its final destination.</li>
+<li><strong>Strong Key Management:</strong> If you use encryption, you must have a robust system for managing encryption keys, including generating, storing, and rotating them. You cannot store the key on the same server as the encrypted data.</li>
+<li><strong>Data Minimization:</strong> You must not store sensitive authentication data (e.g., the CVV2 code, full magnetic stripe data, or PIN block) after a transaction is authorized. Additionally, you should only store cardholder data for a legitimate business purpose and for as short a time as possible.</li>
+<li><strong>Access Controls (Requirement 7):</strong> Access to cardholder data must be restricted on a "need-to-know" basis. Your system must log all access and all activities of those with administrative or root privileges.</li>
+</ul>
+<hr />
+<h2 id="hipaa-like-healthcare-data"><a class="header" href="#hipaa-like-healthcare-data">HIPAA-like (Healthcare Data)</a></h2>
+<p>Data Management:</p>
+<ul>
+<li>PHI encryption: All protected health information encrypted</li>
+<li>Access controls: Minimum necessary access principle</li>
+<li>Audit logs: Track all PHI access and modifications</li>
+<li>Data backup: Secure, encrypted backups required</li>
+</ul>
+<p>Network:</p>
+<ul>
+<li>Network isolation: Separate PHI systems from general network</li>
+<li>VPN requirements: Secure remote access only</li>
+<li>Transmission encryption: End-to-end encryption for PHI</li>
+<li>Workstation controls: Automatic logoff, screen locks</li>
+</ul>
+<p>Impact Estimate: High - Extensive security controls and network isolation required</p>
+<h3 id="specific-demands-for-storing-hipaa-data"><a class="header" href="#specific-demands-for-storing-hipaa-data">Specific Demands for Storing HIPAA Data</a></h3>
+<p>HIPAA doesn't dictate a specific type of encryption or technology, but it requires that the safeguards are "reasonable and appropriate." Here are the key demands:</p>
+<ul>
+<li><strong>Encryption at Rest and in Transit:</strong> This is a key technical safeguard. All PHI must be encrypted when it is stored on a disk (<code>at rest</code>) and when it is being moved between systems (<code>in transit</code>). Common standards like AES 256-bit encryption for data at rest and TLS 1.2+ for data in transit are widely accepted.</li>
+<li><strong>Business Associate Agreement (BAA):</strong> As mentioned, this legal contract is mandatory with any cloud service provider that handles PHI. Major providers like Amazon (AWS), Azure, and Google Cloud offer BAAs for their HIPAA-eligible services.</li>
+<li><strong>Access Control:</strong> You must have systems in place to limit who can access the data, based on their role. This includes strong authentication (MFA is a best practice) and detailed access logs that can be audited.</li>
+<li><strong>Audit Logs:</strong> You must log and monitor all access to PHI. These logs must be kept for a minimum of six years and be available for review during a HIPAA audit.</li>
+<li><strong>Physical Safeguards:</strong> The data centers where the data is stored must have physical security measures in place to prevent unauthorized access.</li>
+<li><strong>Risk Analysis and Management:</strong> A company must conduct regular risk analyses to identify potential vulnerabilities to PHI and have a plan to mitigate them.</li>
+<li><strong>Shared Responsibility:</strong> The cloud providers will protect the underlying infrastructure, but you are still responsible for properly configuring your applications, networks, and access controls to ensure your data is secure.</li>
+</ul>
+<hr />
+<h2 id="iso-27001-information-security"><a class="header" href="#iso-27001-information-security">ISO 27001 (Information Security)</a></h2>
+<p>Data Management:</p>
+<ul>
+<li>Information classification: Categorize all data by sensitivity</li>
+<li>Asset inventory: Complete inventory of all information assets</li>
+<li>Access management: Formal user access provisioning/deprovisioning</li>
+<li>Change management: Controlled changes to information systems</li>
+</ul>
+<p>Network:</p>
+<ul>
+<li>Network access control: 802.1X authentication</li>
+<li>Network monitoring: SIEM implementation</li>
+<li>Incident response: Formal incident management procedures</li>
+<li>Business continuity: Disaster recovery and backup procedures</li>
+</ul>
+<p>Impact Estimate: Medium - Framework-based approach, systematic but not prescriptive</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../reference/hybrid_cloud.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../reference/hybrid_cloud.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

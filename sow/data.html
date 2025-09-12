@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Network - Masterschool Final Project</title>
+        <title>Data - Masterschool Final Project</title>
 
 
         <!-- Custom HTML head -->
@@ -172,71 +172,71 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="initial-stage---network"><a class="header" href="#initial-stage---network">Initial Stage - Network</a></h1>
+                        <h1 id="network-and-data-stage"><a class="header" href="#network-and-data-stage">Network and Data Stage</a></h1>
+<p>Timeline/Schedule: 2-3 days.</p>
+<ol>
+<li>Introduction/Background - Context and purpose</li>
+<li>Scope of Work - What will and won't be included</li>
+<li>Tasks/Deliverables - Specific work activities and outcomes</li>
+<li>Timeline/Schedule - Project phases and milestones</li>
+<li>Performance Standards - Quality and acceptance criteria</li>
+<li>Reporting Requirements - Status updates and documentation</li>
+<li>Resources/Responsibilities - Who provides what</li>
+<li>Terms and Conditions - Legal and contractual aspects</li>
+</ol>
+<p>This Stage focuses on two things:</p>
+<ul>
+<li>comprehensive network inspection and security hardening</li>
+<li>secure data handling procedures</li>
+</ul>
+<p>Cable infrastructure assessment will require third-party contractor expertise to ensure proper installation and security compliance. Upon completion of this stage, the office network topology must be fully operational and documented.</p>
+<p>The Security Operations Center (SOC) must be fully operational by the end of this stage, and all end-host machines must be configured and ready for production use.</p>
+<h2 id="scope-of-work"><a class="header" href="#scope-of-work">Scope of Work</a></h2>
+<p><strong>Network</strong></p>
 <ul>
 <li>Third-party cable infrastructure certification</li>
 <li>Update network topology</li>
 <li>Completed network security hardening</li>
 <li>Update  network topology documentation</li>
 </ul>
-<p><strong>1. Consideration about floor plan</strong></p>
-<p>The Company occupies ground and second floors. There is a whole floor between our flors that mean that cables can be tampered there to install taps. It is hard to protect something that you do not controll. At the moment company do not controll the whole floor between our network.</p>
-<p>Use counter measures:</p>
+<p><strong>End-hosts</strong></p>
 <ul>
-<li>Network Segmentation</li>
-<li>VPN for Inter-Floor Connectivity</li>
-<li>End-to-End Encryption (encryption for all company devices including laptops and mobile phones)</li>
-<li>Employee Training</li>
-<li>Visitor Management</li>
-<li>Regular Audits</li>
-<li>Multi-layer Security.</li>
+<li>Production-ready end-host systems, prioritize departments that operate with sensitive data and are commonly in use</li>
+<li>Implement IaC (keep in mind that company will grow)</li>
 </ul>
-<p><strong>2. Cable Infrostructure</strong></p>
-<p>Inspecting physical cables for wiretaps and Man-in-the-Middle (MITM) attacks is a highly specialized area of security. It's often referred to as Technical Surveillance Counter-Measures (TSCM).
-A proper physical inspection for taps and MITM attacks is not a DIY job. It requires a combination of strong physical security, a systematic visual inspection, and the use of professional, specialized tools like a TDR. For critical infrastructure, this is often performed by trained TSCM specialists who are experts in finding both passive and active surveillance devices.</p>
+<p><strong>Cybersecurity Operations</strong></p>
 <ul>
-<li>All server rooms, wiring closets, and data centers should be locked and monitored.</li>
-<li>Cable Management: All cables should be organized and secured, ideally in sealed conduits or raceways. Any loose, unorganized, or unlabeled cables should be investigated. Watch for access points in common areas.</li>
-<li>Look for Tampering: Inspect all cables for any signs of tampering. This includes:
+<li>Establich fully operational SOC</li>
+</ul>
+<hr />
 <ul>
-<li>Strange splices or connectors: Look for unexpected splices, T-junctions, or any non-standard connectors. An unauthorized tap often involves a splice where the cable's jacket has been cut and wires have been attached.</li>
-<li>Unusual devices: Look for small, unidentifiable devices attached to the cable or hidden nearby. Modern taps can be the size of a small USB stick or a cigarette pack.</li>
-<li>Discrepancies in cable length: A physical tap may require a longer-than-expected cable run to connect to the attacker's device.</li>
+<li>understand Data in the company, levels and specification</li>
+<li>Data, Owner, Processor, Custodians. Data handling.</li>
+<li>Data segmentation</li>
+<li>third party physical ispection of the cables for tapping</li>
+<li>deeper inspection and hardening of key network devices</li>
+<li>build network topology</li>
+<li>implement SOC Center, configure servers for logs and etc.</li>
+<li>update isntall configure end hosts according to their roles, prioritize these in departments that operate with sensitive data and are commonly in use.</li>
+<li>Contimue with host hardening. make sure that uprotected hosts are not connected to lan</li>
 </ul>
-</li>
-</ul>
-<p><strong>2.1 Using Specialized Tools to detect Taps</strong></p>
-<p>A simple visual inspection is often not enough, as many taps are designed to be covert. Proper inspection requires specialized equipment that can analyze the physical and electrical properties of the cable.</p>
-<ul>
-<li>Time Domain Reflectometer (TDR) to  detect physical taps.</li>
-<li>Network Testers and Certifiers.</li>
-<li>Cable Tracing and Mapping: Tools like tone generators and probes.</li>
-</ul>
-<p><strong>2.2 Wi-Fi</strong></p>
-<p>Wi-Fi is common attack vector. By the nature of wireless connection it is often possibl to gain access into cvomapnieses network without physical breach and sometimes even without having access to the building.</p>
-<ul>
-<li>Mapping of hot spots and their ACLs and autorization setups required.</li>
-<li>Check for admin access, encryption in use, network separation, passwords. Consider to update devices or change them to less restricted areas if they are outdated. Latest level of encryption suitable for comercial use is WPA3-Enterprise-192.</li>
-<li>Test / audit if someone can connect to your Wi-Fi from outside even without physical access.</li>
-</ul>
-<p><strong>3. Network Topology</strong></p>
-<ul>
-<li>Protect network physically</li>
-<li>If required update / upgrade network devices</li>
-<li>Harden network devices (password protect device, configure to close open ports)</li>
-<li>Implement proper network segmentation.</li>
-</ul>
-<p>For more detailed Network Topology article <a href="./sow/network_topology.html">read here</a></p>
+<h2 id="tasksdeliverables"><a class="header" href="#tasksdeliverables">Tasks/Deliverables</a></h2>
+<p><strong>1. Data Management</strong></p>
+<p>The company provides data-driven services and maintains critical concerns regarding information protection. Data management represents a fundamental priority requiring comprehensive strategic planning and implementation.</p>
+<p>During this stage, optimal strategies for data processing, transfer, and protection must be established. The primary focus addresses essential questions of data stewardship: who has access, what data requires protection, and how data flows through organizational systems. A comprehensive data management baseline must be documented to provide the foundation for network topology design and role-based access configuration on end-host systems.</p>
+<p><strong>Stage Objectives:</strong></p>
+<p><strong>Future Implementation:</strong></p>
+<p>Subsequent stages will implement data backup solutions and cloud-based processing capabilities, utilizing the established baselines and procedures to address advanced data management requirements and ensure comprehensive data governance.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../sow/init-office.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../sow/protect/device.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../sow/init-data.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../sow/network.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -246,11 +246,11 @@ A proper physical inspection for taps and MITM attacks is not a DIY job. It requ
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../sow/init-office.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../sow/protect/device.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../sow/init-data.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../sow/network.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

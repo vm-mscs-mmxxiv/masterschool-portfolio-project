@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Network - Masterschool Final Project</title>
+        <title>Ansible Configs - Masterschool Final Project</title>
 
 
         <!-- Custom HTML head -->
@@ -172,17 +172,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="setup-stage---network"><a class="header" href="#setup-stage---network">Setup Stage - Network</a></h1>
+                        <h1 id="ansible"><a class="header" href="#ansible">Ansible</a></h1>
+<p>Using Ansible, we can implement Infrastructure as Code, ensuring consistency and reliability across our environments. This approach not only automates complex deployments but also saves significant time on future installations and updates.</p>
+<p>Below I will make some remarks for the process of creating and running configurations for machines with Ansible it is not detailed instructions, but simply some remarks that can serve as reminders.</p>
+<h2 id="audit-tool"><a class="header" href="#audit-tool">Audit tool</a></h2>
+<p>There were significant difficulties of configuring audit service.<br />
+The biggest problem was that there were not so mach of documentation that would be helpful. Instead it took 3 solid days to figure out how to set simple conig file.</p>
+<p>The tricky bit was in using new recomended syntax and in particular <code>-F perm=</code> filter. Any line in config file with this filter throw an error. The errors printed to stderr were not descriptive and there was not much of information on what is going on and why error is trown any way. After three days of try-and-fail I figured out way around.<br />
+The trick was in using new syntax and syscalls for watchig for specific event. At the end I still was have to connect to VM with ssh and check which syscalls are active on the Machine. The command  <code>ausyscall --dump</code> will print all available syscalls to stdout. I use <a href="https://manpages.debian.org/trixie/manpages-dev/index.html">this web site</a> for syscall reference.<br />
+I think proper testing of the config is required. The whole tool feels sketchy and non reliable.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../sow/init-data.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../setup/kali.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../sow/set-data.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../attack/attack.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -192,11 +200,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../sow/init-data.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../setup/kali.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../sow/set-data.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../attack/attack.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Network - Masterschool Final Project</title>
+        <title>Baseline Analysis - Masterschool Final Project</title>
 
 
         <!-- Custom HTML head -->
@@ -172,77 +172,25 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="office-networking"><a class="header" href="#office-networking">Office Networking</a></h1>
-<p>This document provides a summary of the current state of a company's network infrastructure, outlines the challenges, and presents a strategic roadmap for its future development. The recommendations are informed by the directives of the executive board to ensure the network becomes a scalable, secure, and strategic asset that supports our business growth.</p>
-<h2 id="current-network-architecture"><a class="header" href="#current-network-architecture">Current Network Architecture</a></h2>
-<p>Our current network setup is a blend of wired and wireless solutions designed to support on-site and remote work.</p>
-<h3 id="description-by-executives"><a class="header" href="#description-by-executives">Description by executives</a></h3>
-<p>We wouldn’t be able to give you specific brand names or model numbers — that’s something your project team will need to decide.</p>
-<ul>
-<li>
-<p><strong>Topology:</strong></p>
-<ul>
-<li>The office runs on a <strong>star topology</strong>, with a main server/network room at the center.</li>
-<li>Each floor has a wiring closet that connects employee desks (wired connections) and Wi-Fi access points back to the core switches.</li>
-<li>Remote staff connect via secure VPN into the corporate network.</li>
-</ul>
-</li>
-<li>
-<p><strong>Key Network Devices (by function, not brand):</strong></p>
-<ul>
-<li><strong>Core router/firewall</strong> at the perimeter handling internet connectivity and filtering traffic.</li>
-<li><strong>Core switches</strong> in the server room distributing network traffic across departments. (layer 3)</li>
-<li><strong>Edge switches</strong> in floor closets connecting staff devices.</li>
-<li><strong>Wireless access points (APs)</strong> providing Wi-Fi coverage in office areas, meeting rooms, and shared spaces.</li>
-<li><strong>VPN concentrator or firewall service</strong> that manages remote logins.</li>
-<li><strong>File and application servers</strong> located on-premises for business-critical apps; some workloads also run in the cloud.</li>
-<li><strong>Network monitoring tools</strong> for uptime and performance tracking.</li>
-</ul>
-</li>
-</ul>
-<p><strong>Other network considerations:</strong></p>
-<ul>
-<li><strong>On-site Connectivity:</strong> The office network provides stable LAN and Wi-Fi access for full-time employees, part-time staff, and contractors. However, network wiring is not universal across all areas, and retrofitting may be required to ensure seamless coverage. The network must maintain segregation between secure zones, even if we're spread across multiple floors or suites.</li>
-<li><strong>Remote Access:</strong> Remote teams, including those in Financial, Sales, and IT, rely on a mix of cloud-based tools, VPNs, and video conferencing. A key challenge is maintaining consistent performance and security, as these users often connect from public or home networks with variable internet quality.</li>
-<li><strong>Guest Access:</strong> Guests, including visitors and contractors, are granted internet-only access from designated areas like conference rooms and the lobby. This segregation helps to limit potential security risks.</li>
-<li><strong>Operational Technology (OT) &amp; IoT:</strong> Smart boards, video conferencing systems, and digital signage are currently in use, but their segregation from sensitive business systems is a critical area for improvement to ensure both security and constant availability.</li>
-</ul>
-<h2 id="key-operational-and-security-challenges"><a class="header" href="#key-operational-and-security-challenges">Key Operational and Security Challenges</a></h2>
-<ul>
-<li><strong>Network Segregation:</strong> There is a need for clearer and more robust network segmentation. Critical systems, such as Accounting and ERP<sup class="footnote-reference" id="fr-1-1"><a href="#footnote-1">1</a></sup>, must be resilient to network issues and isolated from less secure traffic. A secure, isolated environment is also needed for external users (e.g., vendors, contractors) and for new projects or acquisitions to mitigate risk.
-The network must support secure inter-office communication (e.g., VPNs or SD-WAN), while still being flexible enough to adapt if we grow faster than expected.</li>
-<li><strong>Scalability &amp; Performance:</strong> The current network infrastructure faces challenges in handling sudden spikes in traffic, which could be caused by new acquisitions, large file transfers, or the integration of new technologies like AI. Consistent performance during these bursts is not guaranteed.</li>
-<li><strong>Security &amp; Compliance:</strong> We need to enhance our security posture to support audit readiness, maintain access logs, and enforce strict retention policies. The network must support granular access controls, especially for external users, to comply with regulatory requirements and minimize high-risk vectors.<br />
-Ensure that there is no umprotected Wi-Fi connections or stray cables or plugs that can be used to connect to company's  LAN.</li>
-<li><strong>Resilience &amp; Redundancy:</strong> The network lacks comprehensive redundancy for internet and key services, making it vulnerable to single points of failure. Downtime could expose data or cause the loss of in-progress work.</li>
-</ul>
-<h2 id="strategic-directives-from-the-executive-board"><a class="header" href="#strategic-directives-from-the-executive-board">Strategic Directives from the Executive Board</a></h2>
-<p>The executive board has outlined a clear vision for the network as a strategic asset. Our future network design must align with the following directives:</p>
-<ul>
-<li><strong>Scalable Growth:</strong> The network must be architected for future growth, including potential M&amp;A activities and rapid headcount increases. It should be modular and flexible, supporting expansion into new floors or buildings without requiring a complete redesign, it doesn't have to be department-specific to the point of rigidity. The focus should be on proactive, long-term investment to avoid future rework.
-Network performance must stay consistent during traffic bursts—especially with AI pipelines or large file transfers.
-Internal collaboration tools must scale to handle surge in file transfers and communications.
-Assume variable internet quality. The solution should degrade gracefully and avoid requiring super-fast connections.
-Plan for sudden load changes—a new acquisition could double our traffic overnight.</li>
-<li><strong>Operational Resilience:</strong> The network must support graceful degradation and remain performant even with variable internet quality. It should be designed to handle sudden load changes and rapidly onboard new users, such as project-based contractors, without extensive manual configuration. Segregation of operational technology from the main network is a priority to prevent cross-impact.</li>
-<li><strong>Security &amp; Compliance:</strong> Security must be foundational to the network's design. This includes robust access controls, secure external access, and a clear path to audit readiness. The network must be able to support granular access logs and retention policies to meet compliance requirements.
-Remote users such as financial, sales, IT often connect from public networks.</li>
-</ul>
+                        <h1 id="baseline-analysis-current-state-of-operations"><a class="header" href="#baseline-analysis-current-state-of-operations">Baseline Analysis: Current State of Operations</a></h1>
+<p>This document provides baseline analysis of the current state of the company's operational, network, and security infrastructure. Compiled through extensive discussions with key executives and stakeholders, this assessment serves as a critical foundation for all future project planning. The findings herein will directly inform the subsequent Statement of Work (SOW), ensuring that all future implementations are built upon a clear and shared understanding of the existing environment.</p>
+<p>This comprehensive baseline analysis concludes the initial discovery phase of the project. It provides a detailed "as-is" snapshot of the company's current state. This document is the cornerstone for all subsequent work, as it defines the scope and requirements that will be formalized in the upcoming Statement of Work (SOW).</p>
+<p>During the discussion, every time I asked about the current state, I received recommendations and suggestions for how it should be. The responses were quite wordy and looked like a wall of text. Despite this section being originally dedicated to the current state, it became more like a proposal and requirements from highly ranked executives.</p>
+<p>Furthermore, executives sometimes contradicted each other. The goal became simply collecting all requests correctly and making sense of them later, taking best practices and common sense as guidance.</p>
 <hr />
-<hr>
-<ol class="footnote-definition"><li id="footnote-1">
-<p>ERP ( Enterprise Resource Planning) <a href="#fr-1-1">↩</a></p>
-</li>
-</ol>
+<h2 id="a-personal-note-on-project-methodology"><a class="header" href="#a-personal-note-on-project-methodology">A Personal Note on Project Methodology</a></h2>
+<p>Throughout my career, I have observed that many brilliant projects falter not due to a lack of technical expertise but a lack of meticulous planning and documentation. As building contractors often say, "If it looks good on paper, it has a chance to look good after we finish building it."</p>
+<p>This detailed baseline analysis, while time-consuming, is not a mere formality. It is the architectural blueprint for a successful project. By investing the time to thoroughly document the current state, we are creating a clear, shared, and auditable foundation. This ensures that every subsequent decision is grounded in reality, minimizing risk and setting the stage for a project that is not only technically sound but also resilient, well-documented, and ultimately successful.</p>
+
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../../project/current/data.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../../project/current/continuity.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../project/current/company.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -252,11 +200,11 @@ Remote users such as financial, sales, IT often connect from public networks.</l
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../../project/current/data.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../../project/current/continuity.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../project/current/company.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
